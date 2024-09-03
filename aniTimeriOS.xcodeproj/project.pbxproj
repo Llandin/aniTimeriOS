@@ -13,6 +13,7 @@
 		058816CA2C87D18000D53768 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 058816C82C87D18000D53768 /* Main.storyboard */; };
 		058816CC2C87D18100D53768 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 058816CB2C87D18100D53768 /* Assets.xcassets */; };
 		058816CF2C87D18100D53768 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 058816CD2C87D18100D53768 /* LaunchScreen.storyboard */; };
+		CD8D942C2C87D30E00A14B36 /* LoginView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD8D942B2C87D30E00A14B36 /* LoginView.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		058816CB2C87D18100D53768 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		058816CE2C87D18100D53768 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		058816D02C87D18100D53768 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD8D942B2C87D30E00A14B36 /* LoginView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginView.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				058816CB2C87D18100D53768 /* Assets.xcassets */,
 				058816CD2C87D18100D53768 /* LaunchScreen.storyboard */,
 				058816D02C87D18100D53768 /* Info.plist */,
+				CD8D942B2C87D30E00A14B36 /* LoginView.storyboard */,
 			);
 			path = aniTimeriOS;
 			sourceTree = "<group>";
@@ -128,6 +131,7 @@
 				058816CF2C87D18100D53768 /* LaunchScreen.storyboard in Resources */,
 				058816CC2C87D18100D53768 /* Assets.xcassets in Resources */,
 				058816CA2C87D18000D53768 /* Main.storyboard in Resources */,
+				CD8D942C2C87D30E00A14B36 /* LoginView.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
