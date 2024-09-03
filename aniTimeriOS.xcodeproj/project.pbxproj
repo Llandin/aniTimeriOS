@@ -58,6 +58,7 @@
 		058816C12C87D18000D53768 /* aniTimeriOS */ = {
 			isa = PBXGroup;
 			children = (
+				058816D62C87D36D00D53768 /* View */,
 				058816C22C87D18000D53768 /* AppDelegate.swift */,
 				058816C42C87D18000D53768 /* SceneDelegate.swift */,
 				058816C62C87D18000D53768 /* ViewController.swift */,
@@ -65,9 +66,16 @@
 				058816CB2C87D18100D53768 /* Assets.xcassets */,
 				058816CD2C87D18100D53768 /* LaunchScreen.storyboard */,
 				058816D02C87D18100D53768 /* Info.plist */,
-				CD8D942B2C87D30E00A14B36 /* LoginView.storyboard */,
 			);
 			path = aniTimeriOS;
+			sourceTree = "<group>";
+		};
+		058816D62C87D36D00D53768 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CD8D942B2C87D30E00A14B36 /* LoginView.storyboard */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
