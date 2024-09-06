@@ -30,6 +30,6 @@ class LoginViewController: UIViewController {
         guard let ctrl = UIStoryboard(name: "HomeView", bundle: nil).instantiateViewController(withIdentifier: "HomeView") as? HomeViewController else { return }
         
 //        guard let controller = UIStoryboard(name: String(describing: HomeViewController.self), bundle: nil).instantiateViewController(withIdentifier: String(describing: HomeViewController.self)) as? HomeViewController else { return }
-        navigationController?.pushViewController(ctrl, animated: true)
+        navigationController?.pushViewController(ctrl ?? UIViewController(), animated: true)
     }
 }
