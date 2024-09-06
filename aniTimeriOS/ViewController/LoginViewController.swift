@@ -27,7 +27,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButtonTapped(_ sender: Any) {
         
-        guard let ctrl = UIStoryboard(name: "HomeView", bundle: nil).instantiateViewController(withIdentifier: "HomeView") as? HomeViewController else { return }
+         let ctrl = UIStoryboard(name: "HomeView", bundle: nil).instantiateViewController(withIdentifier: "HomeView") as? HomeViewController
         
 //        guard let controller = UIStoryboard(name: String(describing: HomeViewController.self), bundle: nil).instantiateViewController(withIdentifier: String(describing: HomeViewController.self)) as? HomeViewController else { return }
         navigationController?.pushViewController(ctrl ?? UIViewController(), animated: true)
