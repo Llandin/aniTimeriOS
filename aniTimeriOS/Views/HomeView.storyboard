@@ -18,35 +18,41 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ppn-nI-FYf">
-                                <rect key="frame" x="180" y="79" width="70" height="40.333333333333343"/>
+                                <rect key="frame" x="180" y="64" width="70" height="40.333333333333343"/>
                                 <fontDescription key="fontDescription" name="SinhalaSangamMN" family="Sinhala Sangam MN" pointSize="30"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="eZj-8I-PNh">
-                                <rect key="frame" x="40" y="149.33333333333334" width="350" height="204.00000000000003"/>
+                                <rect key="frame" x="18" y="114.33333333333331" width="394" height="204"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="204" id="P4Q-Cw-Z3B"/>
                                 </constraints>
                             </tableView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="RPX-AH-H9F">
-                                <rect key="frame" x="40" y="373.33333333333331" width="350" height="524.66666666666674"/>
+                                <rect key="frame" x="18" y="338.33333333333331" width="394" height="559.66666666666674"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sid-ZP-4J1">
+                                <rect key="frame" x="337" y="70" width="47" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="plus" catalog="system"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemGroupedBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="RPX-AH-H9F" firstAttribute="top" secondItem="eZj-8I-PNh" secondAttribute="bottom" constant="20" id="4bW-tT-Daq"/>
-                            <constraint firstItem="eZj-8I-PNh" firstAttribute="top" secondItem="ppn-nI-FYf" secondAttribute="bottom" constant="30" id="GUE-I3-9mt"/>
+                            <constraint firstItem="eZj-8I-PNh" firstAttribute="top" secondItem="ppn-nI-FYf" secondAttribute="bottom" constant="10" id="GUE-I3-9mt"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="RPX-AH-H9F" secondAttribute="bottom" id="JCV-Yu-5jc"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eZj-8I-PNh" secondAttribute="trailing" constant="40" id="KZC-mF-cCv"/>
-                            <constraint firstItem="ppn-nI-FYf" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="NEs-7C-axS"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eZj-8I-PNh" secondAttribute="trailing" constant="18" id="KZC-mF-cCv"/>
+                            <constraint firstItem="ppn-nI-FYf" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="5" id="NEs-7C-axS"/>
                             <constraint firstItem="ppn-nI-FYf" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Pg7-l8-OZP"/>
-                            <constraint firstItem="eZj-8I-PNh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="agd-lC-0gb"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="RPX-AH-H9F" secondAttribute="trailing" constant="40" id="iLa-aV-CpE"/>
-                            <constraint firstItem="RPX-AH-H9F" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="wAa-ZI-fqB"/>
+                            <constraint firstItem="eZj-8I-PNh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="18" id="agd-lC-0gb"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="RPX-AH-H9F" secondAttribute="trailing" constant="18" id="iLa-aV-CpE"/>
+                            <constraint firstItem="RPX-AH-H9F" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="18" id="wAa-ZI-fqB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uZa-gM-Fpn"/>
@@ -61,6 +67,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
