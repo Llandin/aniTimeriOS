@@ -8,28 +8,98 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var bemVinDoLabel: UILabel!
+    @IBOutlet weak var emailTextFiel: UITextField!
+    @IBOutlet weak var senhaTextFiel: UITextField!
+    @IBOutlet weak var esqueceuSenhaButton: UIButton!
+    @IBOutlet weak var appendAddUser: UIButton!
+    @IBOutlet weak var cadastroButton: UIButton!
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        setupButtonUI()
+        configLabelBemVindo(label: bemVinDoLabel)
+        configemailText()
+        configsenhaText()
+        configesqueceuSenha()
+        appendUser()
+        configcadastroButton()
     }
-    @IBOutlet weak var loginButton: UIButton!
-
+    
     
     func setupView() {
-        view.backgroundColor = .red
+         view.backgroundColor = UIColor(red: 0.1176, green: 0.1176, blue: 0.1176, alpha: 1)
     }
     
-    func setupButtonUI() {
-        loginButton.backgroundColor = .blue
+    func configLabelBemVindo(label : UILabel ){
+        
+        bemVinDoLabel.text = "Bem-Vindo "
+        bemVinDoLabel.textAlignment = .center
+        bemVinDoLabel.textColor = UIColor(red: 255/255, green: 146/255, blue: 139/255, alpha: 1.0)
+        bemVinDoLabel.font = UIFont.boldSystemFont(ofSize: 30)
+    
+            
     }
     
-    @IBAction func loginButtonTapped(_ sender: Any) {
+    func configemailText(){
         
-         let ctrl = UIStoryboard(name: "HomeView", bundle: nil).instantiateViewController(withIdentifier: "HomeView") as? HomeViewController
+        emailTextFiel.placeholder = "Digite seu email"
+        emailTextFiel.layer.cornerRadius = 10
+        emailTextFiel.clipsToBounds = true
         
-//        guard let controller = UIStoryboard(name: String(describing: HomeViewController.self), bundle: nil).instantiateViewController(withIdentifier: String(describing: HomeViewController.self)) as? HomeViewController else { return }
-        navigationController?.pushViewController(ctrl ?? UIViewController(), animated: true)
+      
     }
+    
+    func configsenhaText(){
+        senhaTextFiel.placeholder = "Digte sua senha "
+        senhaTextFiel.layer.cornerRadius = 10
+        senhaTextFiel.clipsToBounds = true
+        
+    }
+    
+    func configesqueceuSenha(){
+        
+        esqueceuSenhaButton.setTitle("Esqueceu sua senha?", for: .normal)
+        esqueceuSenhaButton.tintColor = .gray
+    
+        
+    }
+    
+    
+    func appendUser(){
+        
+        appendAddUser.setTitle("Confirmar", for: .normal)
+        appendAddUser.clipsToBounds = true
+        appendAddUser.layer.cornerRadius = 10
+        
+    }
+    
+
+    func configcadastroButton(){
+    
+        cadastroButton.setTitle("Não possui conta? Cadastre-se!", for: .normal)
+        cadastroButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        cadastroButton.tintColor = .gray
+       
+        
+    }
+
+    @IBAction func appendUserButton(_ sender: Any) {
+        
+        let controller = UIStoryboard(name: "HomeView", bundle: nil).instantiateViewController(withIdentifier: "HomeView") as? HomeViewController
+        
+        
+        navigationController?.pushViewController(controller ?? ViewController(), animated: true)
+        
+    }
+    
+    
+    
+    
+    
 }
