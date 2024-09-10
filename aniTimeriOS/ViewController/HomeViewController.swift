@@ -20,7 +20,6 @@
             setBackgroundColor()
             configLabels(label: titleLabel)
             configTableView()
-            // Do any additional setup after loading the view.
         }
         
         private func createAnimelist(){
@@ -31,7 +30,7 @@
         
         private func setBackgroundColor(){
             view.backgroundColor = UIColor(red: 0.1176, green: 0.1176, blue: 0.1176, alpha: 1)
-           }
+        }
         
         private func configLabels(label: UILabel){
             titleLabel.text = "ANITIMER"
@@ -53,8 +52,11 @@
             }
         
             func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+                
                 let cell = remainingDaysTableView.dequeueReusableCell(withIdentifier:HomeTableViewCell.identifier, for: indexPath) as? HomeTableViewCell
                 cell?.setupCell(anime:animeList[indexPath.row])
+                
+                
                 return cell ?? UITableViewCell()
             }
         
