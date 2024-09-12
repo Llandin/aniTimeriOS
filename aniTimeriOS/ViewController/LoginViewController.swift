@@ -10,6 +10,7 @@ import UIKit
 class LoginViewController: UIViewController {
     
     
+    
     @IBOutlet weak var bemVinDoLabel: UILabel!
     @IBOutlet weak var emailTextFiel: UITextField!
     @IBOutlet weak var senhaTextFiel: UITextField!
@@ -99,7 +100,18 @@ class LoginViewController: UIViewController {
     }
     
     
+    @IBAction func appendEsqueceuSenhaButton(_ sender: Any) {
+        
+       
+        
+    }
     
     
+    @IBAction func appendCadastroButton(_ sender: Any) {
+        
+        let cont = UIStoryboard(name: "TelaCadastroViewController", bundle: nil).instantiateViewController(withIdentifier: "TelaCadastroViewController") as? TelaCadastroViewController
+        
+        navigationController?.pushViewController(cont ?? UIViewController(), animated: true)
+    }
     
 }
