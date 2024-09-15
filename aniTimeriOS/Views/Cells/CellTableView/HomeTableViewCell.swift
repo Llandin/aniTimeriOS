@@ -24,12 +24,14 @@ class HomeTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func configLabels(label:UILabel,text: String, color: UIColor, aligment: NSTextAlignment,fonte: UIFont? = nil){
+    func configLabels(label:UILabel,text: String, color: UIColor, aligment: NSTextAlignment,fonte: UIFont? = nil ){
     
         label.text = text;
         label.textColor = color
         label.textAlignment = aligment
         label.font = fonte
+       
+  
         
     }
     
