@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		05725A4D2C963C17007A7FF0 /* HomeTableViewCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05725A4B2C963C17007A7FF0 /* HomeTableViewCollectionCell.swift */; };
+		05725A4E2C963C17007A7FF0 /* HomeTableViewCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05725A4C2C963C17007A7FF0 /* HomeTableViewCollectionCell.xib */; };
+		05725A512C96408E007A7FF0 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05725A4F2C96408E007A7FF0 /* HomeCollectionViewCell.swift */; };
+		05725A522C96408E007A7FF0 /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05725A502C96408E007A7FF0 /* HomeCollectionViewCell.xib */; };
 		058816C32C87D18000D53768 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058816C22C87D18000D53768 /* AppDelegate.swift */; };
 		058816C52C87D18000D53768 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058816C42C87D18000D53768 /* SceneDelegate.swift */; };
 		058816C72C87D18000D53768 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058816C62C87D18000D53768 /* ViewController.swift */; };
@@ -25,6 +29,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		05725A4B2C963C17007A7FF0 /* HomeTableViewCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCollectionCell.swift; sourceTree = "<group>"; };
+		05725A4C2C963C17007A7FF0 /* HomeTableViewCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCollectionCell.xib; sourceTree = "<group>"; };
+		05725A4F2C96408E007A7FF0 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		05725A502C96408E007A7FF0 /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
 		058816BF2C87D18000D53768 /* aniTimeriOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aniTimeriOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		058816C22C87D18000D53768 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		058816C42C87D18000D53768 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -55,6 +63,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05725A3F2C9624DB007A7FF0 /* CellCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				05725A4F2C96408E007A7FF0 /* HomeCollectionViewCell.swift */,
+				05725A502C96408E007A7FF0 /* HomeCollectionViewCell.xib */,
+			);
+			path = CellCollectionView;
+			sourceTree = "<group>";
+		};
+		05725A402C962513007A7FF0 /* CellTableView */ = {
+			isa = PBXGroup;
+			children = (
+				058D74D12C8F7545006B9048 /* HomeTableViewCell.xib */,
+				058D74D02C8F7545006B9048 /* HomeTableViewCell.swift */,
+				05725A4B2C963C17007A7FF0 /* HomeTableViewCollectionCell.swift */,
+				05725A4C2C963C17007A7FF0 /* HomeTableViewCollectionCell.xib */,
+			);
+			path = CellTableView;
+			sourceTree = "<group>";
+		};
 		058816B62C87D18000D53768 = {
 			isa = PBXGroup;
 			children = (
@@ -92,8 +120,8 @@
 		058D74CB2C8F74AF006B9048 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				058D74D02C8F7545006B9048 /* HomeTableViewCell.swift */,
-				058D74D12C8F7545006B9048 /* HomeTableViewCell.xib */,
+				05725A402C962513007A7FF0 /* CellTableView */,
+				05725A3F2C9624DB007A7FF0 /* CellCollectionView */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -118,8 +146,9 @@
 			isa = PBXGroup;
 			children = (
 				CD33C1592C932CE300906EDE /* TelaCadastroViewController.storyboard */,
-				91CFE5D82C8A70250036ADBC /* LoginView.storyboard */,
 				91CFE5DA2C8A702F0036ADBC /* HomeView.storyboard */,
+				91CFE5D82C8A70250036ADBC /* LoginView.storyboard */,
+				058D74CB2C8F74AF006B9048 /* Cells */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -195,6 +224,8 @@
 				91CFE5DB2C8A702F0036ADBC /* HomeView.storyboard in Resources */,
 				058816CF2C87D18100D53768 /* LaunchScreen.storyboard in Resources */,
 				058816CC2C87D18100D53768 /* Assets.xcassets in Resources */,
+				05725A522C96408E007A7FF0 /* HomeCollectionViewCell.xib in Resources */,
+				05725A4E2C963C17007A7FF0 /* HomeTableViewCollectionCell.xib in Resources */,
 				058816CA2C87D18000D53768 /* Main.storyboard in Resources */,
 				CD33C15A2C932CE300906EDE /* TelaCadastroViewController.storyboard in Resources */,
 				058D74D32C8F7545006B9048 /* HomeTableViewCell.xib in Resources */,
@@ -214,6 +245,8 @@
 				CD33C1562C931EF500906EDE /* TelaCadastroViewController.swift in Sources */,
 				058D74D22C8F7545006B9048 /* HomeTableViewCell.swift in Sources */,
 				058816C32C87D18000D53768 /* AppDelegate.swift in Sources */,
+				05725A4D2C963C17007A7FF0 /* HomeTableViewCollectionCell.swift in Sources */,
+				05725A512C96408E007A7FF0 /* HomeCollectionViewCell.swift in Sources */,
 				91CFE5E12C8A70700036ADBC /* LoginViewController.swift in Sources */,
 				058816C52C87D18000D53768 /* SceneDelegate.swift in Sources */,
 				058D74D92C8F9359006B9048 /* Anime.swift in Sources */,
