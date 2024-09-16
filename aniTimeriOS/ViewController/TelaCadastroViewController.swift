@@ -29,6 +29,7 @@ class TelaCadastroViewController: UIViewController {
         configSetTextFiel(name: nameTextField, email: emailTextFiel, senha: senhaTextFiel, confimarSenha: configSenhaTextFiel)
         tenhoConta(conta: tenhoContaLabel)
         configButton()
+        configSenha(isSecure: true, confirmarSenha: true	)
      
         
     }
@@ -66,6 +67,13 @@ class TelaCadastroViewController: UIViewController {
         configSenhaTextFiel.placeholder = "Confirme sua senha"
         configSenhaTextFiel.clipsToBounds = true
         configSenhaTextFiel.layer.cornerRadius = 10
+        
+    }
+    
+    func configSenha(isSecure : Bool, confirmarSenha : Bool){
+        
+        senhaTextFiel.isSecureTextEntry = isSecure
+        configSenhaTextFiel.isSecureTextEntry = confirmarSenha
     }
     
     func tenhoConta(conta : UILabel){

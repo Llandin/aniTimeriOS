@@ -26,7 +26,7 @@ class LoginViewController: UIViewController {
         setupView()
         configLabelBemVindo(label: bemVinDoLabel)
         configemailText()
-        configsenhaText()
+        configsenhaText(isSecure: true)
         configesqueceuSenha()
         appendUser()
         configcadastroButton()
@@ -56,10 +56,11 @@ class LoginViewController: UIViewController {
       
     }
     
-    func configsenhaText(){
+    func configsenhaText(isSecure : Bool	){
         senhaTextFiel.placeholder = "Digte sua senha "
         senhaTextFiel.layer.cornerRadius = 10
         senhaTextFiel.clipsToBounds = true
+        senhaTextFiel.isSecureTextEntry = isSecure
         
     }
     
