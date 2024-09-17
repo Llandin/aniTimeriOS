@@ -12,6 +12,7 @@ class HomeViewController: UIViewController {
     
     @IBOutlet weak var remainingDaysTableView: UITableView!
     @IBOutlet weak var titleLabel: UILabel!
+    let pageTitle:String = "ANITIMER"
     
     var animeList: [Anime] = []
     var sec:[String] = []
@@ -20,7 +21,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         createSec()
         setBackgroundColor()
-        configLabels(label: titleLabel)
+        configLabels(label: titleLabel, title: pageTitle, color: UIColor(red: 255/255, green: 146/255, blue: 139/255, alpha: 1.0))
         configTableView()
     }
     
@@ -39,9 +40,9 @@ class HomeViewController: UIViewController {
         view.backgroundColor = UIColor(red: 0.1176, green: 0.1176, blue: 0.1176, alpha: 1)
     }
     
-    private func configLabels(label: UILabel){
-        titleLabel.text = "ANITIMER"
-        titleLabel.textColor = UIColor(red: 255/255, green: 146/255, blue: 139/255, alpha: 1.0)
+    private func configLabels(label:UILabel,title:String,color:UIColor){
+        titleLabel.text = title
+        titleLabel.textColor = color
     }
     
     private func configTableView() {
