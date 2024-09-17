@@ -101,8 +101,10 @@ class LoginViewController: UIViewController {
     
     
     @IBAction func appendEsqueceuSenhaButton(_ sender: Any) {
+        let controller = UIStoryboard(name: "TelaResetPassword", bundle: nil).instantiateViewController(withIdentifier: "TelaResetPasswordViewController") as? TelaResetPasswordViewController
         
-       
+        
+        navigationController?.pushViewController(controller ?? ViewController(), animated: true)
         
     }
     
