@@ -52,8 +52,6 @@ class LoginViewController: UIViewController {
         emailTextFiel.placeholder = "Digite seu email"
         emailTextFiel.layer.cornerRadius = 10
         emailTextFiel.clipsToBounds = true
-        
-      
     }
     
     func configsenhaText(isSecure : Bool	){
@@ -61,7 +59,6 @@ class LoginViewController: UIViewController {
         senhaTextFiel.layer.cornerRadius = 10
         senhaTextFiel.clipsToBounds = true
         senhaTextFiel.isSecureTextEntry = isSecure
-        
     }
     
     func configesqueceuSenha(){
