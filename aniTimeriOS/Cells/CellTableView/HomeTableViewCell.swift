@@ -31,8 +31,6 @@ class HomeTableViewCell: UITableViewCell {
         label.textAlignment = aligment
         label.font = fonte
        
-  
-        
     }
     
     public func setupCell(anime: Anime) {
