@@ -28,6 +28,8 @@
 		058D74D22C8F7545006B9048 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058D74D02C8F7545006B9048 /* HomeTableViewCell.swift */; };
 		058D74D32C8F7545006B9048 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 058D74D12C8F7545006B9048 /* HomeTableViewCell.xib */; };
 		058D74D92C8F9359006B9048 /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058D74D82C8F9359006B9048 /* Anime.swift */; };
+		9188D31E2C9A3466003E419B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9188D31D2C9A3466003E419B /* SearchViewController.swift */; };
+		9188D3202C9A3476003E419B /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9188D31F2C9A3476003E419B /* SearchViewController.storyboard */; };
 		91CFE5D92C8A70250036ADBC /* LoginView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91CFE5D82C8A70250036ADBC /* LoginView.storyboard */; };
 		91CFE5DB2C8A702F0036ADBC /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91CFE5DA2C8A702F0036ADBC /* HomeView.storyboard */; };
 		91CFE5E12C8A70700036ADBC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CFE5E02C8A70700036ADBC /* LoginViewController.swift */; };
@@ -60,6 +62,8 @@
 		058D74D02C8F7545006B9048 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		058D74D12C8F7545006B9048 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		058D74D82C8F9359006B9048 /* Anime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
+		9188D31D2C9A3466003E419B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		9188D31F2C9A3476003E419B /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
 		91CFE5D82C8A70250036ADBC /* LoginView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginView.storyboard; sourceTree = "<group>"; };
 		91CFE5DA2C8A702F0036ADBC /* HomeView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeView.storyboard; sourceTree = "<group>"; };
 		91CFE5E02C8A70700036ADBC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -167,6 +171,7 @@
 				91CFE5DA2C8A702F0036ADBC /* HomeView.storyboard */,
 				91CFE5D82C8A70250036ADBC /* LoginView.storyboard */,
 				05614EB92C98FC6E0050A0F4 /* TelaResetPassword.storyboard */,
+				9188D31F2C9A3476003E419B /* SearchViewController.storyboard */,
 				0567BF042C9A39EF00F447BF /* ProfileView.storyboard */,
 				0567BF082C9A6C0100F447BF /* FavoriteView.storyboard */,
 			);
@@ -180,6 +185,7 @@
 				CDD5B08F2C8B3D4400C521B9 /* HomeViewController.swift */,
 				CD33C1552C931EF500906EDE /* TelaCadastroViewController.swift */,
 				05614EBB2C98FCF10050A0F4 /* TelaResetPasswordViewController.swift */,
+				9188D31D2C9A3466003E419B /* SearchViewController.swift */,
 				0567BF062C9A39FD00F447BF /* ProfileViewController.swift */,
 				0567BF0A2C9A6D4000F447BF /* FavoriteViewController.swift */,
 			);
@@ -246,6 +252,7 @@
 			files = (
 				91CFE5DB2C8A702F0036ADBC /* HomeView.storyboard in Resources */,
 				058816CF2C87D18100D53768 /* LaunchScreen.storyboard in Resources */,
+				9188D3202C9A3476003E419B /* SearchViewController.storyboard in Resources */,
 				058816CC2C87D18100D53768 /* Assets.xcassets in Resources */,
 				05725A522C96408E007A7FF0 /* HomeCollectionViewCell.xib in Resources */,
 				05725A4E2C963C17007A7FF0 /* HomeTableViewCollectionCell.xib in Resources */,
@@ -274,6 +281,7 @@
 				058D74D22C8F7545006B9048 /* HomeTableViewCell.swift in Sources */,
 				0567BF0E2C9A6D6B00F447BF /* FavoriteTableViewCell.swift in Sources */,
 				058816C32C87D18000D53768 /* AppDelegate.swift in Sources */,
+				9188D31E2C9A3466003E419B /* SearchViewController.swift in Sources */,
 				0567BF072C9A39FD00F447BF /* ProfileViewController.swift in Sources */,
 				05725A4D2C963C17007A7FF0 /* HomeTableViewCollectionCell.swift in Sources */,
 				05725A512C96408E007A7FF0 /* HomeCollectionViewCell.swift in Sources */,
@@ -436,8 +444,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = aniTimeriOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LoginView.storyboard;
-				INFOPLIST_KEY_UIMainStoryboardFile = LoginView;
+				INFOPLIST_KEY_UILaunchStoryboardName = SearchViewController.storyboard;
+				INFOPLIST_KEY_UIMainStoryboardFile = SearchViewController;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -465,8 +473,8 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = aniTimeriOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LoginView.storyboard;
-				INFOPLIST_KEY_UIMainStoryboardFile = LoginView;
+				INFOPLIST_KEY_UILaunchStoryboardName = SearchViewController.storyboard;
+				INFOPLIST_KEY_UIMainStoryboardFile = SearchViewController;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
