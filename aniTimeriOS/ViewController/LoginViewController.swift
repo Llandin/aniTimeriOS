@@ -90,10 +90,8 @@ class LoginViewController: UIViewController {
 
     @IBAction func appendUserButton(_ sender: Any) {
         
-        let controller = UIStoryboard(name: "HomeView", bundle: nil).instantiateViewController(withIdentifier: "HomeView") as? HomeViewController
-        
-        
-        navigationController?.pushViewController(controller ?? ViewController(), animated: true)
+        let tabBarVC = TabBarViewController()
+        navigationController?.pushViewController(tabBarVC, animated: true)
         
     }
     

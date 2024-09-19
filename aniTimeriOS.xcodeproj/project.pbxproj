@@ -33,6 +33,7 @@
 		91CFE5D92C8A70250036ADBC /* LoginView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91CFE5D82C8A70250036ADBC /* LoginView.storyboard */; };
 		91CFE5DB2C8A702F0036ADBC /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91CFE5DA2C8A702F0036ADBC /* HomeView.storyboard */; };
 		91CFE5E12C8A70700036ADBC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CFE5E02C8A70700036ADBC /* LoginViewController.swift */; };
+		91D8F90F2C9CCD4400D82901 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D8F90E2C9CCD4400D82901 /* TabBarViewController.swift */; };
 		CD33C1562C931EF500906EDE /* TelaCadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD33C1552C931EF500906EDE /* TelaCadastroViewController.swift */; };
 		CD33C15A2C932CE300906EDE /* TelaCadastroViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD33C1592C932CE300906EDE /* TelaCadastroViewController.storyboard */; };
 		CDD5B0902C8B3D4500C521B9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD5B08F2C8B3D4400C521B9 /* HomeViewController.swift */; };
@@ -67,6 +68,7 @@
 		91CFE5D82C8A70250036ADBC /* LoginView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginView.storyboard; sourceTree = "<group>"; };
 		91CFE5DA2C8A702F0036ADBC /* HomeView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeView.storyboard; sourceTree = "<group>"; };
 		91CFE5E02C8A70700036ADBC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		91D8F90E2C9CCD4400D82901 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		CD33C1552C931EF500906EDE /* TelaCadastroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaCadastroViewController.swift; sourceTree = "<group>"; };
 		CD33C1592C932CE300906EDE /* TelaCadastroViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TelaCadastroViewController.storyboard; sourceTree = "<group>"; };
 		CDD5B08F2C8B3D4400C521B9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				9188D31D2C9A3466003E419B /* SearchViewController.swift */,
 				0567BF062C9A39FD00F447BF /* ProfileViewController.swift */,
 				0567BF0A2C9A6D4000F447BF /* FavoriteViewController.swift */,
+				91D8F90E2C9CCD4400D82901 /* TabBarViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDD5B0902C8B3D4500C521B9 /* HomeViewController.swift in Sources */,
+				91D8F90F2C9CCD4400D82901 /* TabBarViewController.swift in Sources */,
 				058816C72C87D18000D53768 /* ViewController.swift in Sources */,
 				05614EBC2C98FCF10050A0F4 /* TelaResetPasswordViewController.swift in Sources */,
 				CD33C1562C931EF500906EDE /* TelaCadastroViewController.swift in Sources */,
