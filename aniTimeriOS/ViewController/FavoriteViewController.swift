@@ -33,6 +33,7 @@ class FavoriteViewController: UIViewController {
     private func configTableView() {
         favoritesTableView.delegate = self
         favoritesTableView.dataSource = self
+        favoritesTableView.backgroundColor = backgroundColor
         favoritesTableView.register(FavoriteTableViewCell.nib(), forCellReuseIdentifier: FavoriteTableViewCell.identifier)
         createFavoritelist()
         favoritesTableView.register(FavoriteTableViewCell.nib(),forCellReuseIdentifier: FavoriteTableViewCell.identifier)
