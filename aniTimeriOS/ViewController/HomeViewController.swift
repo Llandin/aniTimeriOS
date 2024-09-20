@@ -14,6 +14,14 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     let pageTitle:String = "ANITIMER"
     
+    @IBAction func favoriteBtnTapped(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "FavoriteView", bundle: nil) // Adjust the storyboard name
+           if let newViewController = storyboard.instantiateViewController(withIdentifier: "FavoriteView") as? FavoriteViewController {
+               navigationController?.pushViewController(newViewController, animated: true)
+           }
+    }
+    
+    
     var animeList: [Anime] = []
     var sec:[String] = []
     
@@ -31,15 +39,9 @@ class HomeViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        // Hide the navigation bar
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        
-        // Show the navigation bar again when leaving the view
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
-    }
+
     
     private func createAnimelist(){
         animeList.append(Anime(remainingDays: 7, image: "images.png"))
@@ -80,6 +82,13 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
         tableView.backgroundColor = UIColor(red: 0.1176, green: 0.1176, blue: 0.1176, alpha: 1)
         return sec[section]
         
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "AnimeDetailViewController", bundle: nil)
+        if let detailViewController = storyboard.instantiateViewController(withIdentifier: "AnimeDetailViewController") as? AnimeDetailViewController {
+            navigationController?.pushViewController(detailViewController, animated: true)
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
