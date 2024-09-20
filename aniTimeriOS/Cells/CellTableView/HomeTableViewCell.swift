@@ -34,7 +34,10 @@ class HomeTableViewCell: UITableViewCell {
     }
     
     public func setupCell(anime: Anime) {
+        
+
         configLabels(label: fixedLabel, text: "Faltam", color: .white, aligment: .center,fonte: UIFont(name: "Helvetica Neue", size: 16)! )
+       
         
         configLabels(label: fixedlabel2, text: "Dias", color: .white, aligment: .center,fonte: UIFont(name: "Helvetica Neue", size: 16)!)
         

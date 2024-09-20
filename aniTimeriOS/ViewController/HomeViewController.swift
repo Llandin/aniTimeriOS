@@ -13,12 +13,13 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var remainingDaysTableView: UITableView!
     @IBOutlet weak var titleLabel: UILabel!
     let pageTitle:String = "ANITIMER"
+    let background:UIColor = UIColor(red: 0.1176, green: 0.1176, blue: 0.1176, alpha: 1)
     
     @IBAction func favoriteBtnTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "FavoriteView", bundle: nil) // Adjust the storyboard name
-           if let newViewController = storyboard.instantiateViewController(withIdentifier: "FavoriteView") as? FavoriteViewController {
-               navigationController?.pushViewController(newViewController, animated: true)
-           }
+        if let newViewController = storyboard.instantiateViewController(withIdentifier: "FavoriteView") as? FavoriteViewController {
+            navigationController?.pushViewController(newViewController, animated: true)
+        }
     }
     
     
@@ -41,12 +42,12 @@ class HomeViewController: UIViewController {
         
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-
+    
     
     private func createAnimelist(){
-        animeList.append(Anime(remainingDays: 7, image: "images.png"))
-        animeList.append(Anime(remainingDays: 6, image: "images2.png"))
-        animeList.append(Anime(remainingDays: 29, image: "images3.png"))
+        animeList.append(Anime(remainingDays: 7, image: "anime1.jpg"))
+        animeList.append(Anime(remainingDays: 6, image: "anime2.jpg"))
+        animeList.append(Anime(remainingDays: 29, image: "anime3.png"))
     }
     
     private func createSec(){
@@ -55,7 +56,7 @@ class HomeViewController: UIViewController {
     }
     
     private func setBackgroundColor(){
-        view.backgroundColor = UIColor(red: 0.1176, green: 0.1176, blue: 0.1176, alpha: 1)
+        view.backgroundColor = background
     }
     
     private func configLabels(label:UILabel,title:String,color:UIColor){
@@ -64,6 +65,7 @@ class HomeViewController: UIViewController {
     }
     
     private func configTableView() {
+        remainingDaysTableView.backgroundColor = background
         remainingDaysTableView.delegate = self
         remainingDaysTableView.dataSource = self
         remainingDaysTableView.register(HomeTableViewCell.nib(), forCellReuseIdentifier: HomeTableViewCell.identifier)
@@ -100,6 +102,9 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
         if indexPath.section == 0 {
             let cell = remainingDaysTableView.dequeueReusableCell(withIdentifier:HomeTableViewCell.identifier, for: indexPath) as? HomeTableViewCell
             cell?.setupCell(anime:animeList[indexPath.row])
+            
+            cell?.selectionStyle = .none
+            
             return cell ?? UITableViewCell()
             
         }else{
@@ -109,7 +114,7 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableview: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
+        return 120
     }
     
 }

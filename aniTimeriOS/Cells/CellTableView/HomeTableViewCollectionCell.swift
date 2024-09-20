@@ -48,6 +48,12 @@ class HomeTableViewCollectionCell: UITableViewCell {
         }
     }
     
+    func CATransform3DMakePerspective() -> CATransform3D {
+        var perspective = CATransform3DIdentity
+        perspective.m34 = -1.0 / 500.0 // Ajuste para profundidade
+        return perspective
+    }
+    
 }
 
 extension HomeTableViewCollectionCell: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
@@ -59,9 +65,14 @@ extension HomeTableViewCollectionCell: UICollectionViewDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = catalogCollectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.identifier, for: indexPath) as? HomeCollectionViewCell
         
+        
         cell?.setupCellCollectionView(anime:(animes[indexPath.row]))
         
-        return cell ?? UICollectionViewCell()
+        let perspective = CATransform3DMakePerspective()
+            let rotation = CATransform3DRotate(perspective, CGFloat.pi / 8, 0, 1, 0)
+        
+            cell?.layer.transform = rotation
+            return cell ?? UICollectionViewCell()
         
     }
     

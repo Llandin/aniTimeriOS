@@ -74,6 +74,9 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = favoritesTableView.dequeueReusableCell(withIdentifier:FavoriteTableViewCell.identifier, for: indexPath) as? FavoriteTableViewCell
         cell?.setupCell(anime:animeFavoriteList[indexPath.row])
+        
+        cell?.selectionStyle = .none
+        
         return cell ?? UITableViewCell()
     }
     
