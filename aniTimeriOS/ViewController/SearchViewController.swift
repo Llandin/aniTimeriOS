@@ -20,7 +20,13 @@ class SearchViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
-
+    
+    
+    @IBAction func searchLabel(_ sender: Any) {
+        let _:String = SearchTextField.text ?? "Jujutso Kaisen"
+        
+    }
+    
     
     @IBOutlet weak var SearchTextField: UITextField!
     @IBOutlet weak var searchContainerView: UIView!
