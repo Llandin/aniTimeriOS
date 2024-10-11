@@ -22,6 +22,9 @@ class HomeTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        clipsToBounds = true
+        layer.cornerRadius = 30
+        backgroundColor = .clear
     }
     
     func configLabels(label:UILabel,text: String, color: UIColor, aligment: NSTextAlignment,fonte: UIFont? = nil ){
