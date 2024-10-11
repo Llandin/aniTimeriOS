@@ -36,6 +36,7 @@
 		91D8F90F2C9CCD4400D82901 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D8F90E2C9CCD4400D82901 /* TabBarViewController.swift */; };
 		91D8F9112C9CD77E00D82901 /* AnimeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D8F9102C9CD77E00D82901 /* AnimeDetailViewController.swift */; };
 		91D8F9132C9CD79D00D82901 /* AnimeDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91D8F9122C9CD79D00D82901 /* AnimeDetailViewController.storyboard */; };
+		91DEB5022CB8A5DF00B66B8C /* AnimeMockedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DEB5012CB8A5DF00B66B8C /* AnimeMockedData.swift */; };
 		CD33C1562C931EF500906EDE /* TelaCadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD33C1552C931EF500906EDE /* TelaCadastroViewController.swift */; };
 		CD33C15A2C932CE300906EDE /* TelaCadastroViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD33C1592C932CE300906EDE /* TelaCadastroViewController.storyboard */; };
 		CDD5B0902C8B3D4500C521B9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD5B08F2C8B3D4400C521B9 /* HomeViewController.swift */; };
@@ -73,6 +74,7 @@
 		91D8F90E2C9CCD4400D82901 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		91D8F9102C9CD77E00D82901 /* AnimeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailViewController.swift; sourceTree = "<group>"; };
 		91D8F9122C9CD79D00D82901 /* AnimeDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AnimeDetailViewController.storyboard; sourceTree = "<group>"; };
+		91DEB5012CB8A5DF00B66B8C /* AnimeMockedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeMockedData.swift; sourceTree = "<group>"; };
 		CD33C1552C931EF500906EDE /* TelaCadastroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaCadastroViewController.swift; sourceTree = "<group>"; };
 		CD33C1592C932CE300906EDE /* TelaCadastroViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TelaCadastroViewController.storyboard; sourceTree = "<group>"; };
 		CDD5B08F2C8B3D4400C521B9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 		058816C12C87D18000D53768 /* aniTimeriOS */ = {
 			isa = PBXGroup;
 			children = (
+				91DEB5002CB8A5B200B66B8C /* MockedData */,
 				058D74D62C8F932A006B9048 /* Model */,
 				91CFE5D72C8A6FF80036ADBC /* ViewController */,
 				058D74CB2C8F74AF006B9048 /* Cells */,
@@ -188,9 +191,9 @@
 		91CFE5D72C8A6FF80036ADBC /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				CD33C1552C931EF500906EDE /* TelaCadastroViewController.swift */,
 				91CFE5E02C8A70700036ADBC /* LoginViewController.swift */,
 				CDD5B08F2C8B3D4400C521B9 /* HomeViewController.swift */,
-				CD33C1552C931EF500906EDE /* TelaCadastroViewController.swift */,
 				05614EBB2C98FCF10050A0F4 /* TelaResetPasswordViewController.swift */,
 				9188D31D2C9A3466003E419B /* SearchViewController.swift */,
 				0567BF062C9A39FD00F447BF /* ProfileViewController.swift */,
@@ -199,6 +202,14 @@
 				91D8F9102C9CD77E00D82901 /* AnimeDetailViewController.swift */,
 			);
 			path = ViewController;
+			sourceTree = "<group>";
+		};
+		91DEB5002CB8A5B200B66B8C /* MockedData */ = {
+			isa = PBXGroup;
+			children = (
+				91DEB5012CB8A5DF00B66B8C /* AnimeMockedData.swift */,
+			);
+			path = MockedData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,6 +304,7 @@
 				0567BF0E2C9A6D6B00F447BF /* FavoriteTableViewCell.swift in Sources */,
 				91D8F9112C9CD77E00D82901 /* AnimeDetailViewController.swift in Sources */,
 				058816C32C87D18000D53768 /* AppDelegate.swift in Sources */,
+				91DEB5022CB8A5DF00B66B8C /* AnimeMockedData.swift in Sources */,
 				9188D31E2C9A3466003E419B /* SearchViewController.swift in Sources */,
 				0567BF072C9A39FD00F447BF /* ProfileViewController.swift in Sources */,
 				05725A4D2C963C17007A7FF0 /* HomeTableViewCollectionCell.swift in Sources */,
