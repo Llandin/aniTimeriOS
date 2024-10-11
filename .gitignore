@@ -1,3 +1,4 @@
 *.xcuserstate
 project.xcworkspace/
+.DS_Store
 xcuserdata/
