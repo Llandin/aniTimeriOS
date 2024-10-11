@@ -71,6 +71,8 @@ class HomeViewController: UIViewController {
         remainingDaysTableView.register(HomeTableViewCell.nib(), forCellReuseIdentifier: HomeTableViewCell.identifier)
         createAnimelist()
         remainingDaysTableView.register(HomeTableViewCollectionCell.nib(),forCellReuseIdentifier: HomeTableViewCollectionCell.identifier)
+        remainingDaysTableView.clipsToBounds = true
+       
     }
 }
 
@@ -87,6 +89,8 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
         let storyboard = UIStoryboard(name: "AnimeDetailViewController", bundle: nil)
         if let detailViewController = storyboard.instantiateViewController(withIdentifier: "AnimeDetailViewController") as? AnimeDetailViewController {
             navigationController?.pushViewController(detailViewController, animated: true)
@@ -114,7 +118,7 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableview: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120
+        return 150
     }
     
 }

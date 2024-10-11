@@ -82,7 +82,7 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableview: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
+        return 160
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

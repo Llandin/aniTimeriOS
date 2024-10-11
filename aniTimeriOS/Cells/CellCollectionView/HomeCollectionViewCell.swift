@@ -19,10 +19,18 @@ class HomeCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        arendodarCell()
     }
     
     func setupCellCollectionView(anime: Anime){
         animeCatalogItemImage.image = UIImage(named: anime.image)
+    }
+    
+    func arendodarCell(){
+        
+        animeCatalogItemImage.clipsToBounds = true
+        animeCatalogItemImage.layer.cornerRadius = 10
+        
     }
 
 }
