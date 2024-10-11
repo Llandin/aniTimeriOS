@@ -10,6 +10,7 @@ import UIKit
 class LoginViewController: UIViewController {
     
     
+    
     @IBOutlet weak var bemVinDoLabel: UILabel!
     @IBOutlet weak var emailTextFiel: UITextField!
     @IBOutlet weak var senhaTextFiel: UITextField!
@@ -25,7 +26,7 @@ class LoginViewController: UIViewController {
         setupView()
         configLabelBemVindo(label: bemVinDoLabel)
         configemailText()
-        configsenhaText()
+        configsenhaText(isSecure: true)
         configesqueceuSenha()
         appendUser()
         configcadastroButton()
@@ -51,15 +52,13 @@ class LoginViewController: UIViewController {
         emailTextFiel.placeholder = "Digite seu email"
         emailTextFiel.layer.cornerRadius = 10
         emailTextFiel.clipsToBounds = true
-        
-      
     }
     
-    func configsenhaText(){
+    func configsenhaText(isSecure : Bool	){
         senhaTextFiel.placeholder = "Digte sua senha "
         senhaTextFiel.layer.cornerRadius = 10
         senhaTextFiel.clipsToBounds = true
-        
+        senhaTextFiel.isSecureTextEntry = isSecure
     }
     
     func configesqueceuSenha(){
@@ -91,7 +90,14 @@ class LoginViewController: UIViewController {
 
     @IBAction func appendUserButton(_ sender: Any) {
         
-        let controller = UIStoryboard(name: "HomeView", bundle: nil).instantiateViewController(withIdentifier: "HomeView") as? HomeViewController
+        let tabBarVC = TabBarViewController()
+        navigationController?.pushViewController(tabBarVC, animated: true)
+        
+    }
+    
+    
+    @IBAction func appendEsqueceuSenhaButton(_ sender: Any) {
+        let controller = UIStoryboard(name: "TelaResetPassword", bundle: nil).instantiateViewController(withIdentifier: "TelaResetPasswordViewController") as? TelaResetPasswordViewController
         
         
         navigationController?.pushViewController(controller ?? ViewController(), animated: true)
@@ -99,7 +105,11 @@ class LoginViewController: UIViewController {
     }
     
     
-    
-    
+    @IBAction func appendCadastroButton(_ sender: Any) {
+        
+        let cont = UIStoryboard(name: "TelaCadastroViewController", bundle: nil).instantiateViewController(withIdentifier: "TelaCadastroViewController") as? TelaCadastroViewController
+        
+        navigationController?.pushViewController(cont ?? UIViewController(), animated: true)
+    }
     
 }

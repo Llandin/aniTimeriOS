@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Anime Detail View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="AnimeDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="AnimeDetailViewController" customModule="aniTimeriOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fEg-LD-Wh7">
+                                <rect key="frame" x="84" y="749" width="225" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Favorite">
+                                    <color key="baseBackgroundColor" red="0.94509804249999996" green="0.60000002379999995" blue="0.55294120309999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </buttonConfiguration>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jujutsu Kaisen (2020)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yVp-oK-bht">
+                                <rect key="frame" x="40" y="96" width="250" height="29"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 Season 24 Episodes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNo-A3-Vxl">
+                                <rect key="frame" x="40" y="145" width="192" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Demon, Shounen, Comedy" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PEU-ik-mTM">
+                                <rect key="frame" x="40" y="177" width="204" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="b7R-7b-aP3">
+                                <rect key="frame" x="40" y="206" width="328" height="441"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <mutableString key="text">Jujutsu Kaisen (呪術廻戦, rgh. "Sorcery Battle")[a] is a Japanese manga series written and illustrated by Gege Akutami. It has been serialized in Shueisha's shōnen manga magazine Weekly Shōnen Jump since March 2018, with its chapters collected in 27 tankōbon volumes as of July 2024. The story follows high school student Yuji Itadori as he joins a secret organization of Jujutsu Sorcerers to eliminate a powerful Curse named Ryomen Sukuna, of whom Yuji becomes the host. Jujutsu Kaisen is a sequel to Akutami's Tokyo Metropolitan Curse Technical School, serialized in Shueisha's Jump Giga from April to July 2017, later collected in a tankōbon volume, retroactively titled as Jujutsu Kaisen 0, in December 2018.</mutableString>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="jujutsu-kaisen-bg" translatesAutoresizingMaskIntoConstraints="NO" id="wBT-mu-dpx">
+                                <rect key="frame" x="16" y="59" width="361" height="668"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" red="0.14340916279999999" green="0.14823392029999999" blue="0.1535262167" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="wBT-mu-dpx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="0bK-vs-Tem"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="fEg-LD-Wh7" secondAttribute="bottom" constant="34" id="8sY-bO-bSN"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="yVp-oK-bht" secondAttribute="trailing" constant="103" id="9Zl-5Q-1BC"/>
+                            <constraint firstItem="PEU-ik-mTM" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="HCD-EC-yha"/>
+                            <constraint firstItem="fEg-LD-Wh7" firstAttribute="top" secondItem="b7R-7b-aP3" secondAttribute="bottom" constant="102" id="JO3-bY-xoX"/>
+                            <constraint firstItem="fEg-LD-Wh7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="84" id="KBL-Pk-fKt"/>
+                            <constraint firstItem="yVp-oK-bht" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="LQA-N5-lh7"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="wBT-mu-dpx" secondAttribute="trailing" constant="16" id="NXm-4Y-3TB"/>
+                            <constraint firstItem="b7R-7b-aP3" firstAttribute="top" secondItem="PEU-ik-mTM" secondAttribute="bottom" constant="8" symbolic="YES" id="Qay-MS-MyU"/>
+                            <constraint firstItem="fEg-LD-Wh7" firstAttribute="top" secondItem="wBT-mu-dpx" secondAttribute="bottom" constant="22" id="cpg-1S-CJW"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="mNo-A3-Vxl" secondAttribute="trailing" constant="161" id="eLO-eQ-k0l"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="fEg-LD-Wh7" secondAttribute="trailing" constant="84" id="fSO-Zq-uhm"/>
+                            <constraint firstItem="yVp-oK-bht" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="37" id="gam-SP-6LW"/>
+                            <constraint firstItem="mNo-A3-Vxl" firstAttribute="top" secondItem="yVp-oK-bht" secondAttribute="bottom" constant="20" id="h8T-vL-MZR"/>
+                            <constraint firstItem="wBT-mu-dpx" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="hGx-K6-z0o"/>
+                            <constraint firstItem="fEg-LD-Wh7" firstAttribute="top" secondItem="PEU-ik-mTM" secondAttribute="bottom" constant="551" id="i3f-P9-2vp"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="b7R-7b-aP3" secondAttribute="trailing" constant="25" id="jXT-Hf-3N1"/>
+                            <constraint firstItem="mNo-A3-Vxl" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="t3n-f5-MIS"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="PEU-ik-mTM" secondAttribute="trailing" constant="149" id="t7D-gq-iFQ"/>
+                            <constraint firstItem="PEU-ik-mTM" firstAttribute="top" secondItem="mNo-A3-Vxl" secondAttribute="bottom" constant="8" symbolic="YES" id="uFF-wl-0ky"/>
+                            <constraint firstItem="b7R-7b-aP3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="yMc-EK-IIU"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="130.53435114503816" y="-34.507042253521128"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="jujutsu-kaisen-bg" width="1400" height="2000"/>
+    </resources>
+</document>
