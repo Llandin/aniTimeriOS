@@ -1,1 +1,26 @@
 
+# Ignore Xcode build and workspace files
+build/
+DerivedData/
+*.xcworkspace
+
+# Ignore Swift Package Manager related folders
+.build/
+.swiftpm/xcode/
+
+# Ignore Cocoapods related files
+Pods/
+Podfile.lock
+
+# Ignore Carthage generated files
+Carthage/Build/
+
+# Ignore fastlane generated files
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+
+# Ignore any other files or folders you don’t want to track
+.DS_Store
+*.xcuserstate
