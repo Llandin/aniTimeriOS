@@ -40,6 +40,8 @@
 		CD33C1562C931EF500906EDE /* TelaCadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD33C1552C931EF500906EDE /* TelaCadastroViewController.swift */; };
 		CD33C15A2C932CE300906EDE /* TelaCadastroViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD33C1592C932CE300906EDE /* TelaCadastroViewController.storyboard */; };
 		CDD5B0902C8B3D4500C521B9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD5B08F2C8B3D4400C521B9 /* HomeViewController.swift */; };
+		CDEA28A62CB95256008DA591 /* LoginMockedData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDEA28A52CB95256008DA591 /* LoginMockedData.swift */; };
+		CDEA28B62CB96718008DA591 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDEA28B52CB96718008DA591 /* TabBar.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +80,8 @@
 		CD33C1552C931EF500906EDE /* TelaCadastroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaCadastroViewController.swift; sourceTree = "<group>"; };
 		CD33C1592C932CE300906EDE /* TelaCadastroViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TelaCadastroViewController.storyboard; sourceTree = "<group>"; };
 		CDD5B08F2C8B3D4400C521B9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		CDEA28A52CB95256008DA591 /* LoginMockedData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginMockedData.swift; sourceTree = "<group>"; };
+		CDEA28B52CB96718008DA591 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +188,7 @@
 				0567BF042C9A39EF00F447BF /* ProfileView.storyboard */,
 				0567BF082C9A6C0100F447BF /* FavoriteView.storyboard */,
 				91D8F9122C9CD79D00D82901 /* AnimeDetailViewController.storyboard */,
+				CDEA28B52CB96718008DA591 /* TabBar.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -208,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				91DEB5012CB8A5DF00B66B8C /* AnimeMockedData.swift */,
+				CDEA28A52CB95256008DA591 /* LoginMockedData.swift */,
 			);
 			path = MockedData;
 			sourceTree = "<group>";
@@ -274,6 +280,7 @@
 				91D8F9132C9CD79D00D82901 /* AnimeDetailViewController.storyboard in Resources */,
 				058816CF2C87D18100D53768 /* LaunchScreen.storyboard in Resources */,
 				9188D3202C9A3476003E419B /* SearchViewController.storyboard in Resources */,
+				CDEA28B62CB96718008DA591 /* TabBar.storyboard in Resources */,
 				058816CC2C87D18100D53768 /* Assets.xcassets in Resources */,
 				05725A522C96408E007A7FF0 /* HomeCollectionViewCell.xib in Resources */,
 				05725A4E2C963C17007A7FF0 /* HomeTableViewCollectionCell.xib in Resources */,
@@ -312,6 +319,7 @@
 				0567BF0B2C9A6D4000F447BF /* FavoriteViewController.swift in Sources */,
 				91CFE5E12C8A70700036ADBC /* LoginViewController.swift in Sources */,
 				058816C52C87D18000D53768 /* SceneDelegate.swift in Sources */,
+				CDEA28A62CB95256008DA591 /* LoginMockedData.swift in Sources */,
 				058D74D92C8F9359006B9048 /* Anime.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

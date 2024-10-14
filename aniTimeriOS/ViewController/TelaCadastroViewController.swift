@@ -8,7 +8,7 @@
 import UIKit
 
 class TelaCadastroViewController: UIViewController {
-
+    
     
     @IBOutlet weak var registroLabel: UILabel!
     @IBOutlet weak var nameTextField: UITextField!
@@ -16,7 +16,7 @@ class TelaCadastroViewController: UIViewController {
     @IBOutlet weak var senhaTextFiel: UITextField!
     @IBOutlet weak var configSenhaTextFiel: UITextField!
     @IBOutlet weak var tenhoContaLabel: UILabel!
-   
+    
     @IBOutlet weak var appendCadastrarButton: UIButton!
     
     
@@ -24,13 +24,13 @@ class TelaCadastroViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-      setupTelaCadastro()
-      configRegistro(regist: registroLabel)
+        setupTelaCadastro()
+        configRegistro(regist: registroLabel)
         configSetTextFiel(name: nameTextField, email: emailTextFiel, senha: senhaTextFiel, confimarSenha: configSenhaTextFiel)
         tenhoConta(conta: tenhoContaLabel)
         configButton()
         configSenha(isSecure: true, confirmarSenha: true	)
-     
+        
         
     }
     
@@ -38,7 +38,7 @@ class TelaCadastroViewController: UIViewController {
         view.backgroundColor = UIColor(red: 0.1176, green: 0.1176, blue: 0.1176, alpha: 1)
     }
     
-   
+    
     func configRegistro(regist:UILabel){
         
         registroLabel.text = "Registro"
@@ -48,8 +48,8 @@ class TelaCadastroViewController: UIViewController {
         
     }
     
-
-
+    
+    
     func configSetTextFiel(name : UITextField, email : UITextField, senha : UITextField , confimarSenha : UITextField){
         
         nameTextField.placeholder = "Digite seu nome "

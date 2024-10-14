@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6wx-Rn-Xbq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6wx-Rn-Xbq">
     <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -98,9 +99,9 @@
                         <outlet property="appendAddUser" destination="8mc-Aq-FTo" id="GR1-U3-5cz"/>
                         <outlet property="bemVinDoLabel" destination="7eY-zI-Vcf" id="xMS-JS-VE6"/>
                         <outlet property="cadastroButton" destination="x9V-2y-ngv" id="Mnu-OR-58X"/>
-                        <outlet property="emailTextFiel" destination="eNs-QG-6UV" id="gCI-Fd-Xbl"/>
+                        <outlet property="emailTextField" destination="eNs-QG-6UV" id="B1q-3g-bvk"/>
                         <outlet property="esqueceuSenhaButton" destination="FGX-uw-uGD" id="6xp-Ec-Seu"/>
-                        <outlet property="senhaTextFiel" destination="Nr4-dc-p1t" id="F0y-xk-OZH"/>
+                        <outlet property="senhaTextField" destination="Nr4-dc-p1t" id="J8j-Wi-Rmf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
