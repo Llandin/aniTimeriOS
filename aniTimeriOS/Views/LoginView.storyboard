@@ -40,7 +40,7 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="10"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="appendEsqueceuSenhaButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="OyX-dO-7Cf"/>
+                                    <action selector="forgotPasswordButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="k2W-yj-dwg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8mc-Aq-FTo">
@@ -53,7 +53,7 @@
                                     <color key="baseBackgroundColor" red="0.94509804249999996" green="0.60000002379999995" blue="0.55294120309999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="appendUserButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="sPn-kw-cgE"/>
+                                    <action selector="navigateToTabBarController:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7Iw-z8-AfA"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="752" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7eY-zI-Vcf">
@@ -70,7 +70,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
-                                    <action selector="appendCadastroButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="0iw-rL-T9Y"/>
+                                    <action selector="signUpButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Dz6-Ct-QaY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -96,12 +96,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="rU9-N5-PuI"/>
                     <connections>
-                        <outlet property="appendAddUser" destination="8mc-Aq-FTo" id="GR1-U3-5cz"/>
-                        <outlet property="bemVinDoLabel" destination="7eY-zI-Vcf" id="xMS-JS-VE6"/>
-                        <outlet property="cadastroButton" destination="x9V-2y-ngv" id="Mnu-OR-58X"/>
-                        <outlet property="emailTextField" destination="eNs-QG-6UV" id="B1q-3g-bvk"/>
-                        <outlet property="esqueceuSenhaButton" destination="FGX-uw-uGD" id="6xp-Ec-Seu"/>
-                        <outlet property="senhaTextField" destination="Nr4-dc-p1t" id="J8j-Wi-Rmf"/>
+                        <outlet property="emailTextField" destination="eNs-QG-6UV" id="KtM-4F-dkG"/>
+                        <outlet property="forgotPasswordButton" destination="FGX-uw-uGD" id="zzs-i6-6Ym"/>
+                        <outlet property="loginButton" destination="8mc-Aq-FTo" id="cRr-PY-XeJ"/>
+                        <outlet property="passwordTextField" destination="Nr4-dc-p1t" id="bVi-w0-Hno"/>
+                        <outlet property="signUpButton" destination="x9V-2y-ngv" id="VsC-cQ-ezy"/>
+                        <outlet property="welcomeLabel" destination="7eY-zI-Vcf" id="nMx-TQ-grD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
