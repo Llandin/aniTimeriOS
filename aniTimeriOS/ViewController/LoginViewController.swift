@@ -6,7 +6,8 @@
 //
 
 import UIKit
-
+import Firebase
+import FirebaseAuth
 class LoginViewController: UIViewController {
     
     
@@ -90,8 +91,24 @@ class LoginViewController: UIViewController {
 
     @IBAction func appendUserButton(_ sender: Any) {
         
-        let tabBarVC = TabBarViewController()
-        navigationController?.pushViewController(tabBarVC, animated: true)
+        guard let email = emailTextFiel.text, !email.isEmpty,
+              let senha = senhaTextFiel.text, !senha.isEmpty else {
+            print("Erro: Preencha todos os campos.")
+            return
+        }
+        
+        // Tente fazer o login com Firebase Authentication
+        Auth.auth().signIn(withEmail: email, password: senha) { authResult, error in
+            if let error = error {
+                print("Erro ao fazer login: \(error.localizedDescription)")
+                return
+            }
+            
+            
+            let tabBarVC = TabBarViewController()
+            self.navigationController?.pushViewController(tabBarVC, animated: true)
+            
+        }
         
     }
     

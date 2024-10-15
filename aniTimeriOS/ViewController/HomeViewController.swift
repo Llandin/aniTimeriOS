@@ -107,7 +107,7 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
             let cell = remainingDaysTableView.dequeueReusableCell(withIdentifier:HomeTableViewCell.identifier, for: indexPath) as? HomeTableViewCell
             cell?.setupCell(anime:animeList[indexPath.row])
             
-<<<<<<< HEAD
+//<<<<<<< HEAD
             func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
                 return animeList.count
             }
@@ -126,7 +126,7 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
                 return 120
             }
 
-=======
+//=======
             cell?.selectionStyle = .none
             
             return cell ?? UITableViewCell()
@@ -135,7 +135,7 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
             let cell2 = remainingDaysTableView.dequeueReusableCell(withIdentifier:HomeTableViewCollectionCell.identifier, for: indexPath) as? HomeTableViewCollectionCell
             return cell2 ?? UITableViewCell()
         }
->>>>>>> main
+//>>>>>>> main
     }
     
     func tableView(_ tableview: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
