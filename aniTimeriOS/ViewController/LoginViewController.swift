@@ -12,85 +12,87 @@ class LoginViewController: UIViewController {
     
     
     
-    @IBOutlet weak var bemVinDoLabel: UILabel!
-    @IBOutlet weak var emailTextFiel: UITextField!
-    @IBOutlet weak var senhaTextFiel: UITextField!
-    @IBOutlet weak var esqueceuSenhaButton: UIButton!
-    @IBOutlet weak var appendAddUser: UIButton!
-    @IBOutlet weak var cadastroButton: UIButton!
-    
+    @IBOutlet weak var welcomeLabel: UILabel!
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var forgotPasswordButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var signUpButton: UIButton!
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        configLabelBemVindo(label: bemVinDoLabel)
-        configemailText()
-        configsenhaText(isSecure: true)
-        configesqueceuSenha()
-        appendUser()
-        configcadastroButton()
+        configureWelcomeLabel(label: welcomeLabel)
+        configureEmailTextField()
+        configurePasswordTextField(isSecure: true)
+        configureForgotPasswordButton()
+        configureLoginButton()
+        configureSignUpButton()
     }
     
     
     func setupView() {
-         view.backgroundColor = UIColor(red: 0.1176, green: 0.1176, blue: 0.1176, alpha: 1)
+        view.backgroundColor = UIColor(red: 0.1176, green: 0.1176, blue: 0.1176, alpha: 1)
     }
     
-    func configLabelBemVindo(label : UILabel ){
+    func configureWelcomeLabel(label : UILabel ){
         
-        bemVinDoLabel.text = "Bem-Vindo "
-        bemVinDoLabel.textAlignment = .center
-        bemVinDoLabel.textColor = UIColor(red: 255/255, green: 146/255, blue: 139/255, alpha: 1.0)
-        bemVinDoLabel.font = UIFont.boldSystemFont(ofSize: 30)
-    
-            
-    }
-    
-    func configemailText(){
+        welcomeLabel.text = "Bem-Vindo "
+        welcomeLabel.textAlignment = .center
+        welcomeLabel.textColor = UIColor(red: 255/255, green: 146/255, blue: 139/255, alpha: 1.0)
+        welcomeLabel.font = UIFont.boldSystemFont(ofSize: 30)
         
-        emailTextFiel.placeholder = "Digite seu email"
-        emailTextFiel.layer.cornerRadius = 10
-        emailTextFiel.clipsToBounds = true
-    }
-    
-    func configsenhaText(isSecure : Bool	){
-        senhaTextFiel.placeholder = "Digte sua senha "
-        senhaTextFiel.layer.cornerRadius = 10
-        senhaTextFiel.clipsToBounds = true
-        senhaTextFiel.isSecureTextEntry = isSecure
-    }
-    
-    func configesqueceuSenha(){
-        
-        esqueceuSenhaButton.setTitle("Esqueceu sua senha?", for: .normal)
-        esqueceuSenhaButton.tintColor = .gray
-    
         
     }
     
-    
-    func appendUser(){
+    func configureEmailTextField(){
         
-        appendAddUser.setTitle("Confirmar", for: .normal)
-        appendAddUser.clipsToBounds = true
-        appendAddUser.layer.cornerRadius = 10
+        emailTextField.placeholder = "Digite seu email"
+        emailTextField.layer.cornerRadius = 10
+        emailTextField.clipsToBounds = true
+    }
+    
+    func configurePasswordTextField(isSecure : Bool	){
+        passwordTextField.placeholder = "Digte sua senha "
+        passwordTextField.layer.cornerRadius = 10
+        passwordTextField.clipsToBounds = true
+        passwordTextField.isSecureTextEntry = isSecure
+    }
+    
+    func configureForgotPasswordButton(){
+        
+        forgotPasswordButton.setTitle("Esqueceu sua senha?", for: .normal)
+        forgotPasswordButton.tintColor = .gray
+        
         
     }
     
+    
+    func configureLoginButton(){
+        
+        loginButton.setTitle("Confirmar", for: .normal)
+        loginButton.clipsToBounds = true
+        loginButton.layer.cornerRadius = 10
+        
+    }
+    
+    
+    func configureSignUpButton(){
+        
+        signUpButton.setTitle("Não possui conta? Cadastre-se!", for: .normal)
+        signUpButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        signUpButton.tintColor = .gray
+        
+        
+    }
+    
+    @IBAction func navigateToTabBarController(_ sender: Any) {
+        
+        let tabBarVC = UIStoryboard(name: "TabBar", bundle: nil).instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
+        
 
-    func configcadastroButton(){
-    
-        cadastroButton.setTitle("Não possui conta? Cadastre-se!", for: .normal)
-        cadastroButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 20)
-        cadastroButton.tintColor = .gray
-       
-        
-    }
-
-    @IBAction func appendUserButton(_ sender: Any) {
-        
         guard let email = emailTextFiel.text, !email.isEmpty,
               let senha = senhaTextFiel.text, !senha.isEmpty else {
             print("Erro: Preencha todos os campos.")
@@ -109,11 +111,15 @@ class LoginViewController: UIViewController {
             self.navigationController?.pushViewController(tabBarVC, animated: true)
             
         }
+
         
+        navigationController?.pushViewController(tabBarVC, animated: true)
     }
     
+
     
-    @IBAction func appendEsqueceuSenhaButton(_ sender: Any) {
+    
+    @IBAction func forgotPasswordButtonTapped(_ sender: Any) {
         let controller = UIStoryboard(name: "TelaResetPassword", bundle: nil).instantiateViewController(withIdentifier: "TelaResetPasswordViewController") as? TelaResetPasswordViewController
         
         
@@ -122,11 +128,12 @@ class LoginViewController: UIViewController {
     }
     
     
-    @IBAction func appendCadastroButton(_ sender: Any) {
+    @IBAction func signUpButtonTapped(_ sender: Any) {
         
         let cont = UIStoryboard(name: "TelaCadastroViewController", bundle: nil).instantiateViewController(withIdentifier: "TelaCadastroViewController") as? TelaCadastroViewController
         
         navigationController?.pushViewController(cont ?? UIViewController(), animated: true)
     }
+    
     
 }

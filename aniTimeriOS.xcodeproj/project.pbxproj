@@ -65,6 +65,7 @@
 		CD82F6592CBE9804006F65F9 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = CD82F6582CBE9804006F65F9 /* FirebaseStorageCombine-Community */; };
 		CD82F65B2CBE9804006F65F9 /* FirebaseVertexAI-Preview in Frameworks */ = {isa = PBXBuildFile; productRef = CD82F65A2CBE9804006F65F9 /* FirebaseVertexAI-Preview */; };
 		CDD5B0902C8B3D4500C521B9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD5B08F2C8B3D4400C521B9 /* HomeViewController.swift */; };
+		CDEA28B62CB96718008DA591 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDEA28B52CB96718008DA591 /* TabBar.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +105,7 @@
 		CD33C1592C932CE300906EDE /* TelaCadastroViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TelaCadastroViewController.storyboard; sourceTree = "<group>"; };
 		CD82F6292CBE8B68006F65F9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CDD5B08F2C8B3D4400C521B9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		CDEA28B52CB96718008DA591 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +237,7 @@
 				0567BF042C9A39EF00F447BF /* ProfileView.storyboard */,
 				0567BF082C9A6C0100F447BF /* FavoriteView.storyboard */,
 				91D8F9122C9CD79D00D82901 /* AnimeDetailViewController.storyboard */,
+				CDEA28B52CB96718008DA591 /* TabBar.storyboard */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -328,6 +331,7 @@
 				91D8F9132C9CD79D00D82901 /* AnimeDetailViewController.storyboard in Resources */,
 				058816CF2C87D18100D53768 /* LaunchScreen.storyboard in Resources */,
 				9188D3202C9A3476003E419B /* SearchViewController.storyboard in Resources */,
+				CDEA28B62CB96718008DA591 /* TabBar.storyboard in Resources */,
 				058816CC2C87D18100D53768 /* Assets.xcassets in Resources */,
 				05725A522C96408E007A7FF0 /* HomeCollectionViewCell.xib in Resources */,
 				05725A4E2C963C17007A7FF0 /* HomeTableViewCollectionCell.xib in Resources */,
