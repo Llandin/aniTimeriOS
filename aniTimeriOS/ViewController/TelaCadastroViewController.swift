@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class TelaCadastroViewController: UIViewController {
     
@@ -95,9 +97,32 @@ class TelaCadastroViewController: UIViewController {
     
     @IBAction func apeendCadastroButton(_ sender: UIButton) {
         
-        navigationController?.popToRootViewController(animated: true)
+        // Verifique se os campos de email e senha estão preenchidos
+            guard let email = emailTextFiel.text, !email.isEmpty,
+                  let senha = senhaTextFiel.text, !senha.isEmpty,
+                  let confirmarSenha = configSenhaTextFiel.text, !confirmarSenha.isEmpty else {
+                print("Erro: Por favor, preencha todos os campos.")
+                return
+            }
+
+            // Verifique se as senhas coincidem
+            guard senha == confirmarSenha else {
+                print("Erro: As senhas não coincidem.")
+                return
+            }
+
+            // Iniciar o processo de cadastro com Firebase Authentication
+            Auth.auth().createUser(withEmail: email, password: senha) { authResult, error in
+                if let error = error {
+                    // Se houve um erro, exibir a mensagem no console
+                    print("Erro ao cadastrar usuário: \(error.localizedDescription)")
+                } else {
+                    // Sucesso ao criar o usuário, exibir no console
+                    print("Usuário cadastrado com sucesso! ID: \(authResult?.user.uid ?? "Sem ID")")
+                    // Navegar para a tela de login
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+            }
+        
     }
-    
-    
-    
 }
