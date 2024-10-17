@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="RPy-vg-U1T">
-                        <rect key="frame" x="0.0" y="0.0" width="359" height="148"/>
+                        <rect key="frame" x="0.0" y="29" width="359" height="114"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Mrj-Rc-TiN">
                             <size key="itemSize" width="128" height="128"/>
@@ -28,17 +28,30 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                     </collectionView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fvc-Ah-Ys2">
+                        <rect key="frame" x="5" y="6" width="349" height="19"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="19" id="rXR-1b-Rj1"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="fvc-Ah-Ys2" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="7Hv-tF-x9z"/>
                     <constraint firstAttribute="trailing" secondItem="RPy-vg-U1T" secondAttribute="trailing" id="GUT-VB-Mxu"/>
-                    <constraint firstItem="RPy-vg-U1T" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="KnY-bD-V5b"/>
-                    <constraint firstAttribute="bottom" secondItem="RPy-vg-U1T" secondAttribute="bottom" id="Kzm-Zc-aoB"/>
+                    <constraint firstItem="RPy-vg-U1T" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="29" id="KnY-bD-V5b"/>
+                    <constraint firstAttribute="bottom" secondItem="RPy-vg-U1T" secondAttribute="bottom" constant="5" id="Kzm-Zc-aoB"/>
+                    <constraint firstItem="fvc-Ah-Ys2" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="ZrC-h8-Inf"/>
                     <constraint firstItem="RPy-vg-U1T" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="n21-jS-ybp"/>
+                    <constraint firstAttribute="trailing" secondItem="fvc-Ah-Ys2" secondAttribute="trailing" constant="5" id="of7-TH-3EH"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="catalogCollectionView" destination="RPy-vg-U1T" id="duS-6U-wp9"/>
+                <outlet property="categoryNameLabel" destination="fvc-Ah-Ys2" id="7Ji-7Z-2Rz"/>
             </connections>
             <point key="canvasLocation" x="168.70229007633588" y="57.04225352112676"/>
         </tableViewCell>

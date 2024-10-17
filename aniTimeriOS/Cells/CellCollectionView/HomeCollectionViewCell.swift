@@ -27,7 +27,6 @@ class HomeCollectionViewCell: UICollectionViewCell {
     }
     
     func arendodarCell(){
-        
         animeCatalogItemImage.clipsToBounds = true
         animeCatalogItemImage.layer.cornerRadius = 10
         

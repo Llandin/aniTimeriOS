@@ -20,6 +20,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var errorMessage: UILabel!
     
+    var errorColor = UIColor(red: 247/255, green: 0/255, blue: 0/255, alpha: 1.0);
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,9 +30,12 @@ class LoginViewController: UIViewController {
         configureEmailTextField()
         configurePasswordTextField(isSecure: true)
         configureForgotPasswordButton()
-        configLabel(label: errorMessage, text: "", textColor: .red, font:UIFont(name: "Georgia Italic", size: 18)!)
+        configLabel(label: errorMessage, text: "", textColor: .systemPink, font:UIFont(name: "Menlo", size:13)!)
         configureLoginButton()
         configureSignUpButton()
+        
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
     
     
@@ -76,6 +81,8 @@ class LoginViewController: UIViewController {
         loginButton.setTitle("Confirmar", for: .normal)
         loginButton.clipsToBounds = true
         loginButton.layer.cornerRadius = 10
+        loginButton.backgroundColor = .lightGray
+        loginButton.isEnabled = false
         
     }
     
@@ -105,25 +112,7 @@ class LoginViewController: UIViewController {
         
         guard let email = emailTextField.text, !email.isEmpty,
               let senha = passwordTextField.text, !senha.isEmpty else {
-            
-            if emailTextField.text?.isEmpty == true && passwordTextField.text?.isEmpty == true {
-                emailTextField.layer.borderColor = UIColor.red.cgColor
-                passwordTextField.layer.borderColor = UIColor.red.cgColor
-                emailTextField.layer.borderWidth = 1.8
-                passwordTextField.layer.borderWidth = 1.8
-                
-                errorMessage.text = "Preencher campos de e-mail e senha!"
-            }else if passwordTextField.text?.isEmpty == true{
-                passwordTextField.layer.borderColor = UIColor.red.cgColor
-                passwordTextField.layer.borderWidth = 1.8
-                errorMessage.text = "Favor informar sua senha"
-            }else{
-                emailTextField.layer.borderColor = UIColor.red.cgColor
-                emailTextField.layer.borderWidth = 1.8
-                errorMessage.text = "Favor informar seu e-mail"
-            }
-            
-            
+     
             return
         }
         
@@ -164,5 +153,57 @@ class LoginViewController: UIViewController {
         navigationController?.pushViewController(cont ?? UIViewController(), animated: true)
     }
     
+    func validateEmail(_ email: String) {
+        loginButton.isEnabled = false
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let isValid = NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: email)
+
+        if isValid{
+            emailTextField.layer.borderColor = UIColor.green.cgColor
+            emailTextField.layer.borderWidth = 2.0
+            loginButton.isEnabled = true
+            errorMessage.text = " "
+        } else {
+            emailTextField.layer.borderColor = UIColor.red.cgColor
+            errorMessage.text = "Formato de email inválido"
+            emailTextField.layer.borderWidth = 2.0
+            loginButton.isEnabled = false
+        }
+    }
+    
+    func validatePassword(_ password: String) {
+        if password.count >= 6 {
+            passwordTextField.layer.borderColor = UIColor.green.cgColor
+            passwordTextField.layer.borderWidth = 2.0
+            loginButton.isEnabled = true
+            errorMessage.text = " "
+        } else {
+            passwordTextField.layer.borderColor = UIColor.red.cgColor
+            errorMessage.text = "Senha deve conter o mínimo de 6 caracteres!"
+            passwordTextField.layer.borderWidth = 2.0
+            loginButton.isEnabled = false
+        }
+    }
+}
+
+extension LoginViewController: UITextFieldDelegate{
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+          let currentText = textField.text ?? ""
+
+          guard let stringRange = Range(range, in: currentText) else { return false }
+          let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+ 
+          if textField == emailTextField {
+              validateEmail(updatedText)
+          } else if textField == passwordTextField {
+              validatePassword(updatedText)
+          }
+          
+          return true
+      }
     
 }

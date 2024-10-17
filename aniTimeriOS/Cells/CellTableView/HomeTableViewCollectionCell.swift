@@ -18,6 +18,8 @@ class HomeTableViewCollectionCell: UITableViewCell {
     
     var animes:[Anime] = []
     
+    @IBOutlet weak var categoryNameLabel: UILabel!
+    
     @IBOutlet weak var catalogCollectionView: UICollectionView!
     
     override func awakeFromNib() {
@@ -44,13 +46,14 @@ class HomeTableViewCollectionCell: UITableViewCell {
             layout.scrollDirection = .horizontal
             layout.estimatedItemSize = .zero
             layout.collectionView?.backgroundColor = UIColor(red: 0.1176, green: 0.1176, blue: 0.1176, alpha: 1)
+            self.backgroundColor = UIColor(red: 0.1176, green: 0.1176, blue: 0.1176, alpha: 1)
             
         }
     }
     
     func CATransform3DMakePerspective() -> CATransform3D {
         var perspective = CATransform3DIdentity
-        perspective.m34 = -1.0 / 500.0 // Ajuste para profundidade
+        perspective.m34 = -1.0 / 500 // Ajuste para profundidade
         return perspective
     }
     
@@ -63,15 +66,18 @@ extension HomeTableViewCollectionCell: UICollectionViewDelegate, UICollectionVie
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        categoryNameLabel.text = "Nome das categorias"
+        categoryNameLabel.textColor = .white
         let cell = catalogCollectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.identifier, for: indexPath) as? HomeCollectionViewCell
         
         
         cell?.setupCellCollectionView(anime:(animes[indexPath.row]))
         
         let perspective = CATransform3DMakePerspective()
-            let rotation = CATransform3DRotate(perspective, CGFloat.pi / 8, 0, 1, 0)
+            let scaleTransform = CATransform3DScale(perspective, 0.9, 0.9, 1.0)
         
-            cell?.layer.transform = rotation
+            cell?.layer.transform = scaleTransform
             return cell ?? UICollectionViewCell()
         
     }
@@ -79,9 +85,6 @@ extension HomeTableViewCollectionCell: UICollectionViewDelegate, UICollectionVie
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 30
-    }
+
     
 }

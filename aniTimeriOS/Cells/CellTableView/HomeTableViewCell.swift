@@ -46,8 +46,8 @@ class HomeTableViewCell: UITableViewCell {
         
         configLabels(label: remainingDayslabel, text: String("\(anime.remainingDays)"),color: .white, aligment: .center, fonte: UIFont(name:"Futura", size: 30.0))
         
-    
         backgroundView = UIImageView(image: UIImage(named: "\(anime.image)")!)
+        
         
     }
 
