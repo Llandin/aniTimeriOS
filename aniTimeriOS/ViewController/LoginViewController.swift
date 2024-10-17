@@ -18,7 +18,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var forgotPasswordButton: UIButton!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
-    
+    @IBOutlet weak var errorMessage: UILabel!
     
     
     override func viewDidLoad() {
@@ -28,6 +28,7 @@ class LoginViewController: UIViewController {
         configureEmailTextField()
         configurePasswordTextField(isSecure: true)
         configureForgotPasswordButton()
+        configLabel(label: errorMessage, text: "", textColor: .red, font:UIFont(name: "Georgia Italic", size: 18)!)
         configureLoginButton()
         configureSignUpButton()
     }
@@ -79,6 +80,15 @@ class LoginViewController: UIViewController {
     }
     
     
+    func configLabel(label:UILabel,text:String,textColor:UIColor,font:UIFont){
+        label.text = text
+        label.textColor = textColor
+        label.font = font
+        label.numberOfLines = 0
+        label.textAlignment = .center
+    }
+    
+    
     func configureSignUpButton(){
         
         signUpButton.setTitle("Não possui conta? Cadastre-se!", for: .normal)
@@ -92,12 +102,31 @@ class LoginViewController: UIViewController {
         
         let tabBarVC = UIStoryboard(name: "TabBar", bundle: nil).instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
         
-
-        guard let email = emailTextFiel.text, !email.isEmpty,
-              let senha = senhaTextFiel.text, !senha.isEmpty else {
-            print("Erro: Preencha todos os campos.")
+        
+        guard let email = emailTextField.text, !email.isEmpty,
+              let senha = passwordTextField.text, !senha.isEmpty else {
+            
+            if emailTextField.text?.isEmpty == true && passwordTextField.text?.isEmpty == true {
+                emailTextField.layer.borderColor = UIColor.red.cgColor
+                passwordTextField.layer.borderColor = UIColor.red.cgColor
+                emailTextField.layer.borderWidth = 1.8
+                passwordTextField.layer.borderWidth = 1.8
+                
+                errorMessage.text = "Preencher campos de e-mail e senha!"
+            }else if passwordTextField.text?.isEmpty == true{
+                passwordTextField.layer.borderColor = UIColor.red.cgColor
+                passwordTextField.layer.borderWidth = 1.8
+                errorMessage.text = "Favor informar sua senha"
+            }else{
+                emailTextField.layer.borderColor = UIColor.red.cgColor
+                emailTextField.layer.borderWidth = 1.8
+                errorMessage.text = "Favor informar seu e-mail"
+            }
+            
+            
             return
         }
+        
         
         // Tente fazer o login com Firebase Authentication
         Auth.auth().signIn(withEmail: email, password: senha) { authResult, error in
@@ -111,12 +140,12 @@ class LoginViewController: UIViewController {
             self.navigationController?.pushViewController(tabBarVC, animated: true)
             
         }
-
+        
         
         navigationController?.pushViewController(tabBarVC, animated: true)
     }
     
-
+    
     
     
     @IBAction func forgotPasswordButtonTapped(_ sender: Any) {
