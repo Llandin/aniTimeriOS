@@ -7,59 +7,63 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+
+
+    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var tableView: UITableView!
     
+    let allAnime: [MockAnimeData] = mockAnimeList // The full list of mocked anime data
+    var filteredAnime: [MockAnimeData] = [] // This will hold the search results
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
-        tapGesture()
-        view.backgroundColor = UIColor(red: 0.1176, green: 0.1176, blue: 0.1176, alpha: 1)
+
+        // Set up delegates
+        tableView.delegate = self
+        tableView.dataSource = self
+        searchTextField.delegate = self
+
+        // Initialize filtered data with the full list
+        filteredAnime = allAnime
+
+        // Register a basic UITableViewCell
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "AnimeCell")
+
+        // Add target for text field editing changed event
+        searchTextField.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+
+    // MARK: - UITableView DataSource Methods
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return filteredAnime.count
     }
-    
-    
-    @IBAction func searchLabel(_ sender: Any) {
-        let _:String = SearchTextField.text ?? "Jujutso Kaisen"
-        
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "AnimeCell", for: indexPath)
+        let anime = filteredAnime[indexPath.row]
+        cell.textLabel?.text = anime.titleRomaji
+        return cell
     }
-    
-    
-    @IBOutlet weak var SearchTextField: UITextField!
-    @IBOutlet weak var searchContainerView: UIView!
-    
-    @IBOutlet weak var animeResultView: UIView!
-    
-    func tapGesture() {
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped))
-        animeResultView.addGestureRecognizer(tapGesture)
-        animeResultView.isUserInteractionEnabled = true
+
+    // MARK: - UITextField Delegate and Editing Changed Event
+
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        guard let searchText = textField.text else { return }
+
+        // Filter anime based on the search text
+        if searchText.isEmpty {
+            filteredAnime = allAnime // If the search text is empty, show all data
+        } else {
+            filteredAnime = allAnime.filter { $0.titleRomaji.lowercased().contains(searchText.lowercased()) }
+        }
+        tableView.reloadData() // Refresh the table view with the filtered data
     }
-    
-    @objc func viewTapped() {
-        let storyboard = UIStoryboard(name: "AnimeDetailViewController", bundle: nil) // Adjust the storyboard name
-           if let newViewController = storyboard.instantiateViewController(withIdentifier: "AnimeDetailViewController") as? AnimeDetailViewController {
-               navigationController?.pushViewController(newViewController, animated: true)
-           }
-    }
-    
-    func setupUI() {
-        searchContainerView.layer.borderColor = UIColor(red: 241/255, green: 153/255, blue: 141/255, alpha: 1).cgColor
-        searchContainerView.layer.cornerRadius = 24
-        searchContainerView.layer.borderWidth = 2
-        searchContainerView.backgroundColor = .clear
-        
-        SearchTextField.attributedPlaceholder = NSAttributedString(
-            string: "Search",
-            attributes: [NSAttributedString.Key.foregroundColor: UIColor.white]
-        )
-        
-        
-        animeResultView.layer.cornerRadius = 12
-        animeResultView.backgroundColor = UIColor(red: 241/255, green: 153/255, blue: 141/255, alpha: 1)
-        
+
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        // Dismiss the keyboard when the return key is pressed
+        textField.resignFirstResponder()
+        return true
     }
 }

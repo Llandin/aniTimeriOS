@@ -72,7 +72,7 @@ class HomeViewController: UIViewController {
         createAnimelist()
         remainingDaysTableView.register(HomeTableViewCollectionCell.nib(),forCellReuseIdentifier: HomeTableViewCollectionCell.identifier)
         remainingDaysTableView.clipsToBounds = true
-       
+        
     }
 }
 
@@ -107,11 +107,10 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
             let cell = remainingDaysTableView.dequeueReusableCell(withIdentifier:HomeTableViewCell.identifier, for: indexPath) as? HomeTableViewCell
             cell?.setupCell(anime:animeList[indexPath.row])
             
-<<<<<<< HEAD
             func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
                 return animeList.count
             }
-        
+            
             func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
                 
                 let cell = remainingDaysTableView.dequeueReusableCell(withIdentifier:HomeTableViewCell.identifier, for: indexPath) as? HomeTableViewCell
@@ -120,13 +119,12 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
                 
                 return cell ?? UITableViewCell()
             }
-        
+            
             func tableView(_ tableview: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
                 
                 return 120
             }
-
-=======
+            
             cell?.selectionStyle = .none
             
             return cell ?? UITableViewCell()
@@ -135,7 +133,6 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
             let cell2 = remainingDaysTableView.dequeueReusableCell(withIdentifier:HomeTableViewCollectionCell.identifier, for: indexPath) as? HomeTableViewCollectionCell
             return cell2 ?? UITableViewCell()
         }
->>>>>>> main
     }
     
     func tableView(_ tableview: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -144,4 +141,4 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
     
 }
 
-  
+
