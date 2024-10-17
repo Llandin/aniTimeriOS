@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6wx-Rn-Xbq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6wx-Rn-Xbq">
     <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -73,12 +73,22 @@
                                     <action selector="signUpButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Dz6-Ct-QaY"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q9w-tT-DNV">
+                                <rect key="frame" x="20" y="523" width="390" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ene-0F-MDF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="eNs-QG-6UV" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="AgQ-VL-xpX"/>
                             <constraint firstItem="Nr4-dc-p1t" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="EM2-rY-vzu"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="q9w-tT-DNV" secondAttribute="trailing" constant="20" id="KNT-g5-aau"/>
                             <constraint firstItem="8mc-Aq-FTo" firstAttribute="top" secondItem="FGX-uw-uGD" secondAttribute="bottom" constant="25" id="KhW-mS-WdA"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="8mc-Aq-FTo" secondAttribute="trailing" constant="36" id="L2c-Rq-uJ7"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Nr4-dc-p1t" secondAttribute="trailing" constant="40" id="N9m-4G-d2w"/>
@@ -91,12 +101,15 @@
                             <constraint firstItem="7eY-zI-Vcf" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="43" id="a6c-gg-vzU"/>
                             <constraint firstItem="FGX-uw-uGD" firstAttribute="top" secondItem="Nr4-dc-p1t" secondAttribute="bottom" constant="10" id="a9n-gu-YIS"/>
                             <constraint firstItem="x9V-2y-ngv" firstAttribute="top" secondItem="8mc-Aq-FTo" secondAttribute="bottom" constant="18" id="ad5-j9-NHS"/>
+                            <constraint firstItem="q9w-tT-DNV" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="jmO-Ci-bbK"/>
+                            <constraint firstItem="q9w-tT-DNV" firstAttribute="top" secondItem="8mc-Aq-FTo" secondAttribute="bottom" constant="100" id="kRT-eg-S2d"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eNs-QG-6UV" secondAttribute="trailing" constant="40" id="m6k-A5-ORJ"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="rU9-N5-PuI"/>
                     <connections>
                         <outlet property="emailTextField" destination="eNs-QG-6UV" id="KtM-4F-dkG"/>
+                        <outlet property="errorMessage" destination="q9w-tT-DNV" id="YpI-P1-Pwu"/>
                         <outlet property="forgotPasswordButton" destination="FGX-uw-uGD" id="zzs-i6-6Ym"/>
                         <outlet property="loginButton" destination="8mc-Aq-FTo" id="cRr-PY-XeJ"/>
                         <outlet property="passwordTextField" destination="Nr4-dc-p1t" id="bVi-w0-Hno"/>
