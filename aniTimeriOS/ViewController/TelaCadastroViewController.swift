@@ -110,7 +110,10 @@ class TelaCadastroViewController: UIViewController {
         
         
         nameLabelAviso.font = UIFont.boldSystemFont(ofSize: 20)
+        nameLabelAviso.font = UIFont(name: "Menlo", size:13)!
+        nameLabelAviso.textColor =  .systemPink
         nameLabelAviso.text = ""
+        
         
     }
     
