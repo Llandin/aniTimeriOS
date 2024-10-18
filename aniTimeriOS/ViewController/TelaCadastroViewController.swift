@@ -21,6 +21,7 @@ class TelaCadastroViewController: UIViewController {
     
     @IBOutlet weak var appendCadastrarButton: UIButton!
     
+    @IBOutlet weak var nameLabelAviso: UILabel!
     
     
     override func viewDidLoad() {
@@ -32,7 +33,7 @@ class TelaCadastroViewController: UIViewController {
         tenhoConta(conta: tenhoContaLabel)
         configButton()
         configSenha(isSecure: true, confirmarSenha: true	)
-        
+        avisoLabel()
         
     }
     
@@ -93,24 +94,65 @@ class TelaCadastroViewController: UIViewController {
         
     }
     
-    
+    func avisoLabel(){
+        
+        
+        nameLabelAviso.font = UIFont.boldSystemFont(ofSize: 20)
+        nameLabelAviso.text = ""
+        
+    }
     
     @IBAction func apeendCadastroButton(_ sender: UIButton) {
         
         // Verifique se os campos de email e senha estão preenchidos
-            guard let email = emailTextFiel.text, !email.isEmpty,
-                  let senha = senhaTextFiel.text, !senha.isEmpty,
-                  let confirmarSenha = configSenhaTextFiel.text, !confirmarSenha.isEmpty else {
-                print("Erro: Por favor, preencha todos os campos.")
-                return
+        guard let email = emailTextFiel.text, !email.isEmpty,
+              let senha = senhaTextFiel.text, !senha.isEmpty,
+              let confirmarSenha = configSenhaTextFiel.text, !confirmarSenha.isEmpty else {
+            
+           
+                
+                if senhaTextFiel.text == configSenhaTextFiel.text {
+                    
+                    senhaTextFiel.layer.borderColor = UIColor.green.cgColor
+                    configSenhaTextFiel.layer.borderColor = UIColor.green.cgColor
+                    senhaTextFiel.layer.borderWidth = 1.8
+                    configSenhaTextFiel.layer.borderWidth = 1.8
+                    nameLabelAviso.text = "Senha estão iguais"
+                    nameLabelAviso.textColor = .green
+                    
+                } else if senhaTextFiel.text != configSenhaTextFiel.text {
+                    
+                    senhaTextFiel.layer.borderColor = UIColor.red.cgColor
+                    configSenhaTextFiel.layer.borderColor = UIColor.red.cgColor
+                    senhaTextFiel.layer.borderWidth = 1.8
+                    configSenhaTextFiel.layer.borderWidth = 1.8
+                    nameLabelAviso.text = "Senhas não estão iguais"
+                    nameLabelAviso.textColor = .red
+                    
+                }
+                
+                if nameTextField.text?.isEmpty == true && emailTextFiel.text?.isEmpty == true && senhaTextFiel.text?.isEmpty == true && configSenhaTextFiel.text?.isEmpty == true {
+                    
+                    nameTextField.layer.borderColor = UIColor.red.cgColor
+                    emailTextFiel.layer.borderColor = UIColor.red.cgColor
+                    senhaTextFiel.layer.borderColor = UIColor.red.cgColor
+                    configSenhaTextFiel.layer.borderColor = UIColor.red.cgColor
+                    nameTextField.layer.borderWidth = 1.8
+                    emailTextFiel.layer.borderWidth = 1.8
+                    senhaTextFiel.layer.borderWidth = 1.8
+                    configSenhaTextFiel.layer.borderWidth = 1.8
+                    nameLabelAviso.text = "Campos não preenchidos"
+                    nameLabelAviso.textColor = .red
+                }
+            return
             }
-
-            // Verifique se as senhas coincidem
-            guard senha == confirmarSenha else {
-                print("Erro: As senhas não coincidem.")
-                return
-            }
-
+            
+           
+        
+            
+            
+            
+            
             // Iniciar o processo de cadastro com Firebase Authentication
             Auth.auth().createUser(withEmail: email, password: senha) { authResult, error in
                 if let error = error {
@@ -123,6 +165,7 @@ class TelaCadastroViewController: UIViewController {
                     self.navigationController?.popToRootViewController(animated: true)
                 }
             }
-        
+            
+        }
     }
-}
+
