@@ -35,6 +35,11 @@ class TelaCadastroViewController: UIViewController {
         configSenha(isSecure: true, confirmarSenha: true	)
         avisoLabel()
         
+        
+        nameTextField.delegate = self
+        emailTextFiel.delegate = self
+        senhaTextFiel.delegate = self
+        configSenhaTextFiel.delegate = self
     }
     
     func setupTelaCadastro(){
@@ -91,7 +96,14 @@ class TelaCadastroViewController: UIViewController {
         
         appendCadastrarButton.setTitle("Cadastrar", for: .normal)
         
-        
+    }
+    
+    func isAbleToRegistry() -> Bool{
+        if mandatoryFieldsdFilled() == true && isPasswordsEqual() == true{
+            return true
+        }else{
+            return false
+        }
     }
     
     func avisoLabel(){
@@ -104,68 +116,102 @@ class TelaCadastroViewController: UIViewController {
     
     @IBAction func apeendCadastroButton(_ sender: UIButton) {
         
-        // Verifique se os campos de email e senha estão preenchidos
-        guard let email = emailTextFiel.text, !email.isEmpty,
-              let senha = senhaTextFiel.text, !senha.isEmpty,
-              let confirmarSenha = configSenhaTextFiel.text, !confirmarSenha.isEmpty else {
+        if isAbleToRegistry() == true{
+            let email = emailTextFiel.text!
+            let senha = senhaTextFiel.text!
             
-           
-                
-                if senhaTextFiel.text == configSenhaTextFiel.text {
-                    
-                    senhaTextFiel.layer.borderColor = UIColor.green.cgColor
-                    configSenhaTextFiel.layer.borderColor = UIColor.green.cgColor
-                    senhaTextFiel.layer.borderWidth = 1.8
-                    configSenhaTextFiel.layer.borderWidth = 1.8
-                    nameLabelAviso.text = "Senha estão iguais"
-                    nameLabelAviso.textColor = .green
-                    
-                } else if senhaTextFiel.text != configSenhaTextFiel.text {
-                    
-                    senhaTextFiel.layer.borderColor = UIColor.red.cgColor
-                    configSenhaTextFiel.layer.borderColor = UIColor.red.cgColor
-                    senhaTextFiel.layer.borderWidth = 1.8
-                    configSenhaTextFiel.layer.borderWidth = 1.8
-                    nameLabelAviso.text = "Senhas não estão iguais"
-                    nameLabelAviso.textColor = .red
-                    
-                }
-                
-                if nameTextField.text?.isEmpty == true && emailTextFiel.text?.isEmpty == true && senhaTextFiel.text?.isEmpty == true && configSenhaTextFiel.text?.isEmpty == true {
-                    
-                    nameTextField.layer.borderColor = UIColor.red.cgColor
-                    emailTextFiel.layer.borderColor = UIColor.red.cgColor
-                    senhaTextFiel.layer.borderColor = UIColor.red.cgColor
-                    configSenhaTextFiel.layer.borderColor = UIColor.red.cgColor
-                    nameTextField.layer.borderWidth = 1.8
-                    emailTextFiel.layer.borderWidth = 1.8
-                    senhaTextFiel.layer.borderWidth = 1.8
-                    configSenhaTextFiel.layer.borderWidth = 1.8
-                    nameLabelAviso.text = "Campos não preenchidos"
-                    nameLabelAviso.textColor = .red
-                }
-            return
-            }
-            
-           
-        
-            
-            
-            
-            
-            // Iniciar o processo de cadastro com Firebase Authentication
             Auth.auth().createUser(withEmail: email, password: senha) { authResult, error in
                 if let error = error {
-                    // Se houve um erro, exibir a mensagem no console
-                    print("Erro ao cadastrar usuário: \(error.localizedDescription)")
+                    if error.localizedDescription == "The email address is already in use by another account."{
+                        self.nameLabelAviso.text = "Email já cadastrado em nosso app! Recupere sua senha para logar"
+                    }else{
+                        self.nameLabelAviso.text = "Erro ao cadastrar o usuário, confira os dados e tente novamente."
+                        print("Erro ao cadastrar usuário: \(error.localizedDescription)")
+                    }
                 } else {
                     // Sucesso ao criar o usuário, exibir no console
+                    self.nameLabelAviso.text = "Usuário cadastrado com sucesso!"
                     print("Usuário cadastrado com sucesso! ID: \(authResult?.user.uid ?? "Sem ID")")
                     // Navegar para a tela de login
                     self.navigationController?.popToRootViewController(animated: true)
                 }
             }
-            
         }
     }
+    
+    func mandatoryFieldsdFilled()-> Bool{
+        let fields = [
+            ("nome", nameTextField.text),
+            ("email", emailTextFiel.text),
+            ("senha", senhaTextFiel.text),
+            ("confirmacaoSenha", configSenhaTextFiel.text)
+        ]
+        
+        for (_,text) in fields {
+            switch text {
+            case .none, "":
+                nameLabelAviso.text = "Favor preencher todos os campos acima"
+                return false
+            default:
+                continue
+            }
+        }
+        return true
+    }
+    
+    func isPasswordsEqual() -> Bool{
+        let password = senhaTextFiel?.text
+        let confirmationPassword = configSenhaTextFiel?.text
+        
+        if password == confirmationPassword{
+            return true
+        }else{
+            nameLabelAviso.text = "Senhas não coicidem."
+            return false
+        }
+    }
+    
+    func validateEmail(_ email: String) {
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let isValid = NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: email)
+        
+        if isValid{
+            emailTextFiel.layer.borderColor = UIColor.green.cgColor
+            emailTextFiel.layer.borderWidth = 2.0
+            nameLabelAviso.text = " "
+        } else {
+            emailTextFiel.layer.borderColor = UIColor.red.cgColor
+            nameLabelAviso.text = "Formato de email inválido"
+            emailTextFiel.layer.borderWidth = 2.0
+        }
+    }
+    
+    func validatePassword(_ password: String) {
+        if password.count >= 6 {
+            senhaTextFiel.layer.borderColor = UIColor.green.cgColor
+            senhaTextFiel.layer.borderWidth = 2.0
+            nameLabelAviso.text = " "
+        } else {
+            senhaTextFiel.layer.borderColor = UIColor.red.cgColor
+            nameLabelAviso.text = "Senha deve conter o mínimo de 6 caracteres!"
+            senhaTextFiel.layer.borderWidth = 2.0
+        }
+    }
+    
+}
 
+extension TelaCadastroViewController: UITextFieldDelegate{
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let currentText = textField.text ?? ""
+        
+        guard let stringRange = Range(range, in: currentText) else { return false }
+        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+        
+        if textField == emailTextFiel {
+            validateEmail(updatedText)
+        } else if textField == senhaTextFiel {
+            validatePassword(updatedText)
+        }
+        return true
+    }
+}
