@@ -14,6 +14,8 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     let pageTitle:String = "ANITIMER"
     let background:UIColor = UIColor(red: 0.1176, green: 0.1176, blue: 0.1176, alpha: 1)
+    let categories = AnimeCategory.allCases
+    var categorizedAnimes: [AnimeCategory: [MockAnimeData]] = [:]
     
     @IBAction func favoriteBtnTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "FavoriteView", bundle: nil) // Adjust the storyboard name
@@ -23,18 +25,23 @@ class HomeViewController: UIViewController {
     }
     
     
-    var animeList: [Anime] = []
+    var listAllanimesmock: [MockAnimeData] = mockAnimeList
     var sec:[String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.hidesBackButton = true
-        
         createSec()
         setBackgroundColor()
         configLabels(label: titleLabel, title: pageTitle, color: UIColor(red: 255/255, green: 146/255, blue: 139/255, alpha: 1.0))
         configTableView()
+       
+    }
+    
+    func getTopThreeFavoriteAnimes(animeList: [MockAnimeData]) -> [MockAnimeData] {
+        let favoriteAnimes = animeList.filter { $0.isFavorite }
+        return Array(favoriteAnimes.prefix(3))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,16 +50,9 @@ class HomeViewController: UIViewController {
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-    
-    private func createAnimelist(){
-        animeList.append(Anime(remainingDays: 7, image: "anime1.jpg"))
-        animeList.append(Anime(remainingDays: 6, image: "anime2.jpg"))
-        animeList.append(Anime(remainingDays: 29, image: "anime3.png"))
-    }
-    
     private func createSec(){
-        sec.append("    ")
-        sec.append("    ")
+        sec.append("Favoritos")
+        sec.append("Catalogo")
     }
     
     private func setBackgroundColor(){
@@ -69,7 +69,6 @@ class HomeViewController: UIViewController {
         remainingDaysTableView.delegate = self
         remainingDaysTableView.dataSource = self
         remainingDaysTableView.register(HomeTableViewCell.nib(), forCellReuseIdentifier: HomeTableViewCell.identifier)
-        createAnimelist()
         remainingDaysTableView.register(HomeTableViewCollectionCell.nib(),forCellReuseIdentifier: HomeTableViewCollectionCell.identifier)
         remainingDaysTableView.clipsToBounds = true
        
@@ -82,8 +81,6 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
-        tableView.backgroundColor = UIColor(red: 0.1176, green: 0.1176, blue: 0.1176, alpha: 1)
         return sec[section]
         
     }
@@ -98,48 +95,55 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return animeList.count
+        if section == 0{
+            return 3
+        }
+        else{
+            return categories.count
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
+        let topThreeFavorites = getTopThreeFavoriteAnimes(animeList: mockAnimeList)
         if indexPath.section == 0 {
             let cell = remainingDaysTableView.dequeueReusableCell(withIdentifier:HomeTableViewCell.identifier, for: indexPath) as? HomeTableViewCell
-            cell?.setupCell(anime:animeList[indexPath.row])
             
-//<<<<<<< HEAD
+            cell?.setupCell(anime:topThreeFavorites[indexPath.row])
+            
             func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-                return animeList.count
+                return topThreeFavorites.count
             }
-        
+            
             func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
                 
                 let cell = remainingDaysTableView.dequeueReusableCell(withIdentifier:HomeTableViewCell.identifier, for: indexPath) as? HomeTableViewCell
-                cell?.setupCell(anime:animeList[indexPath.row])
+                cell?.setupCell(anime:mockAnimeList[indexPath.row])
                 
                 
                 return cell ?? UITableViewCell()
             }
-        
+            
             func tableView(_ tableview: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
                 
                 return 120
             }
-
-//=======
+            
             cell?.selectionStyle = .none
             
             return cell ?? UITableViewCell()
-            
         }else{
             let cell2 = remainingDaysTableView.dequeueReusableCell(withIdentifier:HomeTableViewCollectionCell.identifier, for: indexPath) as? HomeTableViewCollectionCell
+            cell2?.setupCellTableView(categoryNameLabel: "Category", listImages: listAllanimesmock)
+            
             return cell2 ?? UITableViewCell()
         }
-//>>>>>>> main
+    
     }
     
-    func tableView(_ tableview: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 150
     }
 }
+
 

@@ -23,7 +23,6 @@ class FavoriteTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
     
     func configLabels(label:UILabel,text: String, color: UIColor, aligment: NSTextAlignment,fonte: UIFont? = nil ){

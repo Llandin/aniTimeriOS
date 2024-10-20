@@ -30,8 +30,8 @@
             filePath = "aniTimeriOS/Cells/CellTableView/FavoriteTableViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
             landmarkName = "setupCell(anime:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -119,22 +119,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "471CAECD-C14C-4177-AEC6-9A7DFCE20D8F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "aniTimeriOS/Cells/CellTableView/HomeTableViewCollectionCell.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
-            landmarkName = "collectionView(_:cellForItemAt:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "084B55F8-E980-472B-9A67-AD27172103CD"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -142,10 +126,10 @@
             filePath = "aniTimeriOS/Cells/CellTableView/HomeTableViewCollectionCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
-            landmarkName = "collectionView(_:numberOfItemsInSection:)"
-            landmarkType = "7">
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "unknown"
+            landmarkType = "0">
             <Locations>
                <Location
                   uuid = "084B55F8-E980-472B-9A67-AD27172103CD - fa8dcd620d5bc599"
@@ -190,10 +174,10 @@
             filePath = "aniTimeriOS/Cells/CellTableView/HomeTableViewCollectionCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "65"
-            endingLineNumber = "65"
-            landmarkName = "collectionView(_:numberOfItemsInSection:)"
-            landmarkType = "7">
+            startingLineNumber = "62"
+            endingLineNumber = "62"
+            landmarkName = "HomeTableViewCollectionCell"
+            landmarkType = "21">
             <Locations>
                <Location
                   uuid = "E3D842C4-5DA7-4724-B551-F1964ADDCD82 - fa8dcd620d5bc599"
@@ -224,6 +208,162 @@
                   startingLineNumber = "63"
                   endingLineNumber = "63"
                   offsetFromSymbolStart = "40">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "384A4130-FC5E-40BA-903D-41652AE7B57A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "aniTimeriOS/Cells/CellTableView/HomeTableViewCollectionCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "12"
+            endingLineNumber = "12"
+            landmarkName = "HomeTableViewCollectionCell"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "384A4130-FC5E-40BA-903D-41652AE7B57A - 20e0808251a69c0f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aniTimeriOS.HomeTableViewCollectionCell.categorizedAnimes.getter : Swift.Dictionary&lt;aniTimeriOS.AnimeCategory, Swift.Array&lt;aniTimeriOS.MockAnimeData&gt;&gt;"
+                  moduleName = "aniTimeriOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lahlandin/Documents/FinalProject/aniTimeriOS/aniTimeriOS/Cells/CellTableView/HomeTableViewCollectionCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "384A4130-FC5E-40BA-903D-41652AE7B57A - 20e0808251a69283"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aniTimeriOS.HomeTableViewCollectionCell.categorizedAnimes.setter : Swift.Dictionary&lt;aniTimeriOS.AnimeCategory, Swift.Array&lt;aniTimeriOS.MockAnimeData&gt;&gt;"
+                  moduleName = "aniTimeriOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lahlandin/Documents/FinalProject/aniTimeriOS/aniTimeriOS/Cells/CellTableView/HomeTableViewCollectionCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "384A4130-FC5E-40BA-903D-41652AE7B57A - fec47b69878fa2b8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aniTimeriOS.HomeTableViewCollectionCell.categorizedAnimes.modify : Swift.Dictionary&lt;aniTimeriOS.AnimeCategory, Swift.Array&lt;aniTimeriOS.MockAnimeData&gt;&gt;"
+                  moduleName = "aniTimeriOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lahlandin/Documents/FinalProject/aniTimeriOS/aniTimeriOS/Cells/CellTableView/HomeTableViewCollectionCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "384A4130-FC5E-40BA-903D-41652AE7B57A - ba78d22f51ac4372"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aniTimeriOS.HomeTableViewCollectionCell.categorizedAnimes.modify : Swift.Dictionary&lt;aniTimeriOS.AnimeCategory, Swift.Array&lt;aniTimeriOS.MockAnimeData&gt;&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "aniTimeriOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lahlandin/Documents/FinalProject/aniTimeriOS/%3Ccompiler-generated%3E"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  uuid = "384A4130-FC5E-40BA-903D-41652AE7B57A - e971c555e54d784"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aniTimeriOS.HomeTableViewCollectionCell.init(style: __C.UITableViewCellStyle, reuseIdentifier: Swift.Optional&lt;Swift.String&gt;) -&gt; aniTimeriOS.HomeTableViewCollectionCell"
+                  moduleName = "aniTimeriOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lahlandin/Documents/FinalProject/aniTimeriOS/aniTimeriOS/Cells/CellTableView/HomeTableViewCollectionCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "384A4130-FC5E-40BA-903D-41652AE7B57A - a8c9fa2ab52e115"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aniTimeriOS.HomeTableViewCollectionCell.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;aniTimeriOS.HomeTableViewCollectionCell&gt;"
+                  moduleName = "aniTimeriOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lahlandin/Documents/FinalProject/aniTimeriOS/aniTimeriOS/Cells/CellTableView/HomeTableViewCollectionCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "12"
+                  endingLineNumber = "12"
+                  offsetFromSymbolStart = "84">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FA4054EC-1DC0-486F-87E8-B528B37710DB"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "aniTimeriOS/ViewController/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "FA4054EC-1DC0-486F-87E8-B528B37710DB - ccc76ba86d066fbe"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aniTimeriOS.HomeViewController.tableView(_: __C.UITableView, numberOfRowsInSection: Swift.Int) -&gt; Swift.Int"
+                  moduleName = "aniTimeriOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lahlandin/Documents/FinalProject/aniTimeriOS/aniTimeriOS/ViewController/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "118"
+                  endingLineNumber = "118"
+                  offsetFromSymbolStart = "140">
+               </Location>
+               <Location
+                  uuid = "FA4054EC-1DC0-486F-87E8-B528B37710DB - ccc76ba86d066f70"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aniTimeriOS.HomeViewController.tableView(_: __C.UITableView, numberOfRowsInSection: Swift.Int) -&gt; Swift.Int"
+                  moduleName = "aniTimeriOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lahlandin/Documents/FinalProject/aniTimeriOS/aniTimeriOS/ViewController/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "120"
+                  endingLineNumber = "120"
+                  offsetFromSymbolStart = "140">
                </Location>
             </Locations>
          </BreakpointContent>

@@ -22,8 +22,8 @@ class HomeCollectionViewCell: UICollectionViewCell {
         arendodarCell()
     }
     
-    func setupCellCollectionView(anime: Anime){
-        animeCatalogItemImage.image = UIImage(named: anime.image)
+    func setupCellCollectionView(animeImage: String){
+        animeCatalogItemImage.image = UIImage(named: animeImage)
     }
     
     func arendodarCell(){

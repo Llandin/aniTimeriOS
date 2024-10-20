@@ -19,6 +19,7 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var fixedLabel: UILabel!
     @IBOutlet weak var remainingDayslabel: UILabel!
     @IBOutlet weak var fixedlabel2: UILabel!
+    @IBOutlet var imageImg: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -36,7 +37,7 @@ class HomeTableViewCell: UITableViewCell {
        
     }
     
-    public func setupCell(anime: Anime) {
+    public func setupCell(anime: MockAnimeData) {
         
 
         configLabels(label: fixedLabel, text: "Faltam", color: .white, aligment: .center,fonte: UIFont(name: "Helvetica Neue", size: 16)! )
@@ -46,9 +47,9 @@ class HomeTableViewCell: UITableViewCell {
         
         configLabels(label: remainingDayslabel, text: String("\(anime.remainingDays)"),color: .white, aligment: .center, fonte: UIFont(name:"Futura", size: 30.0))
         
-        backgroundView = UIImageView(image: UIImage(named: "\(anime.image)")!)
-        
-        
+       
+        imageImg.image = UIImage(named:anime.image)
+        imageImg.contentMode = .scaleAspectFit
     }
 
     
