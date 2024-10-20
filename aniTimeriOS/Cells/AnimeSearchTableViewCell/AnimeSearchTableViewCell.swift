@@ -33,8 +33,8 @@ class AnimeSearchTableViewCell: UITableViewCell {
     @IBOutlet weak var episodesLabel: UILabel?
 
     func configure(with anime: MockAnimeData) {
-        titleLabel?.text = anime.title?.english ?? "nada"
-        descriptionLabel?.text = anime.genres?.joined(separator: ", ") ?? "nada"
+        titleLabel?.text = anime.title?.english ?? "nothing"
+        descriptionLabel?.text = anime.genres?.joined(separator: ", ") ?? "nothing"
         episodesLabel?.text = "\(anime.episodes ?? 0) episodes"
         // Configure the image
         if let localImageName = anime.localCoverImage {
