@@ -21,6 +21,7 @@ class TelaCadastroViewController: UIViewController {
     
     @IBOutlet weak var appendCadastrarButton: UIButton!
     
+    @IBOutlet weak var nameLabelAviso: UILabel!
     
     
     override func viewDidLoad() {
@@ -32,8 +33,13 @@ class TelaCadastroViewController: UIViewController {
         tenhoConta(conta: tenhoContaLabel)
         configButton()
         configSenha(isSecure: true, confirmarSenha: true	)
+        avisoLabel()
         
         
+        nameTextField.delegate = self
+        emailTextFiel.delegate = self
+        senhaTextFiel.delegate = self
+        configSenhaTextFiel.delegate = self
     }
     
     func setupTelaCadastro(){
@@ -90,39 +96,125 @@ class TelaCadastroViewController: UIViewController {
         
         appendCadastrarButton.setTitle("Cadastrar", for: .normal)
         
+    }
+    
+    func isAbleToRegistry() -> Bool{
+        if mandatoryFieldsdFilled() == true && isPasswordsEqual() == true{
+            return true
+        }else{
+            return false
+        }
+    }
+    
+    func avisoLabel(){
+        
+        
+        nameLabelAviso.font = UIFont.boldSystemFont(ofSize: 20)
+        nameLabelAviso.font = UIFont(name: "Menlo", size:13)!
+        nameLabelAviso.textColor =  .systemPink
+        nameLabelAviso.text = ""
+        
         
     }
     
-    
-    
     @IBAction func apeendCadastroButton(_ sender: UIButton) {
         
-        // Verifique se os campos de email e senha estão preenchidos
-            guard let email = emailTextFiel.text, !email.isEmpty,
-                  let senha = senhaTextFiel.text, !senha.isEmpty,
-                  let confirmarSenha = configSenhaTextFiel.text, !confirmarSenha.isEmpty else {
-                print("Erro: Por favor, preencha todos os campos.")
-                return
-            }
-
-            // Verifique se as senhas coincidem
-            guard senha == confirmarSenha else {
-                print("Erro: As senhas não coincidem.")
-                return
-            }
-
-            // Iniciar o processo de cadastro com Firebase Authentication
+        if isAbleToRegistry() == true{
+            let email = emailTextFiel.text!
+            let senha = senhaTextFiel.text!
+            
             Auth.auth().createUser(withEmail: email, password: senha) { authResult, error in
                 if let error = error {
-                    // Se houve um erro, exibir a mensagem no console
-                    print("Erro ao cadastrar usuário: \(error.localizedDescription)")
+                    if error.localizedDescription == "The email address is already in use by another account."{
+                        self.nameLabelAviso.text = "Email já cadastrado em nosso app! Recupere sua senha para logar"
+                    }else{
+                        self.nameLabelAviso.text = "Erro ao cadastrar o usuário, confira os dados e tente novamente."
+                        print("Erro ao cadastrar usuário: \(error.localizedDescription)")
+                    }
                 } else {
                     // Sucesso ao criar o usuário, exibir no console
+                    self.nameLabelAviso.text = "Usuário cadastrado com sucesso!"
                     print("Usuário cadastrado com sucesso! ID: \(authResult?.user.uid ?? "Sem ID")")
                     // Navegar para a tela de login
                     self.navigationController?.popToRootViewController(animated: true)
                 }
             }
+        }
+    }
+    
+    func mandatoryFieldsdFilled()-> Bool{
+        let fields = [
+            ("nome", nameTextField.text),
+            ("email", emailTextFiel.text),
+            ("senha", senhaTextFiel.text),
+            ("confirmacaoSenha", configSenhaTextFiel.text)
+        ]
         
+        for (_,text) in fields {
+            switch text {
+            case .none, "":
+                nameLabelAviso.text = "Favor preencher todos os campos acima"
+                return false
+            default:
+                continue
+            }
+        }
+        return true
+    }
+    
+    func isPasswordsEqual() -> Bool{
+        let password = senhaTextFiel?.text
+        let confirmationPassword = configSenhaTextFiel?.text
+        
+        if password == confirmationPassword{
+            return true
+        }else{
+            nameLabelAviso.text = "Senhas não coicidem."
+            return false
+        }
+    }
+    
+    func validateEmail(_ email: String) {
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+        let isValid = NSPredicate(format: "SELF MATCHES %@", emailRegex).evaluate(with: email)
+        
+        if isValid{
+            emailTextFiel.layer.borderColor = UIColor.green.cgColor
+            emailTextFiel.layer.borderWidth = 2.0
+            nameLabelAviso.text = " "
+        } else {
+            emailTextFiel.layer.borderColor = UIColor.red.cgColor
+            nameLabelAviso.text = "Formato de email inválido"
+            emailTextFiel.layer.borderWidth = 2.0
+        }
+    }
+    
+    func validatePassword(_ password: String) {
+        if password.count >= 6 {
+            senhaTextFiel.layer.borderColor = UIColor.green.cgColor
+            senhaTextFiel.layer.borderWidth = 2.0
+            nameLabelAviso.text = " "
+        } else {
+            senhaTextFiel.layer.borderColor = UIColor.red.cgColor
+            nameLabelAviso.text = "Senha deve conter o mínimo de 6 caracteres!"
+            senhaTextFiel.layer.borderWidth = 2.0
+        }
+    }
+    
+}
+
+extension TelaCadastroViewController: UITextFieldDelegate{
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let currentText = textField.text ?? ""
+        
+        guard let stringRange = Range(range, in: currentText) else { return false }
+        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+        
+        if textField == emailTextFiel {
+            validateEmail(updatedText)
+        } else if textField == senhaTextFiel {
+            validatePassword(updatedText)
+        }
+        return true
     }
 }

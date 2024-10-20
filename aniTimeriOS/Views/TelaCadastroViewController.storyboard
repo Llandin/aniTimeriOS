@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -73,13 +74,21 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFH-wP-7SF">
+                                <rect key="frame" x="194" y="602" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="NFc-9l-1Mh" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="1wc-KF-KII"/>
+                            <constraint firstItem="NFH-wP-7SF" firstAttribute="top" secondItem="LdB-Nw-d46" secondAttribute="bottom" constant="70" id="7HU-Uw-EKh"/>
                             <constraint firstItem="pgn-8A-KMg" firstAttribute="top" secondItem="ARe-eJ-dpd" secondAttribute="bottom" constant="19" id="8Vg-3B-4cB"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ARe-eJ-dpd" secondAttribute="trailing" constant="40" id="CIm-5C-gcw"/>
+                            <constraint firstItem="NFH-wP-7SF" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Emh-Nx-em2"/>
                             <constraint firstItem="NFc-9l-1Mh" firstAttribute="top" secondItem="sa7-zB-xWq" secondAttribute="bottom" constant="40" id="U3Y-im-hIm"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="NFc-9l-1Mh" secondAttribute="trailing" constant="40" id="Vmm-sA-lW4"/>
                             <constraint firstItem="vj8-hP-sb8" firstAttribute="top" secondItem="pgn-8A-KMg" secondAttribute="bottom" constant="19" id="Zkn-oZ-gJ5"/>
@@ -102,6 +111,7 @@
                         <outlet property="appendCadastrarButton" destination="LdB-Nw-d46" id="tPE-2g-HMX"/>
                         <outlet property="configSenhaTextFiel" destination="vj8-hP-sb8" id="FbU-T3-9U4"/>
                         <outlet property="emailTextFiel" destination="ARe-eJ-dpd" id="rdV-oN-sAU"/>
+                        <outlet property="nameLabelAviso" destination="NFH-wP-7SF" id="bCy-bD-KGE"/>
                         <outlet property="nameTextField" destination="NFc-9l-1Mh" id="OFX-g4-1PR"/>
                         <outlet property="registroLabel" destination="sa7-zB-xWq" id="2gX-OD-wap"/>
                         <outlet property="senhaTextFiel" destination="pgn-8A-KMg" id="UTC-QN-UKZ"/>
