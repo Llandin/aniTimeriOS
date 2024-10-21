@@ -8,13 +8,13 @@
 import UIKit
 
 class HomeTableViewCollectionCell: UITableViewCell {
-    
-    var categorizedAnimes: [AnimeCategory: [MockAnimeData]] = [:]
-    let categories = AnimeCategory.allCases
+
+  //  let categories = AnimeCategory.allCases
     
     var animes: [MockAnimeData] = []
     
     static let identifier:String = String(describing: HomeTableViewCollectionCell.self)
+    let pinkColor = UIColor(red: 255/255, green: 146/255, blue: 139/255, alpha: 1.0)
     
     
     static func nib() -> UINib {
@@ -30,6 +30,7 @@ class HomeTableViewCollectionCell: UITableViewCell {
         super.awakeFromNib()
         configCatalogCollectionView()
     }
+
     
 
     func configCatalogCollectionView(){
@@ -46,22 +47,27 @@ class HomeTableViewCollectionCell: UITableViewCell {
         }
     }
     
+    func configLabel(label:UILabel,font:UIFont, color:UIColor){
+        label.font = font
+        label.textColor = color
+    }
+    
     func CATransform3DMakePerspective() -> CATransform3D {
         var perspective = CATransform3DIdentity
         perspective.m34 = -1.0 / 500 // Ajuste para profundidade
         return perspective
     }
     
-    func setupCellTableView(categoryNameLabel: String, listImages:[MockAnimeData]){
-        self.categoryNameLabel.text = categoryNameLabel
-        self.animes = listImages
+    func setupCellTableView(categoryAnimes: [MockAnimeData]) {
+        self.animes = categoryAnimes
+        catalogCollectionView.reloadData()
     }
     
 }
 
 extension HomeTableViewCollectionCell: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.animes.count
+        return animes.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -69,8 +75,19 @@ extension HomeTableViewCollectionCell: UICollectionViewDelegate, UICollectionVie
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.identifier,
         for: indexPath) as? HomeCollectionViewCell
         
-        cell?.setupCellCollectionView(animeImage: animes[indexPath.row].image)
+        configLabel(label: categoryNameLabel, font:UIFont(name: "Courier New", size:18)!,color:pinkColor)
         
+        categoryNameLabel.text = animes[indexPath.row].category.rawValue
+        
+        
+        
+        cell?.setupCellCollectionView(animeImage: animes[indexPath.item].image)
+        
+        let perspective = CATransform3DMakePerspective()
+        let scaleTransform = CATransform3DScale(perspective, 0.9, 0.9, 1.0)
+        cell?.layer.transform = scaleTransform
+
+
         return cell ?? UICollectionViewCell()
     }
 

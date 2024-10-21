@@ -8,9 +8,6 @@
 import Foundation
 
 struct Anime{
-    
     var remainingDays: Int
     var image: String
-    
-    
 }
