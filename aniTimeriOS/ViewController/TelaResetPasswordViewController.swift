@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+
 
 class TelaResetPasswordViewController: UIViewController {
     
@@ -62,12 +64,43 @@ class TelaResetPasswordViewController: UIViewController {
 
     }
     
+    
+    
     func cofigButton(resetPassButton:UIButton, title:String,tintColor:UIColor){
         resetPassButton.setTitle(title, for: .normal)
         resetPassButton.tintColor = tintColor
         resetPassButton.layer.cornerRadius = 15
         
     }
+    
+ 
+    @IBAction func recoverPasswordTapped(_ sender: Any) {
+        guard let email = emailTextField.text, !email.isEmpty else {
+            textForUserLabel.text = "Por favor, insira seu email."
+                   return
+    }
+        Auth.auth().sendPasswordReset(withEmail: email) { error in
+                    if let error = error {
+                        if let authError = error as NSError? {
+                            switch AuthErrorCode(rawValue: authError.code) {
+                            case .userNotFound:
+                                self.textForUserLabel.text = "Se o email estiver registrado, um email de recuperação será enviado."
+                                self.textForUserLabel.textColor = .white
+                            case .invalidEmail:
+                                self.textForUserLabel.text = "Email inválido. Por favor, insira um email válido."
+                                self.textForUserLabel.textColor = .red
+                            default:
+                                self.textForUserLabel.text = error.localizedDescription
+                                self.textForUserLabel.textColor = .red
+                            }
+                        }
+                    } else {
+                        self.textForUserLabel.text = "Email de recuperação enviado!"
+                        self.textForUserLabel.textColor = self.pinkColor
+                    }
+                }
+    }
+    
     
     private func setBackgroundColor(){
         view.backgroundColor = backgroundColor
@@ -85,5 +118,7 @@ extension UITextField {
         leftViewMode = .always
         
     }
+    
+    
 }
 

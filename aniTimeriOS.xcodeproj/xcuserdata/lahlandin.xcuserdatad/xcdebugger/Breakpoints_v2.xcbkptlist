@@ -611,7 +611,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "40DC507B-2BD0-4715-896B-C10A6D78B899"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "aniTimeriOS/ViewController/FavoriteViewController.swift"
@@ -620,6 +620,86 @@
             startingLineNumber = "30"
             endingLineNumber = "30"
             landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "804A44E5-AEF2-488F-B84E-7FAA6CFC35A5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "aniTimeriOS/ViewController/TelaResetPasswordViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "recoverPasswordTapped(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "804A44E5-AEF2-488F-B84E-7FAA6CFC35A5 - d940e38e77698ed2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aniTimeriOS.TelaResetPasswordViewController.recoverPasswordTapped(Any) -&gt; ()"
+                  moduleName = "aniTimeriOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lahlandin/Documents/FinalProject/aniTimeriOS/aniTimeriOS/ViewController/TelaResetPasswordViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "804A44E5-AEF2-488F-B84E-7FAA6CFC35A5 - d940e38e77698ed2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aniTimeriOS.TelaResetPasswordViewController.recoverPasswordTapped(Any) -&gt; ()"
+                  moduleName = "aniTimeriOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lahlandin/Documents/FinalProject/aniTimeriOS/aniTimeriOS/ViewController/TelaResetPasswordViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
+                  offsetFromSymbolStart = "472">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4C16B59C-3FB9-4AD5-85B6-B3244DB8CB2B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "aniTimeriOS/ViewController/TelaResetPasswordViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EE3468AC-B3A7-4003-8217-087B4F872D1A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "aniTimeriOS/ViewController/TelaResetPasswordViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
