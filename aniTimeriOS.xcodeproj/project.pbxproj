@@ -24,6 +24,9 @@
 		05725A4E2C963C17007A7FF0 /* HomeTableViewCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05725A4C2C963C17007A7FF0 /* HomeTableViewCollectionCell.xib */; };
 		05725A512C96408E007A7FF0 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05725A4F2C96408E007A7FF0 /* HomeCollectionViewCell.swift */; };
 		05725A522C96408E007A7FF0 /* HomeCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05725A502C96408E007A7FF0 /* HomeCollectionViewCell.xib */; };
+		0579548C2CC5C0DE0087B970 /* HomeEmptyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0579548A2CC5C0DE0087B970 /* HomeEmptyTableViewCell.swift */; };
+		0579548D2CC5C0DE0087B970 /* HomeEmptyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0579548B2CC5C0DE0087B970 /* HomeEmptyTableViewCell.xib */; };
+		057EC3FE2CC4ACF70030D96A /* AnimeCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057EC3FD2CC4ACF70030D96A /* AnimeCategory.swift */; };
 		058816C32C87D18000D53768 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058816C22C87D18000D53768 /* AppDelegate.swift */; };
 		058816C52C87D18000D53768 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058816C42C87D18000D53768 /* SceneDelegate.swift */; };
 		058816C72C87D18000D53768 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058816C62C87D18000D53768 /* ViewController.swift */; };
@@ -87,6 +90,9 @@
 		05725A4C2C963C17007A7FF0 /* HomeTableViewCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCollectionCell.xib; sourceTree = "<group>"; };
 		05725A4F2C96408E007A7FF0 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		05725A502C96408E007A7FF0 /* HomeCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCollectionViewCell.xib; sourceTree = "<group>"; };
+		0579548A2CC5C0DE0087B970 /* HomeEmptyTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeEmptyTableViewCell.swift; sourceTree = "<group>"; };
+		0579548B2CC5C0DE0087B970 /* HomeEmptyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeEmptyTableViewCell.xib; sourceTree = "<group>"; };
+		057EC3FD2CC4ACF70030D96A /* AnimeCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeCategory.swift; sourceTree = "<group>"; };
 		058816BF2C87D18000D53768 /* aniTimeriOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aniTimeriOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		058816C22C87D18000D53768 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		058816C42C87D18000D53768 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -173,6 +179,8 @@
 				05725A4C2C963C17007A7FF0 /* HomeTableViewCollectionCell.xib */,
 				0567BF0C2C9A6D6B00F447BF /* FavoriteTableViewCell.swift */,
 				0567BF0D2C9A6D6B00F447BF /* FavoriteTableViewCell.xib */,
+				0579548A2CC5C0DE0087B970 /* HomeEmptyTableViewCell.swift */,
+				0579548B2CC5C0DE0087B970 /* HomeEmptyTableViewCell.xib */,
 			);
 			path = CellTableView;
 			sourceTree = "<group>";
@@ -235,6 +243,7 @@
 			isa = PBXGroup;
 			children = (
 				058D74D82C8F9359006B9048 /* Anime.swift */,
+				057EC3FD2CC4ACF70030D96A /* AnimeCategory.swift */,
 			);
 			path = anime;
 			sourceTree = "<group>";
@@ -361,6 +370,7 @@
 				9188D3202C9A3476003E419B /* SearchViewController.storyboard in Resources */,
 				CDEA28B62CB96718008DA591 /* TabBar.storyboard in Resources */,
 				058816CC2C87D18100D53768 /* Assets.xcassets in Resources */,
+				0579548D2CC5C0DE0087B970 /* HomeEmptyTableViewCell.xib in Resources */,
 				05725A522C96408E007A7FF0 /* HomeCollectionViewCell.xib in Resources */,
 				05725A4E2C963C17007A7FF0 /* HomeTableViewCollectionCell.xib in Resources */,
 				0567BF092C9A6C0100F447BF /* FavoriteView.storyboard in Resources */,
@@ -384,9 +394,11 @@
 			files = (
 				CDD5B0902C8B3D4500C521B9 /* HomeViewController.swift in Sources */,
 				91D8F90F2C9CCD4400D82901 /* TabBarViewController.swift in Sources */,
+				057EC3FE2CC4ACF70030D96A /* AnimeCategory.swift in Sources */,
 				058816C72C87D18000D53768 /* ViewController.swift in Sources */,
 				05614EBC2C98FCF10050A0F4 /* TelaResetPasswordViewController.swift in Sources */,
 				CD33C1562C931EF500906EDE /* TelaCadastroViewController.swift in Sources */,
+				0579548C2CC5C0DE0087B970 /* HomeEmptyTableViewCell.swift in Sources */,
 				058D74D22C8F7545006B9048 /* HomeTableViewCell.swift in Sources */,
 				0567BF0E2C9A6D6B00F447BF /* FavoriteTableViewCell.swift in Sources */,
 				91D8F9112C9CD77E00D82901 /* AnimeDetailViewController.swift in Sources */,

@@ -17,48 +17,56 @@
                 <rect key="frame" x="0.0" y="0.0" width="617" height="313"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gnb-od-yg9">
-                        <rect key="frame" x="283.66666666666669" y="146.66666666666666" width="50" height="19.666666666666657"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aMP-BG-Okn">
+                        <rect key="frame" x="0.0" y="0.0" width="617" height="308"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGR-ur-wY5">
+                        <rect key="frame" x="283.66666666666669" y="120" width="50" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="50" id="pOy-eL-Kuq"/>
+                            <constraint firstAttribute="width" constant="50" id="ojy-NS-ePc"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4p-ki-bD0">
-                        <rect key="frame" x="283.66666666666669" y="171.33333333333334" width="50" height="19.666666666666657"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXe-Ma-rBI">
+                        <rect key="frame" x="283.66666666666669" y="146" width="50" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="50" id="hVh-Fm-ej5"/>
+                            <constraint firstAttribute="width" constant="50" id="fN1-q2-ly5"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GZN-Ay-FTQ">
-                        <rect key="frame" x="283.66666666666669" y="122.00000000000001" width="50" height="19.666666666666671"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQY-GB-1az">
+                        <rect key="frame" x="283.66666666666669" y="172" width="50" height="21"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="50" id="gaD-UB-UzA"/>
+                            <constraint firstAttribute="width" constant="50" id="zl0-q9-3tN"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="gnb-od-yg9" firstAttribute="top" secondItem="GZN-Ay-FTQ" secondAttribute="bottom" constant="5" id="4q8-wD-4TS"/>
-                    <constraint firstItem="gnb-od-yg9" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Cis-dI-tLe"/>
-                    <constraint firstItem="GZN-Ay-FTQ" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Ucc-ba-sEm"/>
-                    <constraint firstItem="m4p-ki-bD0" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Z2L-pV-gcp"/>
-                    <constraint firstItem="gnb-od-yg9" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="fbH-KU-bFi"/>
-                    <constraint firstItem="m4p-ki-bD0" firstAttribute="top" secondItem="gnb-od-yg9" secondAttribute="bottom" constant="5" id="qMF-yy-rK8"/>
+                    <constraint firstItem="jQY-GB-1az" firstAttribute="top" secondItem="vXe-Ma-rBI" secondAttribute="bottom" constant="5" id="0GN-sr-cJs"/>
+                    <constraint firstItem="DGR-ur-wY5" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="4g7-n7-euQ"/>
+                    <constraint firstItem="aMP-BG-Okn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="BfI-t9-Jwq"/>
+                    <constraint firstItem="jQY-GB-1az" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="Gag-eD-gIV"/>
+                    <constraint firstItem="vXe-Ma-rBI" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="YhQ-hQ-Hm3"/>
+                    <constraint firstItem="vXe-Ma-rBI" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ZFj-Ta-pg6"/>
+                    <constraint firstItem="vXe-Ma-rBI" firstAttribute="top" secondItem="DGR-ur-wY5" secondAttribute="bottom" constant="5" id="uld-fx-5lU"/>
+                    <constraint firstAttribute="trailing" secondItem="aMP-BG-Okn" secondAttribute="trailing" id="vNU-UG-t32"/>
+                    <constraint firstItem="aMP-BG-Okn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="vyC-RJ-xtI"/>
+                    <constraint firstAttribute="bottom" secondItem="aMP-BG-Okn" secondAttribute="bottom" constant="5" id="zlQ-7P-ncY"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="fixedLabel" destination="GZN-Ay-FTQ" id="hZI-Wa-JzZ"/>
-                <outlet property="fixedlabel2" destination="m4p-ki-bD0" id="gc4-ar-ShZ"/>
-                <outlet property="remainingDayslabel" destination="gnb-od-yg9" id="am6-lK-L05"/>
+                <outlet property="fixedLabel" destination="DGR-ur-wY5" id="QkW-pm-K0D"/>
+                <outlet property="fixedlabel2" destination="jQY-GB-1az" id="OPb-Gh-QPB"/>
+                <outlet property="imageImg" destination="aMP-BG-Okn" id="lJE-oa-9xO"/>
+                <outlet property="remainingDayslabel" destination="vXe-Ma-rBI" id="4JR-9S-D4S"/>
             </connections>
             <point key="canvasLocation" x="583.96946564885491" y="30.633802816901412"/>
         </tableViewCell>

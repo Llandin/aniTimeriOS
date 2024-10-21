@@ -18,6 +18,9 @@ struct MockAnimeData {
     let localBannerImage: String?
     var isFavorite: Bool
     let airing: String?
+    let category: AnimeCategory
+    let remainingDays: Int
+    let image:String
 }
 
 struct CoverImage {
@@ -45,7 +48,33 @@ var mockAnimeList: [MockAnimeData] = [
             large: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx15125.jpg",
             medium: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx15125.jpg"
         ),
-        localCoverImage: "CowboyBepop-Cover", localBannerImage: "CowboyBepop-Banner", isFavorite: false, airing: "Airs in 10 days"
+        localCoverImage: "CowboyBepop-Cover", localBannerImage: "CowboyBepop-Banner", isFavorite: false, airing: "Airs in 10 days", category: .horror,remainingDays: 2,image: "horror2.png"
+    ),
+    MockAnimeData(
+        id: 15128,
+        title: Title(romaji: "Cowboy Bebop", english: "Cowboy Bebop", native: "カウボーイビバップ"),
+        description: "Enter a world in the distant future, where Bounty Hunters roam the solar system. Spike and Jet, bounty hunting partners, set out on journeys in an ever struggling effort to win bounty rewards to survive.\nWhile traveling, they meet up with other very interesting people. Could Faye, the beautiful and ridiculously poor gambler, Edward, the computer genius, and Ein, the engineered dog be a good addition to the group?",
+        episodes: 25,
+        genres: ["Action", "Adventure", "Fantasy"],
+        bannerImage: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/1-OquNCNB6srGe.jpg",
+        coverImage: CoverImage(
+            large: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx15125.jpg",
+            medium: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx15125.jpg"
+        ),
+        localCoverImage: "CowboyBepop-Cover", localBannerImage: "CowboyBepop-Banner", isFavorite: false, airing: "Airs in 10 days", category: .horror,remainingDays: 9,image: "horror3.jpeg"
+    ),
+    MockAnimeData(
+        id: 15158,
+        title: Title(romaji: "Cowboy Bebop", english: "Cowboy Bebop", native: "カウボーイビバップ"),
+        description: "Enter a world in the distant future, where Bounty Hunters roam the solar system. Spike and Jet, bounty hunting partners, set out on journeys in an ever struggling effort to win bounty rewards to survive.\nWhile traveling, they meet up with other very interesting people. Could Faye, the beautiful and ridiculously poor gambler, Edward, the computer genius, and Ein, the engineered dog be a good addition to the group?",
+        episodes: 25,
+        genres: ["Action", "Adventure", "Fantasy"],
+        bannerImage: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/1-OquNCNB6srGe.jpg",
+        coverImage: CoverImage(
+            large: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx15125.jpg",
+            medium: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx15125.jpg"
+        ),
+        localCoverImage: "CowboyBepop-Cover", localBannerImage: "CowboyBepop-Banner", isFavorite: false, airing: "Airs in 10 days", category: .romance,remainingDays: 9,image: "romance1.jpg"
     ),
     MockAnimeData(
         id: 11061,
@@ -58,7 +87,7 @@ var mockAnimeList: [MockAnimeData] = [
             large: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx15125.jpg",
             medium: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx15125.jpg"
         ),
-        localCoverImage: "Trigun-Cover", localBannerImage: "Trigun-Banner", isFavorite: false, airing: "Airs in  5 days"
+        localCoverImage: "Trigun-Cover", localBannerImage: "Trigun-Banner", isFavorite: false, airing: "Airs in  5 days",category: .romance,remainingDays: 7,image: "romance2.jpg"
     ),
     MockAnimeData(
         id: 16498,
@@ -70,7 +99,7 @@ var mockAnimeList: [MockAnimeData] = [
         coverImage: CoverImage(
             large: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx15125.jpg",
             medium: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx15125.jpg"
-        ), localCoverImage: "ROBIN-Cover", localBannerImage: "ROBIN-Banner", isFavorite: false, airing: "Airs in 2 hours"
+        ), localCoverImage: "ROBIN-Cover", localBannerImage: "ROBIN-Banner", isFavorite: false, airing: "Airs in 2 hours",category: .drama,remainingDays: 8,image: "lutaverde.jpeg"
     ),
     MockAnimeData(
         id: 20583,
@@ -82,7 +111,7 @@ var mockAnimeList: [MockAnimeData] = [
         coverImage: CoverImage(
             large: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx15125.jpg",
             medium: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx15125.jpg"
-        ), localCoverImage: "Eyeshield21-Cover", localBannerImage: "Eyeshield21-Banner", isFavorite: false, airing: "Airs in 24 days"
+        ), localCoverImage: "Eyeshield21-Cover", localBannerImage: "Eyeshield21-Banner", isFavorite: true, airing: "Airs in 24 days", category: .drama,remainingDays: 3,image: "anime2.png"
         
     ),
     MockAnimeData(
@@ -95,6 +124,18 @@ var mockAnimeList: [MockAnimeData] = [
         coverImage: CoverImage(
             large: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx15125.jpg",
             medium: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx15125.jpg"
-        ), localCoverImage: "HoneyandClover-Cover", localBannerImage: "HoneyandClover-Banner", isFavorite: false, airing: "Airs in 1 hour"
+        ), localCoverImage: "HoneyandClover-Cover", localBannerImage: "HoneyandClover-Banner", isFavorite: true, airing: "Airs in 1 hour",category: .fic,remainingDays: 23,image: "anime3.png"
+        ),
+        MockAnimeData(
+            id: 72543,
+            title: Title(romaji: "Honey and Clover", english: "Honey and Clover", native: nil),
+            description: "Takemoto Yuuta, Mayama Takumi, and Morita Shinobu are college students who share the small apartment. Even though they live in poverty, the three of them are able to obtain pleasure through small things in life. The story follows these characters' life stories as poor college students, as well as their love lives when a short but talented 18 year old girl called Hanamoto Hagumi appears.(Source: Anime News Network)",
+            episodes: 103,
+            genres: ["Action", "Comedy", "Supernatural"], // Now an array
+            bannerImage: "https://s4.anilist.co/file/anilistcdn/media/anime/banner/1-OquNCNB6srGe.jpg",
+            coverImage: CoverImage(
+                large: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx15125.jpg",
+                medium: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx15125.jpg"
+            ), localCoverImage: "HoneyandClover-Cover", localBannerImage: "HoneyandClover-Banner", isFavorite: false, airing: "Airs in 1 hour",category: .horror,remainingDays: 23,image: "horror1.jpg"
     )
 ]
