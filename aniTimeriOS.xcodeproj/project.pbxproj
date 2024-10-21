@@ -36,6 +36,7 @@
 		058D74D22C8F7545006B9048 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058D74D02C8F7545006B9048 /* HomeTableViewCell.swift */; };
 		058D74D32C8F7545006B9048 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 058D74D12C8F7545006B9048 /* HomeTableViewCell.xib */; };
 		058D74D92C8F9359006B9048 /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058D74D82C8F9359006B9048 /* Anime.swift */; };
+		915E6EB72CC5B6F70075B682 /* AnimeSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915E6EB52CC5B6F70075B682 /* AnimeSearchTableViewCell.swift */; };
 		9188D31E2C9A3466003E419B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9188D31D2C9A3466003E419B /* SearchViewController.swift */; };
 		9188D3202C9A3476003E419B /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9188D31F2C9A3476003E419B /* SearchViewController.storyboard */; };
 		91CFE5D92C8A70250036ADBC /* LoginView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91CFE5D82C8A70250036ADBC /* LoginView.storyboard */; };
@@ -103,6 +104,7 @@
 		058D74D02C8F7545006B9048 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		058D74D12C8F7545006B9048 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		058D74D82C8F9359006B9048 /* Anime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
+		915E6EB52CC5B6F70075B682 /* AnimeSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeSearchTableViewCell.swift; sourceTree = "<group>"; };
 		9188D31D2C9A3466003E419B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		9188D31F2C9A3476003E419B /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
 		91CFE5D82C8A70250036ADBC /* LoginView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginView.storyboard; sourceTree = "<group>"; };
@@ -222,6 +224,7 @@
 		058D74CB2C8F74AF006B9048 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				915E6EB62CC5B6F70075B682 /* AnimeSearchTableViewCell */,
 				05725A402C962513007A7FF0 /* CellTableView */,
 				05725A3F2C9624DB007A7FF0 /* CellCollectionView */,
 			);
@@ -243,6 +246,14 @@
 				057EC3FD2CC4ACF70030D96A /* AnimeCategory.swift */,
 			);
 			path = anime;
+			sourceTree = "<group>";
+		};
+		915E6EB62CC5B6F70075B682 /* AnimeSearchTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				915E6EB52CC5B6F70075B682 /* AnimeSearchTableViewCell.swift */,
+			);
+			path = AnimeSearchTableViewCell;
 			sourceTree = "<group>";
 		};
 		91CFE5D62C8A6FBE0036ADBC /* Views */ = {
@@ -391,6 +402,7 @@
 				058D74D22C8F7545006B9048 /* HomeTableViewCell.swift in Sources */,
 				0567BF0E2C9A6D6B00F447BF /* FavoriteTableViewCell.swift in Sources */,
 				91D8F9112C9CD77E00D82901 /* AnimeDetailViewController.swift in Sources */,
+				915E6EB72CC5B6F70075B682 /* AnimeSearchTableViewCell.swift in Sources */,
 				058816C32C87D18000D53768 /* AppDelegate.swift in Sources */,
 				91DEB5022CB8A5DF00B66B8C /* AnimeMockedData.swift in Sources */,
 				9188D31E2C9A3466003E419B /* SearchViewController.swift in Sources */,

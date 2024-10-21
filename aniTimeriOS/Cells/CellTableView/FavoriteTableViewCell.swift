@@ -25,25 +25,30 @@ class FavoriteTableViewCell: UITableViewCell {
         super.awakeFromNib()
     }
     
-    func configLabels(label:UILabel,text: String, color: UIColor, aligment: NSTextAlignment,fonte: UIFont? = nil ){
-        
-        label.text = text;
-        label.textColor = color
-        label.textAlignment = aligment
-        label.font = fonte
+    func configureCell() {
+        fixedLabel1.textColor = .white
+        remainingDaysLabel.textColor = .white
     }
     
-    public func setupCell(anime: Anime) {
-        configLabels(label: fixedLabel1, text: "Faltam", color: .white, aligment: .center,fonte: UIFont(name: "Helvetica Neue", size: 16)! )
+    public func setupCell(anime: MockAnimeData) {
+        let backgroundImageView = UIImageView(image: UIImage(named: anime.localBannerImage ?? ""))
+        backgroundImageView.contentMode = .scaleAspectFill
+        backgroundImageView.clipsToBounds = true
+        backgroundView = backgroundImageView
         
-        configLabels(label: remainingDaysLabel, text: String("\(anime.remainingDays)"),color: .white, aligment: .center, fonte: UIFont(name:"Futura", size: 30.0))
-//        
-        configLabels(label: fixedLabel2, text: "Dias", color: .white, aligment: .center,fonte: UIFont(name: "Helvetica Neue", size: 16)!)
+        // Create a dark overlay
+        let overlayView = UIView(frame: backgroundImageView.bounds)
+        overlayView.backgroundColor = UIColor.black.withAlphaComponent(0.5) // Adjust the alpha as needed
+        overlayView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
+        // Add the overlay to the background view
+        backgroundView?.addSubview(overlayView)
         
-        backgroundView = UIImageView(image: UIImage(named: "\(anime.image)")!)
-        
-        
-        
+        // Configure labels
+        fixedLabel1.text = anime.title?.english
+        remainingDaysLabel.text = anime.airing
+        fixedLabel2.text = ""
+        fixedLabel1.textColor = .white
+        remainingDaysLabel.textColor = .white
     }
 }
