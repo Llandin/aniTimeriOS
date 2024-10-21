@@ -174,7 +174,10 @@ class ProfileViewController: UIViewController {
                     self.userCityTextField.text = data?["city"] as? String
                     
                 } else {
-                    self.userMessage.text = "Perfil não encontrado: \(error?.localizedDescription ?? "Erro desconhecido")"
+                    self.userNametextField.text = " "
+                    self.userEmailTextField.text = " "
+                    self.userCityTextField.text = " "
+                  
                 }
             }
         }
