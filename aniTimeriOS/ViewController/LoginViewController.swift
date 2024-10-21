@@ -120,7 +120,7 @@ class LoginViewController: UIViewController {
         // Tente fazer o login com Firebase Authentication
         Auth.auth().signIn(withEmail: email, password: senha) { authResult, error in
             if let error = error {
-                print("Erro ao fazer login: \(error.localizedDescription)")
+                self.errorMessage.text = "Erro ao fazer login: Credenciais inválidas"
                 return
             }
             
@@ -130,8 +130,6 @@ class LoginViewController: UIViewController {
             
         }
         
-        
-        navigationController?.pushViewController(tabBarVC, animated: true)
     }
     
     

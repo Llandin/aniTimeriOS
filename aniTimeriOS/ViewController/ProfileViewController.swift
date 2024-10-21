@@ -6,10 +6,17 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
+import FirebaseStorage
+import Firebase
+
+
 
 class ProfileViewController: UIViewController {
     
     
+    @IBOutlet weak var userMessage: UILabel!
     @IBOutlet weak var titlePageLabel: UILabel!
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
@@ -21,6 +28,9 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     let pinkColor = UIColor(red: 255/255, green: 146/255, blue: 139/255, alpha: 1.0)
     let backgroundColor = UIColor(red: 0.1176, green: 0.1176, blue: 0.1176, alpha: 1)
+    
+    let db = Firestore.firestore()
+    
     
     
     @IBAction func changePictureButton(_ sender: Any) {
@@ -37,6 +47,8 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        profileImage.image = UIImage(named:"ippocapa.jpeg")
+        loadUserProfile()
         view.backgroundColor = backgroundColor
         ajustProfileImage()
         configLabels(label: titlePageLabel, text: "Perfil", color: pinkColor,fonte: UIFont.boldSystemFont(ofSize: 30))
@@ -47,7 +59,8 @@ class ProfileViewController: UIViewController {
         configTextField(textField:userCityTextField)
         configTextField(textField: userEmailTextField)
         configButton(button: saveButton)
-        userEmailTextField.text = "laislandin@gmail.com"
+        configLabels(label: userMessage, text: "")
+        
         
     }
     
@@ -58,7 +71,7 @@ class ProfileViewController: UIViewController {
     
     
     func ajustProfileImage(){
-        profileImage.image = UIImage(named: "ippocapa.jpeg")
+        profileImage.image = nil
         profileImage.layer.cornerRadius = profileImage.bounds.width / 2
         profileImage.clipsToBounds = true
         profileImage.contentMode = .scaleAspectFill
@@ -88,6 +101,7 @@ class ProfileViewController: UIViewController {
         button.backgroundColor = UIColor(red: 255/255, green: 146/255, blue: 139/255, alpha: 1.0)
         button.tintColor = backgroundColor
     }
+   
     
     func canEdit(textField:UITextField) -> Bool{
         if textField.text == nil{
@@ -97,17 +111,88 @@ class ProfileViewController: UIViewController {
             return true
         }
     }
-
+    
+    func uploadImageToFirebase(_ image: UIImage) {
+        guard let imageData = image.jpegData(compressionQuality: 0.8) else { return }
+        
+        let storageRef = Storage.storage().reference()
+        let profileImageRef = storageRef.child("profile_images/\(UUID().uuidString).jpg")
+        
+        profileImageRef.putData(imageData, metadata: nil) { metadata, error in
+            if let error = error {
+                print("Erro ao fazer upload da imagem: \(error.localizedDescription)")
+                return
+            }
+            // Imagem enviada com sucesso
+            profileImageRef.downloadURL { (url, error) in
+                if let error = error {
+                    print("Erro ao obter a URL: \(error.localizedDescription)")
+                    return
+                }
+                guard let downloadURL = url else { return }
+                print("URL da imagem: \(downloadURL)")
+            }
+        }
+    }
+    
+    
+    @IBAction func saveProfileTapped(_ sender: Any){
+        guard let user = Auth.auth().currentUser else { return }
+        guard let name = userNametextField.text, !name.isEmpty,
+              let city = userCityTextField.text, !city.isEmpty,
+              let email = userEmailTextField.text, !email.isEmpty else {
+            userMessage.text = "Erro ao alterar informações"
+            userMessage.textColor = .red
+            return
+        }
+        
+        let userProfile = UserProfile(name: name, email: email, city: city)
+        
+       
+        db.collection("users").document(user.uid).setData([
+            "name": userProfile.name,
+            "email": userProfile.email,
+            "city": userProfile.city,
+        ]) { error in
+            if let error = error {
+                self.userMessage.text = "Erro ao salvar perfil: \(error.localizedDescription)"
+            } else {
+                self.userMessage.text = "Perfil salvo com sucesso!"
+                self.userMessage.textColor = .white
+            }
+        }
+    }
+    
+    private func loadUserProfile() {
+            guard let user = Auth.auth().currentUser else { return }
+            
+            db.collection("users").document(user.uid).getDocument { document, error in
+                if let document = document, document.exists {
+                    let data = document.data()
+                    self.userNametextField.text = data?["name"] as? String
+                    self.userEmailTextField.text = data?["email"] as? String
+                    self.userCityTextField.text = data?["city"] as? String
+                    
+                } else {
+                    self.userMessage.text = "Perfil não encontrado: \(error?.localizedDescription ?? "Erro desconhecido")"
+                }
+            }
+        }
+        
 }
+
+    
 
 extension ProfileViewController : UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate
 {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let selectedImage = info[.originalImage] as? UIImage {
-            profileImage.image = selectedImage
+        if let image = info[.originalImage] as? UIImage {
+                profileImage.image = image
+                uploadImageToFirebase(image)
+            }
+            dismiss(animated: true, completion: nil)
         }
-        dismiss(animated: true, completion: nil)
-    }
+    
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)

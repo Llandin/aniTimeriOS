@@ -703,5 +703,148 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E5EB9C81-E7C1-4E8B-B23B-DEFB36090856"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "aniTimeriOS/ViewController/ProfileViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "saveProfileTapped(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E5EB9C81-E7C1-4E8B-B23B-DEFB36090856 - 51681fbc1d64fad5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aniTimeriOS.ProfileViewController.saveProfileTapped(Any) -&gt; ()"
+                  moduleName = "aniTimeriOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lahlandin/Documents/FinalProject/aniTimeriOS/aniTimeriOS/ViewController/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "110"
+                  endingLineNumber = "110"
+                  offsetFromSymbolStart = "152">
+               </Location>
+               <Location
+                  uuid = "E5EB9C81-E7C1-4E8B-B23B-DEFB36090856 - 51681fbc1d64fa30"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aniTimeriOS.ProfileViewController.saveProfileTapped(Any) -&gt; ()"
+                  moduleName = "aniTimeriOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lahlandin/Documents/FinalProject/aniTimeriOS/aniTimeriOS/ViewController/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "113"
+                  endingLineNumber = "113"
+                  offsetFromSymbolStart = "152">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "08F82A58-0A8C-42D0-BC6A-E092545F04E9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "aniTimeriOS/ViewController/ProfileViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "014F1F3D-7839-4913-B673-051E38023B21"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "aniTimeriOS/ViewController/ProfileViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "ProfileViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "014F1F3D-7839-4913-B673-051E38023B21 - 9d3616f806d48f49"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aniTimeriOS.ProfileViewController.db.getter : __C.FIRFirestore"
+                  moduleName = "aniTimeriOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lahlandin/Documents/FinalProject/aniTimeriOS/aniTimeriOS/ViewController/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "014F1F3D-7839-4913-B673-051E38023B21 - 9d31a18c8746eb7e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aniTimeriOS.ProfileViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; aniTimeriOS.ProfileViewController"
+                  moduleName = "aniTimeriOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lahlandin/Documents/FinalProject/aniTimeriOS/aniTimeriOS/ViewController/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "716">
+               </Location>
+               <Location
+                  uuid = "014F1F3D-7839-4913-B673-051E38023B21 - c5a2c2af3a6dbcb5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aniTimeriOS.ProfileViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;aniTimeriOS.ProfileViewController&gt;"
+                  moduleName = "aniTimeriOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lahlandin/Documents/FinalProject/aniTimeriOS/aniTimeriOS/ViewController/ProfileViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "696">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7AF95F13-130A-4679-8C88-66CEB20DC245"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "aniTimeriOS/ViewController/FavoriteViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "tableView(_:didSelectRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>
