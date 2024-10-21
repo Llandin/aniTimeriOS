@@ -152,7 +152,7 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
             if checkTopThreeIsEmpty(){
                 let emptyCell = remainingDaysTableView.dequeueReusableCell(withIdentifier: HomeEmptyTableViewCell.identifier, for: indexPath) as? HomeEmptyTableViewCell
                 
-                emptyCell?.setupCell(mensagem: "Seja bem vindo!\nNesta seção você poderá acessar mais rapidamente seus animes favoritos! Atualmente ainda não possui favoritos. Clique no botão acima para adicionar!")
+                emptyCell?.setupCell(mensagem: "Seja bem vindo!\nNesta seção você poderá acessar mais rapidamente seus animes favoritos! Atualmente ainda não possui favoritos.\nQue tal adicionar realizando a busca por animes de sua preferência?")
                 
                 emptyCell?.selectionStyle = .none
                 
