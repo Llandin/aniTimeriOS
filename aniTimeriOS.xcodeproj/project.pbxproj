@@ -36,6 +36,7 @@
 		058D74D22C8F7545006B9048 /* HomeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058D74D02C8F7545006B9048 /* HomeTableViewCell.swift */; };
 		058D74D32C8F7545006B9048 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 058D74D12C8F7545006B9048 /* HomeTableViewCell.xib */; };
 		058D74D92C8F9359006B9048 /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058D74D82C8F9359006B9048 /* Anime.swift */; };
+		05ACAE012CC6C74B00D9E1F9 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ACAE002CC6C74B00D9E1F9 /* UserProfile.swift */; };
 		915E6EB72CC5B6F70075B682 /* AnimeSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915E6EB52CC5B6F70075B682 /* AnimeSearchTableViewCell.swift */; };
 		9188D31E2C9A3466003E419B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9188D31D2C9A3466003E419B /* SearchViewController.swift */; };
 		9188D3202C9A3476003E419B /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9188D31F2C9A3476003E419B /* SearchViewController.storyboard */; };
@@ -104,6 +105,7 @@
 		058D74D02C8F7545006B9048 /* HomeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableViewCell.swift; sourceTree = "<group>"; };
 		058D74D12C8F7545006B9048 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		058D74D82C8F9359006B9048 /* Anime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
+		05ACAE002CC6C74B00D9E1F9 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		915E6EB52CC5B6F70075B682 /* AnimeSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeSearchTableViewCell.swift; sourceTree = "<group>"; };
 		9188D31D2C9A3466003E419B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		9188D31F2C9A3476003E419B /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 		058D74D62C8F932A006B9048 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				05ACADFF2CC6C72A00D9E1F9 /* user */,
 				058D74D72C8F9333006B9048 /* anime */,
 			);
 			path = Model;
@@ -246,6 +249,14 @@
 				057EC3FD2CC4ACF70030D96A /* AnimeCategory.swift */,
 			);
 			path = anime;
+			sourceTree = "<group>";
+		};
+		05ACADFF2CC6C72A00D9E1F9 /* user */ = {
+			isa = PBXGroup;
+			children = (
+				05ACAE002CC6C74B00D9E1F9 /* UserProfile.swift */,
+			);
+			path = user;
 			sourceTree = "<group>";
 		};
 		915E6EB62CC5B6F70075B682 /* AnimeSearchTableViewCell */ = {
@@ -408,6 +419,7 @@
 				9188D31E2C9A3466003E419B /* SearchViewController.swift in Sources */,
 				0567BF072C9A39FD00F447BF /* ProfileViewController.swift in Sources */,
 				05725A4D2C963C17007A7FF0 /* HomeTableViewCollectionCell.swift in Sources */,
+				05ACAE012CC6C74B00D9E1F9 /* UserProfile.swift in Sources */,
 				05725A512C96408E007A7FF0 /* HomeCollectionViewCell.swift in Sources */,
 				0567BF0B2C9A6D4000F447BF /* FavoriteViewController.swift in Sources */,
 				91CFE5E12C8A70700036ADBC /* LoginViewController.swift in Sources */,
