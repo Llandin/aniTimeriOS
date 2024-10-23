@@ -26,6 +26,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var userEmailLabel: UILabel!
     @IBOutlet weak var userEmailTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var logoutButton: UIButton!
+    
     let pinkColor = UIColor(red: 255/255, green: 146/255, blue: 139/255, alpha: 1.0)
     let backgroundColor = UIColor(red: 0.1176, green: 0.1176, blue: 0.1176, alpha: 1)
     
@@ -47,20 +49,21 @@ class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        profileImage.image = UIImage(named:"ippocapa.jpeg")
+        
         loadUserProfile()
         view.backgroundColor = backgroundColor
         ajustProfileImage()
         configLabels(label: titlePageLabel, text: "Perfil", color: pinkColor,fonte: UIFont.boldSystemFont(ofSize: 30))
-        configLabels(label: userNameLabel, text:"Nome",color: pinkColor,fonte: UIFont.boldSystemFont(ofSize: 17))
+        configLabels(label: userNameLabel, text:"Nome",color: backgroundColor,fonte: UIFont.boldSystemFont(ofSize: 17))
         configLabels(label: userCityLabel, text: "Cidade",color: pinkColor,fonte:UIFont.boldSystemFont(ofSize: 17))
         configLabels(label: userEmailLabel, text: "E-mail",color: pinkColor,fonte: UIFont.boldSystemFont(ofSize: 17))
         configTextField(textField:userNametextField)
         configTextField(textField:userCityTextField)
         configTextField(textField: userEmailTextField)
-        configButton(button: saveButton)
         configLabels(label: userMessage, text: "")
+        configButton(button: saveButton, cornerRadius: 20, text: "Salvar", color: backgroundColor,backgroundColor: pinkColor, image: nil)
         
+        configButton(button: logoutButton, cornerRadius: 20, text: nil, color:nil,backgroundColor: backgroundColor,image: UIImage(named: "icons8-logout-30.png"))
         
     }
     
@@ -71,7 +74,7 @@ class ProfileViewController: UIViewController {
     
     
     func ajustProfileImage(){
-        profileImage.image = nil
+        profileImage.image = UIImage(named:"ippocapa.jpeg")
         profileImage.layer.cornerRadius = profileImage.bounds.width / 2
         profileImage.clipsToBounds = true
         profileImage.contentMode = .scaleAspectFill
@@ -95,11 +98,12 @@ class ProfileViewController: UIViewController {
         textField.textAlignment = .left
     }
     
-    func configButton(button:UIButton){
-        button.layer.cornerRadius = 20
-        button.setTitle("Salvar", for: .normal)
-        button.backgroundColor = UIColor(red: 255/255, green: 146/255, blue: 139/255, alpha: 1.0)
-        button.tintColor = backgroundColor
+    func configButton(button:UIButton,cornerRadius: CGFloat,text:String?,color:UIColor?,backgroundColor: UIColor, image:UIImage?){
+        button.layer.cornerRadius = cornerRadius
+        button.setTitle(text, for: .normal)
+        button.tintColor = color
+        button.setImage(image, for: .normal)
+        button.backgroundColor = backgroundColor
     }
    
     
@@ -110,6 +114,18 @@ class ProfileViewController: UIViewController {
         {
             return true
         }
+    }
+    
+    
+    @IBAction func logoutTapped(_ sender: Any) {
+        do {
+                try Auth.auth().signOut()
+        let cont = UIStoryboard(name: "LoginView", bundle: nil).instantiateViewController(withIdentifier: "LoginView") as? LoginViewController
+        
+        navigationController?.pushViewController(cont ?? UIViewController(), animated: true)
+        } catch let signOutError as NSError {
+            userMessage.text = "Erro ao fazer logoff: \(signOutError)"
+           }
     }
     
     func uploadImageToFirebase(_ image: UIImage) {

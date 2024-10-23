@@ -120,8 +120,14 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
             
         }else{
             tableView.deselectRow(at: indexPath, animated: true)
+            
+            let selectedAnime = mockAnimeList[indexPath.row]
+            
             let storyboard = UIStoryboard(name: "AnimeDetailViewController", bundle: nil)
             if let detailViewController = storyboard.instantiateViewController(withIdentifier: "AnimeDetailViewController") as? AnimeDetailViewController {
+                
+                detailViewController.anime = selectedAnime
+                
                 navigationController?.pushViewController(detailViewController, animated: true)
             }
         }

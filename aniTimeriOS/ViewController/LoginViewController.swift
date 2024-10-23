@@ -25,6 +25,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationItem.hidesBackButton = true
         setupView()
         configureWelcomeLabel(label: welcomeLabel)
         configureEmailTextField()

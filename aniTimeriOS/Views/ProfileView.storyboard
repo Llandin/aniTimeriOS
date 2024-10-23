@@ -124,6 +124,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSc-VU-Pjp">
+                                <rect key="frame" x="333" y="69" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="h5d-sw-yaZ"/>
+                                    <constraint firstAttribute="height" constant="30" id="lUG-6i-7uX"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title=""/>
+                                <connections>
+                                    <action selector="logoutTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="BZP-ZT-cud"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -159,6 +171,8 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="YvZ-6v-fD0" secondAttribute="trailing" constant="30" id="kgW-k4-y7x"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="aZx-Dz-shw" secondAttribute="trailing" constant="30" id="loc-0Z-Dp4"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="O7s-xj-ltB" secondAttribute="trailing" constant="30" id="nSs-P7-48P"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="cSc-VU-Pjp" secondAttribute="trailing" constant="30" id="orE-U6-vWK"/>
+                            <constraint firstItem="cSc-VU-Pjp" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="10" id="qvZ-Eq-7ON"/>
                             <constraint firstItem="PSG-i2-U8o" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="240" id="s8Q-l9-k83"/>
                             <constraint firstItem="75I-nW-qxN" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="sPJ-kv-kIY"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ixX-qJ-Ww4" secondAttribute="trailing" constant="115" id="srK-Me-6XG"/>
@@ -171,6 +185,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="logoutButton" destination="cSc-VU-Pjp" id="IJi-PU-wp9"/>
                         <outlet property="profileImage" destination="75I-nW-qxN" id="SO4-zP-S7L"/>
                         <outlet property="saveButton" destination="PSG-i2-U8o" id="h4e-Ez-LUe"/>
                         <outlet property="titlePageLabel" destination="p75-qC-Q3e" id="W7h-qv-y4Z"/>

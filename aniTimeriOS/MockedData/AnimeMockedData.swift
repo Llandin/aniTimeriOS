@@ -48,7 +48,7 @@ var mockAnimeList: [MockAnimeData] = [
                 large: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx15125.jpg",
                 medium: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx15125.jpg"
             ),
-            localCoverImage: "Trigun-Cover", localBannerImage: "Trigun-Banner", isFavorite: false, airing: "Airs in  5 days", category: .romance, remainingDays: 7, image: "romance2.jpg"
+            localCoverImage: "Trigun-Cover", localBannerImage: "Trigun-Banner", isFavorite: true, airing: "Airs in  5 days", category: .romance, remainingDays: 7, image: "romance2.jpg"
         ),
         MockAnimeData(
             id: 16498,
@@ -60,7 +60,8 @@ var mockAnimeList: [MockAnimeData] = [
             coverImage: CoverImage(
                 large: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx15125.jpg",
                 medium: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx15125.jpg"
-            ), localCoverImage: "ROBIN-Cover", localBannerImage: "ROBIN-Banner", isFavorite: false, airing: "Airs in 2 hours", category: .drama, remainingDays: 8, image: "lutaverde.jpeg"
+            ), localCoverImage: "ROBIN-Cover", localBannerImage: "ROBIN-Banner", isFavorite: true
+            , airing: "Airs in 2 hours", category: .drama, remainingDays: 8, image: "lutaverde.jpeg"
         ),
         MockAnimeData(
             id: 20583,
