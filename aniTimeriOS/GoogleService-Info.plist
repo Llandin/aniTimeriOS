@@ -4,6 +4,10 @@
 <dict>
 	<key>API_KEY</key>
 	<string>AIzaSyBWpa3YYfSIO6T5CWPgZ-Yt5LwfLTHSOCg</string>
+	<key>CLIENT_ID</key>
+	<string>946102984550-6e7c2bn0r6tnsrrjbt6n2uf2daob6ft9.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.946102984550-6e7c2bn0r6tnsrrjbt6n2uf2daob6ft9</string>
 	<key>GCM_SENDER_ID</key>
 	<string>946102984550</string>
 	<key>PLIST_VERSION</key>
@@ -15,15 +19,15 @@
 	<key>STORAGE_BUCKET</key>
 	<string>anitimer.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_ANALYTICS_ENABLED</key>
-	<false></false>
+	<false/>
 	<key>IS_APPINVITE_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_GCM_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>IS_SIGNIN_ENABLED</key>
-	<true></true>
+	<true/>
 	<key>GOOGLE_APP_ID</key>
 	<string>1:946102984550:ios:f764f10f1809609b9972a7</string>
 </dict>

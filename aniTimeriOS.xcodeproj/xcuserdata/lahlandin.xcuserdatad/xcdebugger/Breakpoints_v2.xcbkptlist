@@ -798,5 +798,132 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3DD88080-0195-461C-8F45-01F86B225A39"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "aniTimeriOS/ViewController/LoginViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "164"
+            endingLineNumber = "164"
+            landmarkName = "GoogleSignInTapped(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3DD88080-0195-461C-8F45-01F86B225A39 - 1a637f7e1f6f5fc8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aniTimeriOS.LoginViewController.GoogleSignInTapped(Any) -&gt; ()"
+                  moduleName = "aniTimeriOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lahlandin/Documents/FinalProject/aniTimeriOS/aniTimeriOS/ViewController/LoginViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "156"
+                  endingLineNumber = "156"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "3DD88080-0195-461C-8F45-01F86B225A39 - 1a637f7e1f6f58f1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aniTimeriOS.LoginViewController.GoogleSignInTapped(Any) -&gt; ()"
+                  moduleName = "aniTimeriOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lahlandin/Documents/FinalProject/aniTimeriOS/aniTimeriOS/ViewController/LoginViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "165"
+                  endingLineNumber = "165"
+                  offsetFromSymbolStart = "220">
+               </Location>
+               <Location
+                  uuid = "3DD88080-0195-461C-8F45-01F86B225A39 - 1a637f7e1f6f58f1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aniTimeriOS.LoginViewController.GoogleSignInTapped(Any) -&gt; ()"
+                  moduleName = "aniTimeriOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lahlandin/Documents/FinalProject/aniTimeriOS/aniTimeriOS/ViewController/LoginViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "165"
+                  endingLineNumber = "165"
+                  offsetFromSymbolStart = "172">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C09F2864-05C4-41E2-8D51-C552565A64AD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "aniTimeriOS/ViewController/LoginViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
+            landmarkName = "GoogleSignInTapped(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "C09F2864-05C4-41E2-8D51-C552565A64AD - 1a637f7e1f6f5fe9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "aniTimeriOS.LoginViewController.GoogleSignInTapped(Any) -&gt; ()"
+                  moduleName = "aniTimeriOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lahlandin/Documents/FinalProject/aniTimeriOS/aniTimeriOS/ViewController/LoginViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "157"
+                  endingLineNumber = "157"
+                  offsetFromSymbolStart = "36">
+               </Location>
+               <Location
+                  uuid = "C09F2864-05C4-41E2-8D51-C552565A64AD - e48d57d40608d1c0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;__C.GIDSignInResult&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in aniTimeriOS.LoginViewController.GoogleSignInTapped(Any) -&gt; ()"
+                  moduleName = "aniTimeriOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lahlandin/Documents/FinalProject/aniTimeriOS/aniTimeriOS/ViewController/LoginViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "158"
+                  endingLineNumber = "158"
+                  offsetFromSymbolStart = "68">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BA350893-E6E2-4B55-802C-32694B6D60C1"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "aniTimeriOS/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "application(_:open:options:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

@@ -8,6 +8,9 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseCore
+import GoogleSignIn
+
 class LoginViewController: UIViewController {
     
     
@@ -21,6 +24,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var errorMessage: UILabel!
     
     var errorColor = UIColor(red: 247/255, green: 0/255, blue: 0/255, alpha: 1.0);
+    
     
     
     override func viewDidLoad() {
@@ -37,7 +41,12 @@ class LoginViewController: UIViewController {
         
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        
+      
+        
     }
+    
+    
     
     
     func setupView() {
@@ -144,6 +153,16 @@ class LoginViewController: UIViewController {
         
     }
     
+    @IBAction func GoogleSignInTapped(_ sender: Any) {
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { [] result, error in
+            if let error {
+                // you can add error handling
+                print("Error", error)
+                return
+            }
+        }
+      
+    }
     
     @IBAction func signUpButtonTapped(_ sender: Any) {
         
@@ -152,6 +171,7 @@ class LoginViewController: UIViewController {
         navigationController?.pushViewController(cont ?? UIViewController(), animated: true)
     }
     
+
     func validateEmail(_ email: String) {
         loginButton.isEnabled = false
         let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"

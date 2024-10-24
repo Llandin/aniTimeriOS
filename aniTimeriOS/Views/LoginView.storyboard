@@ -79,6 +79,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZSs-ZR-a92">
+                                <rect key="frame" x="285" y="790" width="75" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ZWF-0C-ign"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="GoogleSignInTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="5tD-We-OM4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -93,11 +104,13 @@
                             <constraint firstItem="x9V-2y-ngv" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" constant="2" id="TDK-zi-o0p"/>
                             <constraint firstItem="8mc-Aq-FTo" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="VlJ-C6-Zcc"/>
                             <constraint firstItem="7eY-zI-Vcf" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="Vq6-SD-u9V"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ZSs-ZR-a92" secondAttribute="bottom" constant="58" id="ZsN-nw-yIV"/>
                             <constraint firstItem="Nr4-dc-p1t" firstAttribute="top" secondItem="eNs-QG-6UV" secondAttribute="bottom" constant="19" id="Zwd-nU-crZ"/>
                             <constraint firstItem="7eY-zI-Vcf" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="43" id="a6c-gg-vzU"/>
                             <constraint firstItem="x9V-2y-ngv" firstAttribute="top" secondItem="8mc-Aq-FTo" secondAttribute="bottom" constant="18" id="ad5-j9-NHS"/>
                             <constraint firstItem="8mc-Aq-FTo" firstAttribute="top" secondItem="q9w-tT-DNV" secondAttribute="bottom" constant="20" id="dLv-eB-bVN"/>
                             <constraint firstItem="q9w-tT-DNV" firstAttribute="top" secondItem="Nr4-dc-p1t" secondAttribute="bottom" constant="50" id="eV6-Of-kuH"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ZSs-ZR-a92" secondAttribute="trailing" constant="70" id="fOz-J4-n8y"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="eNs-QG-6UV" secondAttribute="trailing" constant="40" id="m6k-A5-ORJ"/>
                             <constraint firstItem="q9w-tT-DNV" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="vDB-pN-AvG"/>
                             <constraint firstItem="FGX-uw-uGD" firstAttribute="top" secondItem="Nr4-dc-p1t" secondAttribute="bottom" constant="10" id="vmu-cq-eLk"/>
