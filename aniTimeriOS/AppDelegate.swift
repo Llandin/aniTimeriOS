@@ -9,6 +9,7 @@ import UIKit
 import FirebaseCore
 import FirebaseStorage
 import FirebaseAppCheck
+import GoogleSignIn
 
 
 @main
@@ -35,6 +36,10 @@ import FirebaseAppCheck
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
+        
+        func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+            return GIDSignIn.sharedInstance.handle(url)
+        }
 
 }
 
