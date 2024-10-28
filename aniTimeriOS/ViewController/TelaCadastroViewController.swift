@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseStorage
 
 class TelaCadastroViewController: UIViewController {
     
@@ -18,10 +19,10 @@ class TelaCadastroViewController: UIViewController {
     @IBOutlet weak var senhaTextFiel: UITextField!
     @IBOutlet weak var configSenhaTextFiel: UITextField!
     @IBOutlet weak var tenhoContaLabel: UILabel!
-    
     @IBOutlet weak var appendCadastrarButton: UIButton!
-    
     @IBOutlet weak var nameLabelAviso: UILabel!
+    
+    let db = Firestore.firestore()
     
     
     override func viewDidLoad() {
@@ -132,15 +133,33 @@ class TelaCadastroViewController: UIViewController {
                         print("Erro ao cadastrar usuário: \(error.localizedDescription)")
                     }
                 } else {
-                    // Sucesso ao criar o usuário, exibir no console
-                    self.nameLabelAviso.text = "Usuário cadastrado com sucesso!"
-                    print("Usuário cadastrado com sucesso! ID: \(authResult?.user.uid ?? "Sem ID")")
-                    // Navegar para a tela de login
-                    self.navigationController?.popToRootViewController(animated: true)
+                    guard let user = Auth.auth().currentUser else { return }
+                    let name = self.nameTextField.text!
+                    let email = self.emailTextFiel.text!
+                    
+                    let userProfile = UserProfile(name: name, email: email)
+                    
+                    self.db.collection("users").document(user.uid).setData([
+                        "name": userProfile.name,
+                        "email": userProfile.email,
+                    ]) { error in
+                        if let error = error {
+                            self.nameLabelAviso.text = "Erro ao salvar dados do cadastro: \(error.localizedDescription)"
+                        } else {
+                            self.nameLabelAviso.text = "Dados do cadastro salvos com sucesso"
+                            self.nameLabelAviso.textColor = .white
+                        }
+                        
+                        self.nameLabelAviso.text = "Usuário cadastrado com sucesso!"
+                        print("Usuário cadastrado com sucesso! ID: \(authResult?.user.uid ?? "Sem ID")")
+                 
+                        self.navigationController?.popToRootViewController(animated: true)
+                    }
                 }
             }
         }
     }
+    
     
     func mandatoryFieldsdFilled()-> Bool{
         let fields = [
