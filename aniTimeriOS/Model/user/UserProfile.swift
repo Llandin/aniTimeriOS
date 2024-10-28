@@ -10,6 +10,6 @@ import Foundation
 struct UserProfile {
     var name: String
     var email: String
-    var city: String
+    var city: String?
     var profileImageURL: String?
 }

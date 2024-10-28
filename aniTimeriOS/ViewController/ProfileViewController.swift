@@ -54,7 +54,7 @@ class ProfileViewController: UIViewController {
         view.backgroundColor = backgroundColor
         ajustProfileImage()
         configLabels(label: titlePageLabel, text: "Perfil", color: pinkColor,fonte: UIFont.boldSystemFont(ofSize: 30))
-        configLabels(label: userNameLabel, text:"Nome",color: backgroundColor,fonte: UIFont.boldSystemFont(ofSize: 17))
+        configLabels(label: userNameLabel, text:"Nome",color: pinkColor,fonte: UIFont.boldSystemFont(ofSize: 17))
         configLabels(label: userCityLabel, text: "Cidade",color: pinkColor,fonte:UIFont.boldSystemFont(ofSize: 17))
         configLabels(label: userEmailLabel, text: "E-mail",color: pinkColor,fonte: UIFont.boldSystemFont(ofSize: 17))
         configTextField(textField:userNametextField)
