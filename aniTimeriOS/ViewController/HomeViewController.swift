@@ -54,10 +54,10 @@ class HomeViewController: UIViewController {
     }
     
     private func categorizeAnimes() {
-        for category in categories {
-                let animesForCategory = mockAnimeList.filter { $0.category == category }
-                categorizedAnimes[category] = animesForCategory
-            }
+//        for category in categories {
+//                let animesForCategory = mockAnimeList.filter { $0.category == category }
+//                categorizedAnimes[category] = animesForCategory
+//            }
     }
     
     func countCategories() -> Int {
