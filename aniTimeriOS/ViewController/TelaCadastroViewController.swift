@@ -118,11 +118,12 @@ class TelaCadastroViewController: UIViewController {
         
     }
     
-    @IBAction func apeendCadastroButton(_ sender: UIButton) {
+    @IBAction func apeendCadastroButton(_ sender: UIButton)  {
         
         if isAbleToRegistry() == true{
             let email = emailTextFiel.text!
             let senha = senhaTextFiel.text!
+            let name = nameTextField.text!
             
             Auth.auth().createUser(withEmail: email, password: senha) { authResult, error in
                 if let error = error {
@@ -136,33 +137,51 @@ class TelaCadastroViewController: UIViewController {
                         print("Erro ao cadastrar usuário: \(error.localizedDescription)")
                     }
                 } else {
-                    guard let user = Auth.auth().currentUser else { return }
-                    let name = self.nameTextField.text!
-                    let email = self.emailTextFiel.text!
+                    // Sucesso ao criar o usuário, exibir no console
+                    self.nameLabelAviso.text = "Usuário cadastrado com sucesso!"
+                    print("Usuário cadastrado com sucesso! ID: \(authResult?.user.uid ?? "Sem ID")")
+                    // Navegar para a tela de login
                     
-                    let userProfile = UserProfile(name: name, email: email)
+                    // Create a favorites collection for the user
+                    let uid = authResult!.user.uid
+                    let db = Firestore.firestore()
+                    let favoritesRef = db.collection("users").document(uid).collection("favorites")
                     
-                    self.db.collection("users").document(user.uid).setData([
-                        "name": userProfile.name,
-                        "email": userProfile.email,
-                    ]) { error in
+                    // Optionally create an empty document or initialize it as needed
+                    favoritesRef.document("favoritedAnime").setData([:]) { error in
                         if let error = error {
-                            self.nameLabelAviso.text = "Erro ao salvar dados do cadastro: \(error.localizedDescription)"
+                            print("Error creating favorites collection: \(error.localizedDescription)")
                         } else {
-                            self.nameLabelAviso.text = "Dados do cadastro salvos com sucesso"
-                            self.nameLabelAviso.textColor = .white
+                            print("Favorites collection created successfully!")
                         }
-                        
-                        self.nameLabelAviso.text = "Usuário cadastrado com sucesso!"
-                        print("Usuário cadastrado com sucesso! ID: \(authResult?.user.uid ?? "Sem ID")")
-                 
-                        self.navigationController?.popToRootViewController(animated: true)
                     }
+            
+                    self.navigationController?.popToRootViewController(animated: true)
                 }
+                
+                guard let userId = authResult?.user.uid else { return }
+                self.saveUserData(userId: userId, email: email, name: name)
             }
         }
     }
     
+    func saveUserData(userId: String, email: String, name: String) {
+        let userRef = Firestore.firestore().collection("users").document(userId)
+        let userData: [String: Any] = [
+            "email": email,
+            "createdAt": Timestamp(date: Date()),
+            "name": name
+        ]
+
+        userRef.setData(userData) { error in
+            if let error = error {
+                print("Error saving user data: \(error.localizedDescription)")
+            } else {
+                print("User data saved successfully")
+            }
+        }
+    }
+
     
     func mandatoryFieldsdFilled()-> Bool{
         let fields = [

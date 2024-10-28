@@ -6,6 +6,9 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseFirestore
+
 
 class FavoriteViewController: UIViewController {
     
@@ -45,8 +48,47 @@ class FavoriteViewController: UIViewController {
     }
     
     private func loadFavoriteAnimes() {
-        animeFavoriteList = mockAnimeList.filter { $0.isFavorite }
+        guard let userId = Auth.auth().currentUser?.uid else { return }
+        let favoritesRef = Firestore.firestore().collection("users").document(userId).collection("favorites")
+        
+        favoritesRef.getDocuments { (snapshot, error) in
+            if let error = error {
+                print("Error fetching favorite anime: \(error.localizedDescription)")
+                return
+            }
+            
+            guard let documents = snapshot?.documents else {
+                self.animeFavoriteList = []
+                self.favoritesTableView.reloadData()
+                return
+            }
+            
+            self.animeFavoriteList = documents.compactMap { doc -> MockAnimeData? in
+                let data = doc.data()
+                return MockAnimeData(
+                    id: doc.documentID,
+                    title: Title(romaji: data["title"] as? String, english: data["title"] as? String, native: nil),
+                    description: data["description"] as? String,
+                    episodes: data["episodes"] as? Int,
+                    genres: data["genres"] as? [String],
+                    bannerImage: data["bannerImage"] as? String,
+                    coverImage: CoverImage(large: data["coverImage"] as? String, medium: nil),
+                    localCoverImage: nil,
+                    localBannerImage: nil,
+                    isFavorite: true,
+                    airing: nil,
+                    remainingDays: 0,
+                    image: ""
+                )
+            }
+            
+            // Reload the table view on the main thread after fetching data
+            DispatchQueue.main.async {
+                self.favoritesTableView.reloadData()
+            }
+        }
     }
+    
     
     
     func configLabels(label:UILabel,text:String,color:UIColor? = nil,fonte:UIFont? =  nil){
@@ -81,12 +123,13 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedAnime = mockAnimeList[indexPath.row]
+        // Get the selected anime from the animeFavoriteList
+        let selectedAnime = animeFavoriteList[indexPath.row]
         
         let storyboard = UIStoryboard(name: "AnimeDetailViewController", bundle: nil)
         if let detailViewController = storyboard.instantiateViewController(withIdentifier: "AnimeDetailViewController") as? AnimeDetailViewController {
             
-            detailViewController.anime = selectedAnime
+            detailViewController.anime = selectedAnime // Pass the selected anime
             
             navigationController?.pushViewController(detailViewController, animated: true)
         }
@@ -96,13 +139,24 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { _, _, completionHandler in
             let animeToRemove = self.animeFavoriteList[indexPath.row]
-            if let indexInMainList = mockAnimeList.firstIndex(where: { $0.id == animeToRemove.id }) {
-                mockAnimeList[indexInMainList].isFavorite = false
-            }
             
-            self.animeFavoriteList.remove(at: indexPath.row)
-            self.favoritesTableView.deleteRows(at: [indexPath], with: .automatic)
-            completionHandler(true)
+            // Remove from Firestore
+            guard let userId = Auth.auth().currentUser?.uid else { return }
+            let favoritesRef = Firestore.firestore().collection("users").document(userId).collection("favorites")
+            
+            favoritesRef.document(animeToRemove.id ?? "").delete { error in
+                if let error = error {
+                    print("Error removing favorite anime: \(error.localizedDescription)")
+                } else {
+                    if let indexInMainList = mockAnimeList.firstIndex(where: { $0.id == animeToRemove.id }) {
+                        mockAnimeList[indexInMainList].isFavorite = false
+                    }
+                    
+                    self.animeFavoriteList.remove(at: indexPath.row)
+                    self.favoritesTableView.deleteRows(at: [indexPath], with: .automatic)
+                    completionHandler(true)
+                }
+            }
         }
         
         deleteAction.backgroundColor = pinkColor

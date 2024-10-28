@@ -75,7 +75,6 @@
 		CD82F6552CBE9804006F65F9 /* FirebaseRemoteConfig in Frameworks */ = {isa = PBXBuildFile; productRef = CD82F6542CBE9804006F65F9 /* FirebaseRemoteConfig */; };
 		CD82F6572CBE9804006F65F9 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = CD82F6562CBE9804006F65F9 /* FirebaseStorage */; };
 		CD82F6592CBE9804006F65F9 /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = CD82F6582CBE9804006F65F9 /* FirebaseStorageCombine-Community */; };
-		CD82F65B2CBE9804006F65F9 /* FirebaseVertexAI-Preview in Frameworks */ = {isa = PBXBuildFile; productRef = CD82F65A2CBE9804006F65F9 /* FirebaseVertexAI-Preview */; };
 		CDD5B0902C8B3D4500C521B9 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDD5B08F2C8B3D4400C521B9 /* HomeViewController.swift */; };
 		CDEA28B62CB96718008DA591 /* TabBar.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CDEA28B52CB96718008DA591 /* TabBar.storyboard */; };
 /* End PBXBuildFile section */
@@ -131,7 +130,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				050497872CC064CE00FCBBB6 /* FirebaseAppDistribution-Beta in Frameworks */,
-				CD82F65B2CBE9804006F65F9 /* FirebaseVertexAI-Preview in Frameworks */,
 				CD82F6452CBE9804006F65F9 /* FirebaseFirestoreCombine-Community in Frameworks */,
 				CD82F6472CBE9804006F65F9 /* FirebaseFunctions in Frameworks */,
 				050497812CC064CE00FCBBB6 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
@@ -832,11 +830,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CD82F62B2CBE9804006F65F9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseStorageCombine-Community";
-		};
-		CD82F65A2CBE9804006F65F9 /* FirebaseVertexAI-Preview */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CD82F62B2CBE9804006F65F9 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = "FirebaseVertexAI-Preview";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

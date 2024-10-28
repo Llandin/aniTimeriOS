@@ -77,7 +77,7 @@ extension HomeTableViewCollectionCell: UICollectionViewDelegate, UICollectionVie
         
         configLabel(label: categoryNameLabel, font:UIFont(name: "Courier New", size:18)!,color:pinkColor)
         
-        categoryNameLabel.text = animes[indexPath.row].category.rawValue
+//        categoryNameLabel.text = animes[indexPath.row].category.rawValue
         
         
         
