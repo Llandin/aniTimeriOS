@@ -8,6 +8,7 @@
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseStorage
 
 class TelaCadastroViewController: UIViewController {
     
@@ -18,10 +19,10 @@ class TelaCadastroViewController: UIViewController {
     @IBOutlet weak var senhaTextFiel: UITextField!
     @IBOutlet weak var configSenhaTextFiel: UITextField!
     @IBOutlet weak var tenhoContaLabel: UILabel!
-    
     @IBOutlet weak var appendCadastrarButton: UIButton!
-    
     @IBOutlet weak var nameLabelAviso: UILabel!
+    
+    let db = Firestore.firestore()
     
     
     override func viewDidLoad() {
@@ -64,7 +65,7 @@ class TelaCadastroViewController: UIViewController {
         nameTextField.layer.cornerRadius = 10
         nameTextField.clipsToBounds = true
         
-        emailTextFiel.placeholder = "Digete seu email"
+        emailTextFiel.placeholder = "Digite seu email"
         emailTextFiel.clipsToBounds = true
         emailTextFiel.layer.cornerRadius = 10
         
@@ -108,16 +109,16 @@ class TelaCadastroViewController: UIViewController {
     
     func avisoLabel(){
         
-        
-        nameLabelAviso.font = UIFont.boldSystemFont(ofSize: 20)
-        nameLabelAviso.font = UIFont(name: "Menlo", size:13)!
+        nameLabelAviso.font = UIFont(name: "Menlo", size:15)!
         nameLabelAviso.textColor =  .systemPink
         nameLabelAviso.text = ""
+        nameLabelAviso.numberOfLines = 0
+        nameLabelAviso.textAlignment = .center
         
         
     }
     
-    @IBAction func apeendCadastroButton(_ sender: UIButton) {
+    @IBAction func apeendCadastroButton(_ sender: UIButton)  {
         
         if isAbleToRegistry() == true{
             let email = emailTextFiel.text!
@@ -127,7 +128,10 @@ class TelaCadastroViewController: UIViewController {
             Auth.auth().createUser(withEmail: email, password: senha) { authResult, error in
                 if let error = error {
                     if error.localizedDescription == "The email address is already in use by another account."{
-                        self.nameLabelAviso.text = "Email já cadastrado em nosso app! Recupere sua senha para logar"
+                        self.nameLabelAviso.text = "Email já cadastrado em nosso app! Recupere sua senha para logar."
+                        self.emailTextFiel.layer.borderColor = UIColor.red.cgColor
+                        self.emailTextFiel.layer.borderWidth = 2.0
+                        
                     }else{
                         self.nameLabelAviso.text = "Erro ao cadastrar o usuário, confira os dados e tente novamente."
                         print("Erro ao cadastrar usuário: \(error.localizedDescription)")
