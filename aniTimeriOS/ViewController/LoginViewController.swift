@@ -22,7 +22,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var errorMessage: UILabel!
+    @IBOutlet weak var loginGoogle: UIButton!
     
+    @IBOutlet weak var imageGoogle: UIImageView!
     var errorColor = UIColor(red: 247/255, green: 0/255, blue: 0/255, alpha: 1.0);
     
     
@@ -38,7 +40,8 @@ class LoginViewController: UIViewController {
         configLabel(label: errorMessage, text: "", textColor: .systemPink, font:UIFont(name: "Menlo", size:13)!)
         configureLoginButton()
         configureSignUpButton()
-        
+        loginButtonGoogle()
+        imageViewGoogle()
         emailTextField.delegate = self
         passwordTextField.delegate = self
         
@@ -114,6 +117,25 @@ class LoginViewController: UIViewController {
         
         
     }
+    
+    func imageViewGoogle(){
+        
+        imageGoogle.image = UIImage(named: "Google")
+        
+        
+    }
+    
+    
+    func loginButtonGoogle(){
+        
+        loginGoogle.tintColor = .white
+        loginGoogle.setTitle("Sign in with Google", for: .normal)
+        loginGoogle.setTitleColor(.black, for: .normal)
+        
+    }
+    
+    
+    
     
     @IBAction func navigateToTabBarController(_ sender: Any) {
         
