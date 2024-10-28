@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_72" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -75,7 +75,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NFH-wP-7SF">
-                                <rect key="frame" x="194" y="602" width="42" height="21"/>
+                                <rect key="frame" x="20" y="602" width="390" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="411-DL-aKW"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -93,8 +96,10 @@
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="NFc-9l-1Mh" secondAttribute="trailing" constant="40" id="Vmm-sA-lW4"/>
                             <constraint firstItem="vj8-hP-sb8" firstAttribute="top" secondItem="pgn-8A-KMg" secondAttribute="bottom" constant="19" id="Zkn-oZ-gJ5"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="pgn-8A-KMg" secondAttribute="trailing" constant="40" id="hvC-0k-jee"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="NFH-wP-7SF" secondAttribute="trailing" constant="20" id="j8j-1H-qRb"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="vj8-hP-sb8" secondAttribute="trailing" constant="40" id="l90-P9-aIi"/>
                             <constraint firstItem="vj8-hP-sb8" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="mRU-ag-9t9"/>
+                            <constraint firstItem="NFH-wP-7SF" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="mYF-Hg-Wix"/>
                             <constraint firstItem="pgn-8A-KMg" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="nNy-hX-HCz"/>
                             <constraint firstItem="dlg-pM-0tN" firstAttribute="top" secondItem="vj8-hP-sb8" secondAttribute="bottom" constant="10" id="pFS-EW-SDf"/>
                             <constraint firstItem="LdB-Nw-d46" firstAttribute="top" secondItem="dlg-pM-0tN" secondAttribute="bottom" constant="40" id="qyN-jW-t7W"/>
