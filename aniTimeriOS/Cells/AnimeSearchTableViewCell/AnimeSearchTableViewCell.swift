@@ -34,7 +34,7 @@ class AnimeSearchTableViewCell: UITableViewCell {
     func configure(with anime: Anime) {
         titleLabel?.text = anime.title
         descriptionLabel?.text = anime.genres?.joined(separator: ", ")
-        episodesLabel?.text = "\(anime.episodes) episodes"
+        episodesLabel?.text = "\(anime.episodes ?? 0) episodes"
         
         // Configure the image
         if let imageUrl = anime.coverImage, let url = URL(string: imageUrl) {

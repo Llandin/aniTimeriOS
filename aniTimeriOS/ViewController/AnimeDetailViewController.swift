@@ -115,7 +115,7 @@ class AnimeDetailViewController: UIViewController {
     func configUI() {
         guard let anime = anime else { return }
         animeTitle?.text = anime.title
-        episodeCount?.text = "\(anime.episodes) episodes"
+        episodeCount?.text = "\(anime.episodes ?? 0) episodes"
         animeDescription.text = anime.description
         
         if let imageUrl = anime.coverImage, let url = URL(string: imageUrl) {

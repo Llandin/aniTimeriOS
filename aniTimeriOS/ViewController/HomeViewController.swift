@@ -16,7 +16,7 @@ class HomeViewController: UIViewController {
     let pageTitle: String = "ANITIMER"
     let background: UIColor = UIColor(red: 0.1176, green: 0.1176, blue: 0.1176, alpha: 1)
     
-    var animeList: [Anime] = [] // This will store the fetched anime data
+    var animeList: [Anime] = []
     
     @IBAction func favoriteBtnTapped(_ sender: Any) {
         let storyboard = UIStoryboard(name: "FavoriteView", bundle: nil)
@@ -30,7 +30,7 @@ class HomeViewController: UIViewController {
         setBackgroundColor()
         configLabels()
         configTableView()
-        fetchAnimesFromFirestore() // Fetch anime data from Firestore
+        fetchAnimesFromFirestore()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -80,7 +80,7 @@ class HomeViewController: UIViewController {
                 )
             } ?? []
             
-            self.remainingDaysTableView.reloadData() // Reload table view with fetched data
+            self.remainingDaysTableView.reloadData()
         }
     }
 }
@@ -91,35 +91,33 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // Deselect the cell after selection
+        
         tableView.deselectRow(at: indexPath, animated: true)
 
-        // Get the selected anime
         let selectedAnime = animeList[indexPath.row]
 
-        // Instantiate the AnimeDetailViewController from the storyboard
         let storyboard = UIStoryboard(name: "AnimeDetailViewController", bundle: nil)
         if let detailViewController = storyboard.instantiateViewController(withIdentifier: "AnimeDetailViewController") as? AnimeDetailViewController {
-            detailViewController.anime = selectedAnime // Pass the selected anime data to the detail view controller
-            navigationController?.pushViewController(detailViewController, animated: true) // Navigate to the detail view
+            detailViewController.anime = selectedAnime
+            navigationController?.pushViewController(detailViewController, animated: true)
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return animeList.count // Return the number of animes fetched
+        return animeList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = remainingDaysTableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier, for: indexPath) as? HomeTableViewCell
         
         let anime = animeList[indexPath.row]
-        cell?.setupCell(anime: anime) // Setup cell with anime data
+        cell?.setupCell(anime: anime)
         cell?.selectionStyle = .none
         
         return cell ?? UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 120 // Set a fixed height for the cells
+        return 120
     }
 }

@@ -15,9 +15,9 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
     @IBOutlet weak var searchContainerView: UIView!
     
     private let db = Firestore.firestore()
-    var filteredAnimeList: [Anime] = [] // Updated to use the Anime model from Firestore
-    var allAnimeList: [Anime] = []      // List of all animes fetched from Firestore
-    
+    var filteredAnimeList: [Anime] = []
+    var allAnimeList: [Anime] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -28,7 +28,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         
         searchTextField.addTarget(self, action: #selector(searchAnimeTextField(_:)), for: .editingChanged)
         
-        loadAnimeData() // Fetch initial data from Firestore
+        loadAnimeData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,20 +36,30 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-    // Firestore Fetch Function
+    
     private func loadAnimeData() {
-        db.collection("anime") // Replace with your actual collection name
-            .getDocuments { snapshot, error in
-                if let error = error {
-                    print("Error fetching animes: \(error)")
-                } else if let snapshot = snapshot {
-                    self.allAnimeList = snapshot.documents.compactMap { document in
-                        try? document.data(as: Anime.self) // Decoding into Anime model
-                    }
-                    self.filteredAnimeList = self.allAnimeList
-                    self.tableView.reloadData()
+        db.collection("anime").getDocuments { snapshot, error in
+            if let error = error {
+                print("Error fetching animes: \(error)")
+            } else if let snapshot = snapshot {
+                self.allAnimeList = snapshot.documents.compactMap { doc in
+                    let data = doc.data()
+                    return Anime(
+                        id: doc.documentID,
+                        title: data["title"] as? String ?? "",
+                        description: data["description"] as? String ?? "",
+                        episodes: data["episodes"] as? Int ?? 0,
+                        genres: data["genres"] as? [String] ?? [],
+                        bannerImage: data["bannerImage"] as? String ?? "",
+                        coverImage: data["coverImage"] as? String ?? "",
+                        isFavorite: data["isFavorite"] as? Bool ?? false,
+                        remainingDays: data["remainingDays"] as? Int ?? 0
+                    )
                 }
+                self.filteredAnimeList = self.allAnimeList
+                self.tableView.reloadData()
             }
+        }
     }
     
     // Search Function for Filtering
@@ -70,7 +80,7 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         tableView.reloadData()
     }
     
-    // UI Setup Function
+    
     func setupUI() {
         searchContainerView.layer.borderColor = UIColor(red: 241/255, green: 153/255, blue: 141/255, alpha: 1).cgColor
         searchContainerView.layer.cornerRadius = 24
@@ -107,6 +117,8 @@ class SearchViewController: UIViewController, UITableViewDataSource, UITableView
         if let detailViewController = storyboard.instantiateViewController(withIdentifier: "AnimeDetailViewController") as? AnimeDetailViewController {
             detailViewController.anime = selectedAnime
             navigationController?.pushViewController(detailViewController, animated: true)
+        } else {
+            print("AnimeDetailViewController not found in storyboard.")
         }
     }
 }
