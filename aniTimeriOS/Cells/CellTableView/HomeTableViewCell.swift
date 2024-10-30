@@ -35,9 +35,12 @@ class HomeTableViewCell: UITableViewCell {
     }
     
     public func setupCell(anime: Anime) {
+        
+        let remainingDays = anime.remainingDays ?? 0
+        
         configLabels(label: fixedLabel, text: "Faltam", color: .white, alignment: .center, font: UIFont(name: "Helvetica Neue", size: 16)!)
         configLabels(label: fixedLabel2, text: "Dias", color: .white, alignment: .center, font: UIFont(name: "Helvetica Neue", size: 16)!)
-        configLabels(label: remainingDaysLabel, text: "\(anime.remainingDays)", color: .white, alignment: .center, font: UIFont(name: "Futura", size: 30.0))
+        configLabels(label: remainingDaysLabel, text: "\(remainingDays)", color: .white, alignment: .center, font: UIFont(name: "Futura", size: 30.0))
         
         // Directly use bannerImage since it's non-optional
         let url = URL(string: anime.bannerImage ?? "")
@@ -47,6 +50,7 @@ class HomeTableViewCell: UITableViewCell {
             imageImg.image = nil // Clear image if URL is invalid
         }
         imageImg.contentMode = .scaleAspectFill
+        imageImg.alpha = 0.5
     }
 
     
