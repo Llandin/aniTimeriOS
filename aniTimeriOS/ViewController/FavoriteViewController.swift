@@ -20,6 +20,7 @@ class FavoriteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        favoritesTableView.reloadData()
         setBackgroundColor()
         configLabels(label: titleScreenLabel, text: "FAVORITOS", color: pinkColor, fonte: UIFont(name: "Sinhala Sangam MN", size: 30)!)
         configTableView()
@@ -38,7 +39,7 @@ class FavoriteViewController: UIViewController {
         favoritesTableView.register(FavoriteTableViewCell.nib(), forCellReuseIdentifier: FavoriteTableViewCell.identifier)
     }
     
-    private func setBackgroundColor(){
+    private func setBackgroundColor() {
         view.backgroundColor = backgroundColor
     }
     
@@ -47,7 +48,6 @@ class FavoriteViewController: UIViewController {
         let favoritesRef = Firestore.firestore().collection("users").document(userId).collection("favorites")
         
         favoritesRef.getDocuments { (snapshot, error) in
-            
             if let error = error {
                 print("Error fetching favorite anime: \(error.localizedDescription)")
                 return
@@ -143,7 +143,12 @@ extension FavoriteViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension FavoriteViewController: AnimeDetailViewControllerDelegate {
-    func didUpdateFavoriteStatus() {
-        loadFavoriteAnimes()
+    func didUpdateFavoriteStatus(for anime: Anime) {
+        if let index = animeFavoriteList.firstIndex(where: { $0.id == anime.id }) {
+            animeFavoriteList.remove(at: index)
+            
+            // Remove the row in the table view
+            favoritesTableView.deleteRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        }
     }
 }

@@ -52,7 +52,8 @@ class FavoriteTableViewCell: UITableViewCell {
 
         // Configure labels with anime data
         fixedLabel1.text = anime.title
-        remainingDaysLabel.text = anime.remainingDays ?? 0 > 0 ? "\(anime.remainingDays) days left" : "Airing ended"
+        remainingDaysLabel.text = anime.remainingDays != nil ? "\(anime.remainingDays!) days remaining" : "N/A" // Handle nil case if needed
+        fixedLabel2.text = ""
         fixedLabel2.text = ""
     }
     

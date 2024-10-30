@@ -10,7 +10,7 @@ import FirebaseFirestore
 import FirebaseAuth
 
 protocol AnimeDetailViewControllerDelegate: AnyObject {
-    func didUpdateFavoriteStatus()
+    func didUpdateFavoriteStatus(for anime: Anime)
 }
 
 class AnimeDetailViewController: UIViewController {
@@ -22,7 +22,7 @@ class AnimeDetailViewController: UIViewController {
     @IBOutlet weak var favoriteButton: UIButton!
     
     weak var delegate: AnimeDetailViewControllerDelegate?
-    var anime: Anime? // Updated to use Firestore model
+    var anime: Anime?
     let db = Firestore.firestore()
     
     override func viewDidLoad() {
@@ -34,78 +34,83 @@ class AnimeDetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
-        fetchFavoriteStatus() // Ensure we fetch the favorite status when the view appears
+        fetchFavoriteStatus()
     }
     
-    // Fetch the favorite status from Firestore and update the button
     private func fetchFavoriteStatus() {
         guard let animeId = anime?.id, let userId = Auth.auth().currentUser?.uid else { return }
         let favoriteRef = db.collection("users").document(userId).collection("favorites").document(animeId)
         
         favoriteRef.getDocument { [weak self] document, error in
             guard let self = self else { return }
+            if let error = error {
+                print("Error fetching favorite status: \(error.localizedDescription)")
+                return
+            }
+            
             if let document = document, document.exists, let data = document.data(), let isFavorite = data["isFavorite"] as? Bool {
                 self.anime?.isFavorite = isFavorite
-                self.updateFavoriteButton()
             } else {
-                // If it doesn't exist, assume not favorite
                 self.anime?.isFavorite = false
+            }
+            
+            DispatchQueue.main.async {
                 self.updateFavoriteButton()
             }
         }
     }
     
-    // Action for the favorite button
     @IBAction func favoriteButtonTapped(_ sender: UIButton) {
         toggleFavoriteStatus()
     }
     
-    // Toggle favorite status for the anime
     private func toggleFavoriteStatus() {
         guard let animeId = anime?.id, let userId = Auth.auth().currentUser?.uid else { return }
         let favoriteRef = db.collection("users").document(userId).collection("favorites").document(animeId)
         
-        // Fetch current favorite status from Firestore
-        favoriteRef.getDocument { [weak self] document, error in
-            guard let self = self else { return }
-            if let document = document, document.exists, let data = document.data(), let isFavorite = data["isFavorite"] as? Bool {
-                // Toggle the favorite status
-                let updatedFavoriteStatus = !isFavorite
-                self.updateFavoriteStatusInFirestore(favoriteRef: favoriteRef, anime: self.anime, isFavorite: updatedFavoriteStatus)
-            } else {
-                // If it doesn't exist, mark as favorite (true) and add new document
-                self.updateFavoriteStatusInFirestore(favoriteRef: favoriteRef, anime: self.anime, isFavorite: true)
+        if anime?.isFavorite == true {
+            // If already favorited, unfavorite by deleting the document
+            favoriteRef.delete { [weak self] error in
+                guard let self = self else { return }
+                if let error = error {
+                    print("Error removing favorite: \(error.localizedDescription)")
+                } else {
+                    self.anime?.isFavorite = false
+                    self.updateFavoriteButton()
+                    if let updatedAnime = self.anime {
+                        self.delegate?.didUpdateFavoriteStatus(for: updatedAnime)
+                    }
+                    print("Successfully removed from favorites")
+                }
+            }
+        } else {
+            // If not favorited, add to favorites collection
+            let favoriteData: [String: Any] = [
+                "isFavorite": true,
+                "title": anime?.title ?? "",
+                "description": anime?.description ?? "",
+                "episodes": anime?.episodes ?? 0,
+                "genres": anime?.genres ?? [],
+                "bannerImage": anime?.bannerImage ?? "",
+                "coverImage": anime?.coverImage ?? ""
+            ]
+            
+            favoriteRef.setData(favoriteData) { [weak self] error in
+                guard let self = self else { return }
+                if let error = error {
+                    print("Error updating favorite status: \(error)")
+                } else {
+                    self.anime?.isFavorite = true
+                    self.updateFavoriteButton()
+                    if let updatedAnime = self.anime {
+                        self.delegate?.didUpdateFavoriteStatus(for: updatedAnime)
+                    }
+                    print("Successfully added to favorites")
+                }
             }
         }
     }
     
-    // Update Firestore with favorite status
-    private func updateFavoriteStatusInFirestore(favoriteRef: DocumentReference, anime: Anime?, isFavorite: Bool) {
-        guard let anime = anime else { return }
-        
-        let favoriteData: [String: Any] = [
-            "isFavorite": isFavorite,
-            "title": anime.title,
-            "description": anime.description,
-            "episodes": anime.episodes,
-            "genres": anime.genres,
-            "bannerImage": anime.bannerImage,
-            "coverImage": anime.coverImage
-        ]
-
-        favoriteRef.setData(favoriteData) { error in
-            if let error = error {
-                print("Error updating favorite status: \(error)")
-            } else {
-                self.anime?.isFavorite = isFavorite // Update local model for UI only
-                self.updateFavoriteButton() // Update the UI
-                self.delegate?.didUpdateFavoriteStatus()
-                print("Favorite status updated successfully in Firestore")
-            }
-        }
-    }
-    
-    // Method to update the favorite button's text and color
     private func updateFavoriteButton() {
         guard let isFavorite = anime?.isFavorite else { return }
         favoriteButton.setTitle(isFavorite ? "Unfavorite" : "Favorite", for: .normal)
