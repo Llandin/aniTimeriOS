@@ -26,9 +26,6 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
-                                        <connections>
-                                            <action selector="searchAnimeTextField:" destination="Y6W-OH-hqX" eventType="editingDidEnd" id="L2e-34-QlI"/>
-                                        </connections>
                                     </textField>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemCyanColor"/>
@@ -121,9 +118,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="sB6-ga-q9c"/>
                     <connections>
-                        <outlet property="SearchTextField" destination="Ejf-kh-ckh" id="I4A-cb-wfo"/>
                         <outlet property="searchContainerView" destination="hOc-4i-Yyb" id="a9X-CC-bty"/>
-                        <outlet property="tableView" destination="YvR-hR-JY9" id="WHf-Eb-TlE"/>
+                        <outlet property="searchTextField" destination="Ejf-kh-ckh" id="RSC-GO-iCK"/>
+                        <outlet property="tableView" destination="YvR-hR-JY9" id="Nfh-mI-JtR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

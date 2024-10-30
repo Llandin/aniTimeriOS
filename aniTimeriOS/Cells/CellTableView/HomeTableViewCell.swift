@@ -10,15 +10,14 @@ import UIKit
 class HomeTableViewCell: UITableViewCell {
     
     static let identifier: String = String(describing: HomeTableViewCell.self)
-
     
     static func nib() -> UINib {
-         return UINib(nibName: identifier, bundle: nil)
-     }
+        return UINib(nibName: identifier, bundle: nil)
+    }
 
     @IBOutlet weak var fixedLabel: UILabel!
-    @IBOutlet weak var remainingDayslabel: UILabel!
-    @IBOutlet weak var fixedlabel2: UILabel!
+    @IBOutlet weak var remainingDaysLabel: UILabel!
+    @IBOutlet weak var fixedLabel2: UILabel!
     @IBOutlet var imageImg: UIImageView!
     
     override func awakeFromNib() {
@@ -28,29 +27,40 @@ class HomeTableViewCell: UITableViewCell {
         backgroundColor = .clear
     }
     
-    func configLabels(label:UILabel,text: String, color: UIColor, aligment: NSTextAlignment,fonte: UIFont? = nil ){
-    
-        label.text = text;
+    func configLabels(label: UILabel, text: String, color: UIColor, alignment: NSTextAlignment, font: UIFont? = nil) {
+        label.text = text
         label.textColor = color
-        label.textAlignment = aligment
-        label.font = fonte
-       
+        label.textAlignment = alignment
+        label.font = font
     }
     
-    public func setupCell(anime: MockAnimeData) {
+    public func setupCell(anime: Anime) {
+        configLabels(label: fixedLabel, text: "Faltam", color: .white, alignment: .center, font: UIFont(name: "Helvetica Neue", size: 16)!)
+        configLabels(label: fixedLabel2, text: "Dias", color: .white, alignment: .center, font: UIFont(name: "Helvetica Neue", size: 16)!)
+        configLabels(label: remainingDaysLabel, text: "\(anime.remainingDays)", color: .white, alignment: .center, font: UIFont(name: "Futura", size: 30.0))
         
-
-        configLabels(label: fixedLabel, text: "Faltam", color: .white, aligment: .center,fonte: UIFont(name: "Helvetica Neue", size: 16)! )
-       
-        
-        configLabels(label: fixedlabel2, text: "Dias", color: .white, aligment: .center,fonte: UIFont(name: "Helvetica Neue", size: 16)!)
-        
-        configLabels(label: remainingDayslabel, text: String("\(anime.remainingDays)"),color: .white, aligment: .center, fonte: UIFont(name:"Futura", size: 30.0))
-        
-       
-        imageImg.image = UIImage(named:anime.localBannerImage ?? "")
+        // Directly use bannerImage since it's non-optional
+        let url = URL(string: anime.bannerImage ?? "")
+        if let url = url {
+            loadImage(from: url)
+        } else {
+            imageImg.image = nil // Clear image if URL is invalid
+        }
         imageImg.contentMode = .scaleAspectFill
     }
 
     
+    private func loadImage(from url: URL) {
+        DispatchQueue.global().async {
+            if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
+                DispatchQueue.main.async {
+                    self.imageImg.image = image
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.imageImg.image = nil // Set to nil if image fails to load
+                }
+            }
+        }
+    }
 }

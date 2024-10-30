@@ -18,7 +18,7 @@ struct MockAnimeData {
     let localBannerImage: String?
     var isFavorite: Bool
     let airing: String?
-//    let category: AnimeCategory
+    let category: AnimeCategory
     let remainingDays: Int
     let image:String
 }
@@ -48,7 +48,7 @@ var mockAnimeList: [MockAnimeData] = [
                 large: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx15125.jpg",
                 medium: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx15125.jpg"
             ),
-            localCoverImage: "Trigun-Cover", localBannerImage: "Trigun-Banner", isFavorite: false, airing: "Airs in  5 days", remainingDays: 7, image: "romance2.jpg"
+            localCoverImage: "Trigun-Cover", localBannerImage: "Trigun-Banner", isFavorite: false, airing: "Airs in  5 days", category: .fic, remainingDays: 7, image: "romance2.jpg"
         ),
         MockAnimeData(
             id: "16498",
@@ -61,7 +61,7 @@ var mockAnimeList: [MockAnimeData] = [
                 large: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx15125.jpg",
                 medium: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx15125.jpg"
             ), localCoverImage: "ROBIN-Cover", localBannerImage: "ROBIN-Banner", isFavorite: false
-            , airing: "Airs in 2 hours", remainingDays: 8, image: "lutaverde.jpeg"
+            , airing: "Airs in 2 hours", category: .horror, remainingDays: 8, image: "lutaverde.jpeg"
         ),
         MockAnimeData(
             id: "20583",
@@ -73,7 +73,7 @@ var mockAnimeList: [MockAnimeData] = [
             coverImage: CoverImage(
                 large: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx15125.jpg",
                 medium: "https://s4.anilistcdn/media/anime/cover/medium/bx15125.jpg"
-            ), localCoverImage: "Eyeshield21-Cover", localBannerImage: "Eyeshield21-Banner", isFavorite: false, airing: "Airs in 24 days", remainingDays: 3, image: "anime2.png"
+            ), localCoverImage: "Eyeshield21-Cover", localBannerImage: "Eyeshield21-Banner", isFavorite: false, airing: "Airs in 24 days", category: .romance, remainingDays: 3, image: "anime2.png"
         ),
         MockAnimeData(
             id: "30276",
@@ -85,7 +85,7 @@ var mockAnimeList: [MockAnimeData] = [
             coverImage: CoverImage(
                 large: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/large/bx15125.jpg",
                 medium: "https://s4.anilist.co/file/anilistcdn/media/anime/cover/medium/bx15125.jpg"
-            ), localCoverImage: "HoneyandClover-Cover", localBannerImage: "HoneyandClover-Banner", isFavorite: false, airing: "Airs in 1 hour", remainingDays: 23, image: "anime3.png"
+            ), localCoverImage: "HoneyandClover-Cover", localBannerImage: "HoneyandClover-Banner", isFavorite: false, airing: "Airs in 1 hour", category: .drama, remainingDays: 23, image: "anime3.png"
         
         
             )

@@ -6,20 +6,20 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class HomeViewController: UIViewController {
     
-    
     @IBOutlet weak var remainingDaysTableView: UITableView!
     @IBOutlet weak var titleLabel: UILabel!
-    let pageTitle:String = "ANITIMER"
-    let background:UIColor = UIColor(red: 0.1176, green: 0.1176, blue: 0.1176, alpha: 1)
-    let categories = AnimeCategory.allCases
-    var categorizedAnimes: [AnimeCategory: [MockAnimeData]] = [:]
-    var sec:[String] = []
+    
+    let pageTitle: String = "ANITIMER"
+    let background: UIColor = UIColor(red: 0.1176, green: 0.1176, blue: 0.1176, alpha: 1)
+    
+    var animeList: [Anime] = [] // This will store the fetched anime data
     
     @IBAction func favoriteBtnTapped(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "FavoriteView", bundle: nil) // Adjust the storyboard name
+        let storyboard = UIStoryboard(name: "FavoriteView", bundle: nil)
         if let newViewController = storyboard.instantiateViewController(withIdentifier: "FavoriteView") as? FavoriteViewController {
             navigationController?.pushViewController(newViewController, animated: true)
         }
@@ -27,69 +27,25 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationItem.hidesBackButton = true
-        createSec()
         setBackgroundColor()
-        configLabels(label: titleLabel, title: pageTitle, color: UIColor(red: 255/255, green: 146/255, blue: 139/255, alpha: 1.0))
+        configLabels()
         configTableView()
-        categorizeAnimes()
-        remainingDaysTableView.separatorStyle = .none
-    }
-    
-    func getTopThreeFavoriteAnimes(animeList: [MockAnimeData]) -> [MockAnimeData] {
-        let favoriteAnimes = animeList.filter { $0.isFavorite }
-        if favoriteAnimes.count == 1{
-            return Array(favoriteAnimes.prefix(1))
-        }else if favoriteAnimes.count == 2{
-            return Array(favoriteAnimes.prefix(2))
-        }
-        return Array(favoriteAnimes.prefix(3))
-    }
-    
-    func getfavoriteQtd(animeList: [MockAnimeData]) -> Int{
-        let favoriteAnimes = animeList.filter { $0.isFavorite }
-        let quantity: Int = favoriteAnimes.count
-        return quantity
-    }
-    
-    private func categorizeAnimes() {
-//        for category in categories {
-//                let animesForCategory = mockAnimeList.filter { $0.category == category }
-//                categorizedAnimes[category] = animesForCategory
-//            }
-    }
-    
-    func countCategories() -> Int {
-        return categorizedAnimes.filter { !$0.value.isEmpty }.count
+        fetchAnimesFromFirestore() // Fetch anime data from Firestore
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
+
     
-    private func createSec(){
-        sec.append(" ")
-        sec.append(" ")
-    }
-    
-    private func setBackgroundColor(){
+    private func setBackgroundColor() {
         view.backgroundColor = background
     }
     
-    private func configLabels(label:UILabel,title:String,color:UIColor){
-        titleLabel.text = title
-        titleLabel.textColor = color
-    }
-    
-    private func checkTopThreeIsEmpty() -> Bool{
-        let topThreeFavorites = getTopThreeFavoriteAnimes(animeList: mockAnimeList)
-            if topThreeFavorites.isEmpty{
-            return true
-        }
-        return false
+    private func configLabels() {
+        titleLabel.text = pageTitle
+        titleLabel.textColor = UIColor(red: 255/255, green: 146/255, blue: 139/255, alpha: 1.0)
     }
     
     private func configTableView() {
@@ -97,120 +53,73 @@ class HomeViewController: UIViewController {
         remainingDaysTableView.delegate = self
         remainingDaysTableView.dataSource = self
         remainingDaysTableView.register(HomeTableViewCell.nib(), forCellReuseIdentifier: HomeTableViewCell.identifier)
-        remainingDaysTableView.register(HomeTableViewCollectionCell.nib(),forCellReuseIdentifier: HomeTableViewCollectionCell.identifier)
         remainingDaysTableView.clipsToBounds = true
-        remainingDaysTableView.register(HomeEmptyTableViewCell.nib(), forCellReuseIdentifier: HomeEmptyTableViewCell.identifier)
-       
+    }
+    
+    private func fetchAnimesFromFirestore() {
+        let animeRef = Firestore.firestore().collection("anime")
+        
+        animeRef.getDocuments { (snapshot, error) in
+            if let error = error {
+                print("Error fetching animes: \(error.localizedDescription)")
+                return
+            }
+            
+            self.animeList = snapshot?.documents.compactMap { doc in
+                let data = doc.data()
+                return Anime(
+                    id: doc.documentID,
+                    title: data["title"] as? String ?? "",
+                    description: data["description"] as? String ?? "",
+                    episodes: data["episodes"] as? Int ?? 0,
+                    genres: data["genres"] as? [String] ?? [],
+                    bannerImage: data["bannerImage"] as? String ?? "",
+                    coverImage: data["coverImage"] as? String ?? "",
+                    isFavorite: data["isFavorite"] as? Bool ?? false,
+                    remainingDays: data["remainingDays"] as? Int ?? 0
+                )
+            } ?? []
+            
+            self.remainingDaysTableView.reloadData() // Reload table view with fetched data
+        }
     }
 }
 
-extension HomeViewController : UITableViewDelegate, UITableViewDataSource{
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        sec.count
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return sec[section]
-        
+        return 1 // Only one section for the anime list
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if checkTopThreeIsEmpty(){
-            print("Não fazer nada")
-            
-        }else{
-            tableView.deselectRow(at: indexPath, animated: true)
-            
-            let selectedAnime = mockAnimeList[indexPath.row]
-            
-            let storyboard = UIStoryboard(name: "AnimeDetailViewController", bundle: nil)
-            if let detailViewController = storyboard.instantiateViewController(withIdentifier: "AnimeDetailViewController") as? AnimeDetailViewController {
-                
-                detailViewController.anime = selectedAnime
-                
-                navigationController?.pushViewController(detailViewController, animated: true)
-            }
+        // Deselect the cell after selection
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        // Get the selected anime
+        let selectedAnime = animeList[indexPath.row]
+
+        // Instantiate the AnimeDetailViewController from the storyboard
+        let storyboard = UIStoryboard(name: "AnimeDetailViewController", bundle: nil)
+        if let detailViewController = storyboard.instantiateViewController(withIdentifier: "AnimeDetailViewController") as? AnimeDetailViewController {
+            detailViewController.anime = selectedAnime // Pass the selected anime data to the detail view controller
+            navigationController?.pushViewController(detailViewController, animated: true) // Navigate to the detail view
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 0{
-            if checkTopThreeIsEmpty(){
-                return 1
-            }else if getfavoriteQtd(animeList: mockAnimeList) == 1{
-                return 1
-            }else if getfavoriteQtd(animeList: mockAnimeList) == 2{
-                return 2
-            }
-            else if getfavoriteQtd(animeList: mockAnimeList) == 3{
-                return 3
-                }
-    }
-        else{
-            return countCategories()
-        }
-        return 3
+        return animeList.count // Return the number of animes fetched
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let topThreeFavorites = getTopThreeFavoriteAnimes(animeList: mockAnimeList)
-        if indexPath.section == 0 {
-            if checkTopThreeIsEmpty(){
-                let emptyCell = remainingDaysTableView.dequeueReusableCell(withIdentifier: HomeEmptyTableViewCell.identifier, for: indexPath) as? HomeEmptyTableViewCell
-                
-                emptyCell?.setupCell(mensagem: "Seja bem vindo!\nNesta seção você poderá acessar mais rapidamente seus animes favoritos! Atualmente ainda não possui favoritos.\nQue tal adicionar realizando a busca por animes de sua preferência?")
-                
-                emptyCell?.selectionStyle = .none
-                
-                return emptyCell ?? UITableViewCell()
-            } else{
-                let cell = remainingDaysTableView.dequeueReusableCell(withIdentifier:HomeTableViewCell.identifier, for: indexPath) as? HomeTableViewCell
-                
-                cell?.setupCell(anime:topThreeFavorites[indexPath.row])
-                
-                cell?.selectionStyle = .none
-                
-                return cell ?? UITableViewCell()
-            }
-            
-            
-            func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-                return topThreeFavorites.count
-            }
-            
-            func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-                
-                let cell = remainingDaysTableView.dequeueReusableCell(withIdentifier:HomeTableViewCell.identifier, for: indexPath) as? HomeTableViewCell
-                cell?.setupCell(anime:mockAnimeList[indexPath.row])
-                
-                cell?.selectionStyle = .none
-                
-                return cell ?? UITableViewCell()
-            }
-            
-            func tableView(_ tableview: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-                
-                return 120
-            }
+        let cell = remainingDaysTableView.dequeueReusableCell(withIdentifier: HomeTableViewCell.identifier, for: indexPath) as? HomeTableViewCell
         
-        }else{
-            let cell2 = remainingDaysTableView.dequeueReusableCell(withIdentifier:HomeTableViewCollectionCell.identifier, for: indexPath) as? HomeTableViewCollectionCell
-                        
-            let category = categories[indexPath.row]
-            
-                   if let animesForCategory = categorizedAnimes[category] {
-                       cell2?.setupCellTableView(categoryAnimes: animesForCategory)
-                   }
-            
-            cell2?.selectionStyle = .none
-            return cell2 ?? UITableViewCell()
-        }
-    
+        let anime = animeList[indexPath.row]
+        cell?.setupCell(anime: anime) // Setup cell with anime data
+        cell?.selectionStyle = .none
+        
+        return cell ?? UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 120 // Set a fixed height for the cells
     }
 }
-
-

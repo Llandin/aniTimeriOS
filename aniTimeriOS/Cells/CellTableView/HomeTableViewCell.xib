@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -64,9 +64,9 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="fixedLabel" destination="DGR-ur-wY5" id="QkW-pm-K0D"/>
-                <outlet property="fixedlabel2" destination="jQY-GB-1az" id="OPb-Gh-QPB"/>
+                <outlet property="fixedLabel2" destination="jQY-GB-1az" id="4Ct-v2-7G9"/>
                 <outlet property="imageImg" destination="aMP-BG-Okn" id="lJE-oa-9xO"/>
-                <outlet property="remainingDayslabel" destination="vXe-Ma-rBI" id="4JR-9S-D4S"/>
+                <outlet property="remainingDaysLabel" destination="vXe-Ma-rBI" id="vu2-iI-25q"/>
             </connections>
             <point key="canvasLocation" x="583.96946564885491" y="30.633802816901412"/>
         </tableViewCell>

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher // Make sure Kingfisher is installed for image loading
 
 class AnimeSearchTableViewCell: UITableViewCell {
 
@@ -16,13 +17,11 @@ class AnimeSearchTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         self.selectionStyle = .none
-
         contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 5, left: 10, bottom: 10, right: 10))
     }
     
@@ -32,20 +31,17 @@ class AnimeSearchTableViewCell: UITableViewCell {
     @IBOutlet weak var descriptionLabel: UILabel?
     @IBOutlet weak var episodesLabel: UILabel?
 
-    func configure(with anime: MockAnimeData) {
-        titleLabel?.text = anime.title?.english ?? "nothing"
-        descriptionLabel?.text = anime.genres?.joined(separator: ", ") ?? "nothing"
-        episodesLabel?.text = "\(anime.episodes ?? 0) episodes"
+    func configure(with anime: Anime) {
+        titleLabel?.text = anime.title
+        descriptionLabel?.text = anime.genres?.joined(separator: ", ")
+        episodesLabel?.text = "\(anime.episodes) episodes"
+        
         // Configure the image
-        if let localImageName = anime.localCoverImage {
-               logoImage?.image = UIImage(named: localImageName)
-           } else if let imageUrl = anime.coverImage?.medium, let url = URL(string: imageUrl) {
-               // If a local image is not available, download from the URL
-               // Use a library like Kingfisher to load the image from the URL
-               // Example: logoImage?.kf.setImage(with: url)
-           } else {
-               logoImage?.image = nil // Clear the image if not available
-           }
+        if let imageUrl = anime.coverImage, let url = URL(string: imageUrl) {
+            logoImage?.kf.setImage(with: url) // Kingfisher will handle the image loading
+        } else {
+            logoImage?.image = nil // Clear if image not available
+        }
     }
     
     func setupUI() {
