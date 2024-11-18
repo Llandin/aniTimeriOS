@@ -212,7 +212,6 @@
 			children = (
 				91DEB5002CB8A5B200B66B8C /* MockedData */,
 				058D74D62C8F932A006B9048 /* Model */,
-				91CFE5D72C8A6FF80036ADBC /* ViewController */,
 				058D74CB2C8F74AF006B9048 /* Cells */,
 				91CFE5D62C8A6FBE0036ADBC /* Views */,
 				058816C22C87D18000D53768 /* AppDelegate.swift */,
@@ -275,32 +274,25 @@
 			isa = PBXGroup;
 			children = (
 				CD33C1592C932CE300906EDE /* TelaCadastroViewController.storyboard */,
+				CD33C1552C931EF500906EDE /* TelaCadastroViewController.swift */,
 				91CFE5DA2C8A702F0036ADBC /* HomeView.storyboard */,
+				CDD5B08F2C8B3D4400C521B9 /* HomeViewController.swift */,
 				91CFE5D82C8A70250036ADBC /* LoginView.storyboard */,
+				91CFE5E02C8A70700036ADBC /* LoginViewController.swift */,
 				05614EB92C98FC6E0050A0F4 /* TelaResetPassword.storyboard */,
+				05614EBB2C98FCF10050A0F4 /* TelaResetPasswordViewController.swift */,
 				9188D31F2C9A3476003E419B /* SearchViewController.storyboard */,
+				9188D31D2C9A3466003E419B /* SearchViewController.swift */,
 				0567BF042C9A39EF00F447BF /* ProfileView.storyboard */,
+				0567BF062C9A39FD00F447BF /* ProfileViewController.swift */,
 				0567BF082C9A6C0100F447BF /* FavoriteView.storyboard */,
+				0567BF0A2C9A6D4000F447BF /* FavoriteViewController.swift */,
 				91D8F9122C9CD79D00D82901 /* AnimeDetailViewController.storyboard */,
+				91D8F9102C9CD77E00D82901 /* AnimeDetailViewController.swift */,
 				CDEA28B52CB96718008DA591 /* TabBar.storyboard */,
+				91D8F90E2C9CCD4400D82901 /* TabBarViewController.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		91CFE5D72C8A6FF80036ADBC /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				CD33C1552C931EF500906EDE /* TelaCadastroViewController.swift */,
-				91CFE5E02C8A70700036ADBC /* LoginViewController.swift */,
-				CDD5B08F2C8B3D4400C521B9 /* HomeViewController.swift */,
-				05614EBB2C98FCF10050A0F4 /* TelaResetPasswordViewController.swift */,
-				9188D31D2C9A3466003E419B /* SearchViewController.swift */,
-				0567BF062C9A39FD00F447BF /* ProfileViewController.swift */,
-				0567BF0A2C9A6D4000F447BF /* FavoriteViewController.swift */,
-				91D8F90E2C9CCD4400D82901 /* TabBarViewController.swift */,
-				91D8F9102C9CD77E00D82901 /* AnimeDetailViewController.swift */,
-			);
-			path = ViewController;
 			sourceTree = "<group>";
 		};
 		91DEB5002CB8A5B200B66B8C /* MockedData */ = {

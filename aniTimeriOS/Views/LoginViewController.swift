@@ -139,7 +139,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func navigateToTabBarController(_ sender: Any) {
         
-        let tabBarVC = UIStoryboard(name: "TabBar", bundle: nil).instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
+        _ = UIStoryboard(name: "TabBar", bundle: nil).instantiateViewController(withIdentifier: "TabBarViewController") as! TabBarViewController
         
         
         guard let email = emailTextField.text, !email.isEmpty,
@@ -151,7 +151,7 @@ class LoginViewController: UIViewController {
         
         // Tente fazer o login com Firebase Authentication
         Auth.auth().signIn(withEmail: email, password: senha) { authResult, error in
-            if let error = error {
+            if error != nil {
                 self.errorMessage.text = "Erro ao fazer login: Credenciais inválidas"
                 return
             }

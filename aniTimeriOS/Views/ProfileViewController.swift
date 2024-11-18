@@ -168,7 +168,7 @@ class ProfileViewController: UIViewController {
         db.collection("users").document(user.uid).setData([
             "name": userProfile.name,
             "email": userProfile.email,
-            "city": userProfile.city,
+            "city": userProfile.city!,
         ]) { error in
             if let error = error {
                 self.userMessage.text = "Erro ao salvar perfil: \(error.localizedDescription)"
