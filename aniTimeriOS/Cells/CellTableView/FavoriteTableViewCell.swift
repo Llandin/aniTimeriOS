@@ -30,30 +30,30 @@ class FavoriteTableViewCell: UITableViewCell {
     }
     
     public func setupCell(anime: Anime) {
-        // Use the cover image URL to set the background image
-        guard let imageUrl = anime.bannerImage else { return } // Assuming this is a non-optional String
-        if let url = URL(string: imageUrl) {
-            loadImage(from: url) { [weak self] image in
-                guard let self = self else { return }
-                let backgroundImageView = UIImageView(image: image)
-                backgroundImageView.contentMode = .scaleAspectFill
-                backgroundImageView.clipsToBounds = true
-                self.backgroundView = backgroundImageView
-                
-                // Create a dark overlay
-                let overlayView = UIView(frame: backgroundImageView.bounds)
-                overlayView.backgroundColor = UIColor.black.withAlphaComponent(0.5) // Adjust the alpha as needed
-                overlayView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                
-                // Add the overlay to the background view
-                self.backgroundView?.addSubview(overlayView)
-            }
-        }
-
-        // Configure labels with anime data
-        fixedLabel1.text = anime.title
-        remainingDaysLabel.text = anime.remainingDays != nil ? "\(anime.remainingDays!) days remaining" : "N/A" // Handle nil case if needed
-        fixedLabel2.text = ""
+//        // Use the cover image URL to set the background image
+//        guard let imageUrl = anime.bannerImage else { return } // Assuming this is a non-optional String
+//        if let url = URL(string: imageUrl) {
+//            loadImage(from: url) { [weak self] image in
+//                guard let self = self else { return }
+//                let backgroundImageView = UIImageView(image: image)
+//                backgroundImageView.contentMode = .scaleAspectFill
+//                backgroundImageView.clipsToBounds = true
+//                self.backgroundView = backgroundImageView
+//                
+//                // Create a dark overlay
+//                let overlayView = UIView(frame: backgroundImageView.bounds)
+//                overlayView.backgroundColor = UIColor.black.withAlphaComponent(0.5) // Adjust the alpha as needed
+//                overlayView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//                
+//                // Add the overlay to the background view
+//                self.backgroundView?.addSubview(overlayView)
+//            }
+//        }
+//
+//        // Configure labels with anime data
+//        fixedLabel1.text = anime.title
+//        remainingDaysLabel.text = anime.remainingDays != nil ? "\(anime.remainingDays!) days remaining" : "N/A" // Handle nil case if needed
+//        fixedLabel2.text = ""
         fixedLabel2.text = ""
     }
     

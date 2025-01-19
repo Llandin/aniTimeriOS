@@ -33,15 +33,6 @@ class AnimeSearchTableViewCell: UITableViewCell {
 
     func configure(with anime: Anime) {
         titleLabel?.text = anime.title
-        descriptionLabel?.text = anime.genres?.joined(separator: ", ")
-        episodesLabel?.text = "\(anime.episodes ?? 0) episodes"
-        
-        // Configure the image
-        if let imageUrl = anime.coverImage, let url = URL(string: imageUrl) {
-            logoImage?.kf.setImage(with: url) // Kingfisher will handle the image loading
-        } else {
-            logoImage?.image = nil // Clear if image not available
-        }
     }
     
     func setupUI() {

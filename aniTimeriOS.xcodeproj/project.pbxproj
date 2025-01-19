@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -39,12 +39,17 @@
 		058D74D32C8F7545006B9048 /* HomeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 058D74D12C8F7545006B9048 /* HomeTableViewCell.xib */; };
 		058D74D92C8F9359006B9048 /* Anime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 058D74D82C8F9359006B9048 /* Anime.swift */; };
 		05ACAE012CC6C74B00D9E1F9 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ACAE002CC6C74B00D9E1F9 /* UserProfile.swift */; };
+		9109E0272D39E780001EC9E0 /* GenreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9109E0262D39E780001EC9E0 /* GenreCell.swift */; };
+		9109E0292D39E7AD001EC9E0 /* AnimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9109E0282D39E7AD001EC9E0 /* AnimeCell.swift */; };
 		915E6EB72CC5B6F70075B682 /* AnimeSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915E6EB52CC5B6F70075B682 /* AnimeSearchTableViewCell.swift */; };
 		9188D31E2C9A3466003E419B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9188D31D2C9A3466003E419B /* SearchViewController.swift */; };
 		9188D3202C9A3476003E419B /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9188D31F2C9A3476003E419B /* SearchViewController.storyboard */; };
+		91A1ECA22D33278C00FD29FF /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A1ECA12D33278900FD29FF /* HomeViewModel.swift */; };
+		91A1ECA42D34667A00FD29FF /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A1ECA32D34667A00FD29FF /* HomeView.swift */; };
+		91A1ECAB2D3584D400FD29FF /* AnimeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A1ECAA2D3584D400FD29FF /* AnimeModel.swift */; };
+		91A1ECAE2D35B66100FD29FF /* AnimeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A1ECAD2D35B66100FD29FF /* AnimeCollectionView.swift */; };
 		91BFEAC42CD1BF3F00DEC177 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 91BFEAC32CD1BF3F00DEC177 /* Kingfisher */; };
 		91CFE5D92C8A70250036ADBC /* LoginView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91CFE5D82C8A70250036ADBC /* LoginView.storyboard */; };
-		91CFE5DB2C8A702F0036ADBC /* HomeView.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 91CFE5DA2C8A702F0036ADBC /* HomeView.storyboard */; };
 		91CFE5E12C8A70700036ADBC /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91CFE5E02C8A70700036ADBC /* LoginViewController.swift */; };
 		91D8F90F2C9CCD4400D82901 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D8F90E2C9CCD4400D82901 /* TabBarViewController.swift */; };
 		91D8F9112C9CD77E00D82901 /* AnimeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D8F9102C9CD77E00D82901 /* AnimeDetailViewController.swift */; };
@@ -108,11 +113,16 @@
 		058D74D12C8F7545006B9048 /* HomeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableViewCell.xib; sourceTree = "<group>"; };
 		058D74D82C8F9359006B9048 /* Anime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Anime.swift; sourceTree = "<group>"; };
 		05ACAE002CC6C74B00D9E1F9 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		9109E0262D39E780001EC9E0 /* GenreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCell.swift; sourceTree = "<group>"; };
+		9109E0282D39E7AD001EC9E0 /* AnimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeCell.swift; sourceTree = "<group>"; };
 		915E6EB52CC5B6F70075B682 /* AnimeSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeSearchTableViewCell.swift; sourceTree = "<group>"; };
 		9188D31D2C9A3466003E419B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		9188D31F2C9A3476003E419B /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
+		91A1ECA12D33278900FD29FF /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		91A1ECA32D34667A00FD29FF /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		91A1ECAA2D3584D400FD29FF /* AnimeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeModel.swift; sourceTree = "<group>"; };
+		91A1ECAD2D35B66100FD29FF /* AnimeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeCollectionView.swift; sourceTree = "<group>"; };
 		91CFE5D82C8A70250036ADBC /* LoginView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginView.storyboard; sourceTree = "<group>"; };
-		91CFE5DA2C8A702F0036ADBC /* HomeView.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeView.storyboard; sourceTree = "<group>"; };
 		91CFE5E02C8A70700036ADBC /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		91D8F90E2C9CCD4400D82901 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		91D8F9102C9CD77E00D82901 /* AnimeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeDetailViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +134,10 @@
 		CDD5B08F2C8B3D4400C521B9 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		CDEA28B52CB96718008DA591 /* TabBar.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TabBar.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		91A1EC9B2D3324D300FD29FF /* Network */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Network; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		058816BC2C87D18000D53768 /* Frameworks */ = {
@@ -210,6 +224,8 @@
 		058816C12C87D18000D53768 /* aniTimeriOS */ = {
 			isa = PBXGroup;
 			children = (
+				91A1ECA02D33277300FD29FF /* Home */,
+				91A1EC9B2D3324D300FD29FF /* Network */,
 				91DEB5002CB8A5B200B66B8C /* MockedData */,
 				058D74D62C8F932A006B9048 /* Model */,
 				91CFE5D72C8A6FF80036ADBC /* ViewController */,
@@ -249,6 +265,7 @@
 		058D74D72C8F9333006B9048 /* anime */ = {
 			isa = PBXGroup;
 			children = (
+				91A1ECAA2D3584D400FD29FF /* AnimeModel.swift */,
 				058D74D82C8F9359006B9048 /* Anime.swift */,
 				057EC3FD2CC4ACF70030D96A /* AnimeCategory.swift */,
 			);
@@ -271,11 +288,39 @@
 			path = AnimeSearchTableViewCell;
 			sourceTree = "<group>";
 		};
+		91A1ECA02D33277300FD29FF /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				91A1ECAC2D35B64A00FD29FF /* Components */,
+				91A1ECA52D3581C100FD29FF /* Cell */,
+				91A1ECA12D33278900FD29FF /* HomeViewModel.swift */,
+				CDD5B08F2C8B3D4400C521B9 /* HomeViewController.swift */,
+				91A1ECA32D34667A00FD29FF /* HomeView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		91A1ECA52D3581C100FD29FF /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9109E0262D39E780001EC9E0 /* GenreCell.swift */,
+				9109E0282D39E7AD001EC9E0 /* AnimeCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		91A1ECAC2D35B64A00FD29FF /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				91A1ECAD2D35B66100FD29FF /* AnimeCollectionView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		91CFE5D62C8A6FBE0036ADBC /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				CD33C1592C932CE300906EDE /* TelaCadastroViewController.storyboard */,
-				91CFE5DA2C8A702F0036ADBC /* HomeView.storyboard */,
 				91CFE5D82C8A70250036ADBC /* LoginView.storyboard */,
 				05614EB92C98FC6E0050A0F4 /* TelaResetPassword.storyboard */,
 				9188D31F2C9A3476003E419B /* SearchViewController.storyboard */,
@@ -292,7 +337,6 @@
 			children = (
 				CD33C1552C931EF500906EDE /* TelaCadastroViewController.swift */,
 				91CFE5E02C8A70700036ADBC /* LoginViewController.swift */,
-				CDD5B08F2C8B3D4400C521B9 /* HomeViewController.swift */,
 				05614EBB2C98FCF10050A0F4 /* TelaResetPasswordViewController.swift */,
 				9188D31D2C9A3466003E419B /* SearchViewController.swift */,
 				0567BF062C9A39FD00F447BF /* ProfileViewController.swift */,
@@ -325,6 +369,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				91A1EC9B2D3324D300FD29FF /* Network */,
 			);
 			name = aniTimeriOS;
 			packageProductDependencies = (
@@ -384,7 +431,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91CFE5DB2C8A702F0036ADBC /* HomeView.storyboard in Resources */,
 				91D8F9132C9CD79D00D82901 /* AnimeDetailViewController.storyboard in Resources */,
 				058816CF2C87D18100D53768 /* LaunchScreen.storyboard in Resources */,
 				9188D3202C9A3476003E419B /* SearchViewController.storyboard in Resources */,
@@ -414,7 +460,9 @@
 			files = (
 				CDD5B0902C8B3D4500C521B9 /* HomeViewController.swift in Sources */,
 				91D8F90F2C9CCD4400D82901 /* TabBarViewController.swift in Sources */,
+				91A1ECAB2D3584D400FD29FF /* AnimeModel.swift in Sources */,
 				057EC3FE2CC4ACF70030D96A /* AnimeCategory.swift in Sources */,
+				91A1ECA42D34667A00FD29FF /* HomeView.swift in Sources */,
 				058816C72C87D18000D53768 /* ViewController.swift in Sources */,
 				05614EBC2C98FCF10050A0F4 /* TelaResetPasswordViewController.swift in Sources */,
 				CD33C1562C931EF500906EDE /* TelaCadastroViewController.swift in Sources */,
@@ -422,6 +470,7 @@
 				058D74D22C8F7545006B9048 /* HomeTableViewCell.swift in Sources */,
 				0567BF0E2C9A6D6B00F447BF /* FavoriteTableViewCell.swift in Sources */,
 				91D8F9112C9CD77E00D82901 /* AnimeDetailViewController.swift in Sources */,
+				91A1ECAE2D35B66100FD29FF /* AnimeCollectionView.swift in Sources */,
 				915E6EB72CC5B6F70075B682 /* AnimeSearchTableViewCell.swift in Sources */,
 				058816C32C87D18000D53768 /* AppDelegate.swift in Sources */,
 				91DEB5022CB8A5DF00B66B8C /* AnimeMockedData.swift in Sources */,
@@ -431,8 +480,11 @@
 				05ACAE012CC6C74B00D9E1F9 /* UserProfile.swift in Sources */,
 				05725A512C96408E007A7FF0 /* HomeCollectionViewCell.swift in Sources */,
 				0567BF0B2C9A6D4000F447BF /* FavoriteViewController.swift in Sources */,
+				9109E0272D39E780001EC9E0 /* GenreCell.swift in Sources */,
+				91A1ECA22D33278C00FD29FF /* HomeViewModel.swift in Sources */,
 				91CFE5E12C8A70700036ADBC /* LoginViewController.swift in Sources */,
 				058816C52C87D18000D53768 /* SceneDelegate.swift in Sources */,
+				9109E0292D39E7AD001EC9E0 /* AnimeCell.swift in Sources */,
 				058D74D92C8F9359006B9048 /* Anime.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -589,7 +641,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = aniTimeriOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = SearchViewController.storyboard;
+				INFOPLIST_KEY_UILaunchStoryboardName = LoginView.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = SearchViewController;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -621,7 +673,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = aniTimeriOS/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = SearchViewController.storyboard;
+				INFOPLIST_KEY_UILaunchStoryboardName = LoginView.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = SearchViewController;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
