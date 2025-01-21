@@ -20,10 +20,15 @@ import GoogleSignIn
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         AppCheck.setAppCheckProviderFactory(DeviceCheckProviderFactory())
+        ImageCache.shared.cleanDiskCache()
         return true
     }
 
     // MARK: UISceneSession Lifecycle
+        
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        ImageCache.shared.cleanDiskCache() // Cleanup when entering background
+    }
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.

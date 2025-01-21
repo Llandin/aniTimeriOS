@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 class HomeViewModel {
     
@@ -27,4 +28,26 @@ class HomeViewModel {
             }
         }
     }
+    
+    func fetchAnimeCellImage(from url: URL, completion: @escaping (UIImage?) -> Void) {
+        let cacheKey = url.lastPathComponent // Use a unique key, like the filename
+        if let cachedImage = ImageCache.shared.getImage(forKey: cacheKey) {
+            completion(cachedImage) // Return the cached image
+            return
+        }
+
+        // Download the image if not cached
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard let data = data, let image = UIImage(data: data), error == nil else {
+                completion(nil)
+                return
+            }
+            // Save to cache
+            ImageCache.shared.saveImage(image, forKey: cacheKey)
+            completion(image)
+        }.resume()
+    }
+
 }
+
+

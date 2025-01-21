@@ -41,6 +41,8 @@
 		05ACAE012CC6C74B00D9E1F9 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05ACAE002CC6C74B00D9E1F9 /* UserProfile.swift */; };
 		9109E0272D39E780001EC9E0 /* GenreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9109E0262D39E780001EC9E0 /* GenreCell.swift */; };
 		9109E0292D39E7AD001EC9E0 /* AnimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9109E0282D39E7AD001EC9E0 /* AnimeCell.swift */; };
+		9109E0302D3F00EE001EC9E0 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9109E02F2D3F00EE001EC9E0 /* ImageCache.swift */; };
+		9109E0342D3F052A001EC9E0 /* UIImageView+Extensions.swift in Resources */ = {isa = PBXBuildFile; fileRef = 9109E0332D3F052A001EC9E0 /* UIImageView+Extensions.swift */; };
 		915E6EB72CC5B6F70075B682 /* AnimeSearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 915E6EB52CC5B6F70075B682 /* AnimeSearchTableViewCell.swift */; };
 		9188D31E2C9A3466003E419B /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9188D31D2C9A3466003E419B /* SearchViewController.swift */; };
 		9188D3202C9A3476003E419B /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9188D31F2C9A3476003E419B /* SearchViewController.storyboard */; };
@@ -115,6 +117,8 @@
 		05ACAE002CC6C74B00D9E1F9 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		9109E0262D39E780001EC9E0 /* GenreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCell.swift; sourceTree = "<group>"; };
 		9109E0282D39E7AD001EC9E0 /* AnimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeCell.swift; sourceTree = "<group>"; };
+		9109E02F2D3F00EE001EC9E0 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		9109E0332D3F052A001EC9E0 /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		915E6EB52CC5B6F70075B682 /* AnimeSearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeSearchTableViewCell.swift; sourceTree = "<group>"; };
 		9188D31D2C9A3466003E419B /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		9188D31F2C9A3476003E419B /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
@@ -224,6 +228,9 @@
 		058816C12C87D18000D53768 /* aniTimeriOS */ = {
 			isa = PBXGroup;
 			children = (
+				9109E0322D3F051E001EC9E0 /* Extensions */,
+				9109E0312D3F02FA001EC9E0 /* AnimeDetail */,
+				9109E02E2D3F00E2001EC9E0 /* Cache */,
 				91A1ECA02D33277300FD29FF /* Home */,
 				91A1EC9B2D3324D300FD29FF /* Network */,
 				91DEB5002CB8A5B200B66B8C /* MockedData */,
@@ -280,6 +287,31 @@
 			path = user;
 			sourceTree = "<group>";
 		};
+		9109E02E2D3F00E2001EC9E0 /* Cache */ = {
+			isa = PBXGroup;
+			children = (
+				9109E02F2D3F00EE001EC9E0 /* ImageCache.swift */,
+			);
+			path = Cache;
+			sourceTree = "<group>";
+		};
+		9109E0312D3F02FA001EC9E0 /* AnimeDetail */ = {
+			isa = PBXGroup;
+			children = (
+				91D8F9122C9CD79D00D82901 /* AnimeDetailViewController.storyboard */,
+				91D8F9102C9CD77E00D82901 /* AnimeDetailViewController.swift */,
+			);
+			path = AnimeDetail;
+			sourceTree = "<group>";
+		};
+		9109E0322D3F051E001EC9E0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9109E0332D3F052A001EC9E0 /* UIImageView+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		915E6EB62CC5B6F70075B682 /* AnimeSearchTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -326,7 +358,6 @@
 				9188D31F2C9A3476003E419B /* SearchViewController.storyboard */,
 				0567BF042C9A39EF00F447BF /* ProfileView.storyboard */,
 				0567BF082C9A6C0100F447BF /* FavoriteView.storyboard */,
-				91D8F9122C9CD79D00D82901 /* AnimeDetailViewController.storyboard */,
 				CDEA28B52CB96718008DA591 /* TabBar.storyboard */,
 			);
 			path = Views;
@@ -342,7 +373,6 @@
 				0567BF062C9A39FD00F447BF /* ProfileViewController.swift */,
 				0567BF0A2C9A6D4000F447BF /* FavoriteViewController.swift */,
 				91D8F90E2C9CCD4400D82901 /* TabBarViewController.swift */,
-				91D8F9102C9CD77E00D82901 /* AnimeDetailViewController.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -445,6 +475,7 @@
 				CD33C15A2C932CE300906EDE /* TelaCadastroViewController.storyboard in Resources */,
 				05614EBA2C98FC6E0050A0F4 /* TelaResetPassword.storyboard in Resources */,
 				0567BF0F2C9A6D6B00F447BF /* FavoriteTableViewCell.xib in Resources */,
+				9109E0342D3F052A001EC9E0 /* UIImageView+Extensions.swift in Resources */,
 				0567BF052C9A39EF00F447BF /* ProfileView.storyboard in Resources */,
 				058D74D32C8F7545006B9048 /* HomeTableViewCell.xib in Resources */,
 				91CFE5D92C8A70250036ADBC /* LoginView.storyboard in Resources */,
@@ -458,6 +489,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9109E0302D3F00EE001EC9E0 /* ImageCache.swift in Sources */,
 				CDD5B0902C8B3D4500C521B9 /* HomeViewController.swift in Sources */,
 				91D8F90F2C9CCD4400D82901 /* TabBarViewController.swift in Sources */,
 				91A1ECAB2D3584D400FD29FF /* AnimeModel.swift in Sources */,

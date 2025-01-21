@@ -8,6 +8,8 @@
 import UIKit
 
 class AnimeCell: UICollectionViewCell {
+    
+    var viewModel = HomeViewModel()
 
     lazy var titleLabel: UILabel = {
         let label = UILabel()
@@ -67,36 +69,16 @@ class AnimeCell: UICollectionViewCell {
 
     
     func configure(with anime: Anime) {
+        
         titleLabel.text = anime.title
         
-        // Construct the image URL
-        if let imageURL = constructImageURL(from: anime.imageVersionRoute ?? "") {
-            // Fetch and set the image
-            fetchImage(from: imageURL) { [weak self] image in
-                DispatchQueue.main.async {
-                    self?.coverImage.image = image
-                }
-            }
-        } else {
-            print("Invalid image URL for \(anime.title)")
-        }
-    }
-
-    func fetchImage(from url: URL, completion: @escaping (UIImage?) -> Void) {
-        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-            if let error = error {
-                print("Error fetching image: \(error.localizedDescription)")
-                completion(nil)
-                return
-            }
-            if let data = data, let image = UIImage(data: data) {
-                completion(image)
-            } else {
-                print("Failed to decode image data")
-                completion(nil)
+        guard let slug = anime.imageVersionRoute else { return }
+        let fullURL = URL(string: "https://img.animeschedule.net/production/assets/public/img/\(slug)")!
+        
+        viewModel.fetchAnimeCellImage(from: fullURL) { [weak self] image in
+            DispatchQueue.main.async {
+                self?.coverImage.image = image
             }
         }
-        task.resume()
     }
-
 }
