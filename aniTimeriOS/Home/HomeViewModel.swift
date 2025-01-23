@@ -21,10 +21,12 @@ class HomeViewModel {
         RequestManager.shared.sendRequest(endpoint: "anime", parameters: ["genres": genre]) { (result: Result<AnimeResponse, Error>) in
             switch result {
             case .success(let animeResponse):
-                completion(animeResponse.anime) // Pass the `anime` array to the completion
+                self.animeDataByGenre[genre] = animeResponse.anime // Store data by genre
+                self.onDataUpdated?() // Notify the view controller
+                completion(animeResponse.anime) // Return fetched data
             case .failure(let error):
                 print("Error fetching anime for genre \(genre): \(error)")
-                completion([]) // Return an empty array on failure
+                completion([]) // Return empty array on failure
             }
         }
     }
@@ -47,6 +49,10 @@ class HomeViewModel {
             completion(image)
         }.resume()
     }
+    
+    func animeDataForGenre(_ genre: String) -> [Anime] {
+           return animeDataByGenre[genre] ?? []
+       }
 
 }
 

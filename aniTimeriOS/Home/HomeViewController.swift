@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, AnimeCollectionViewDelegate {
 
     var viewModel = HomeViewModel()
     var genres = ["action", "fantasy"]
@@ -25,7 +25,13 @@ class HomeViewController: UIViewController {
         homeView.collectionView.delegate = self
         homeView.collectionView.dataSource = self
         
-        fetchAnimeDataForGenres()
+        viewModel.onDataUpdated = { [weak self] in
+                DispatchQueue.main.async {
+                    self?.homeView.collectionView.reloadData() // Reload when data updates
+                }
+            }
+            
+            fetchAnimeDataForGenres()
     }
 
     private func fetchAnimeDataForGenres() {
@@ -35,7 +41,7 @@ class HomeViewController: UIViewController {
                 DispatchQueue.main.async {
                     if let genreIndex = self.genres.firstIndex(of: genre) {
                         if let genreCell = self.homeView.collectionView.cellForItem(at: IndexPath(item: genreIndex, section: 0)) as? GenreCell {
-                            genreCell.configure(with: anime)
+                            genreCell.configure(with: anime, delegate: self)
                         }
                     }
                     self.homeView.collectionView.reloadData()
@@ -48,24 +54,36 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return genres.count
+        let genre = genres[section]
+        let count = viewModel.animeDataForGenre(genre).count
+        print("Number of items for genre \(genre): \(count)") // Debug
+        return count
     }
+
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GenreCell", for: indexPath) as! GenreCell
         let genre = genres[indexPath.row]
-        if let animeData = viewModel.animeDataByGenre[genre] {
-            cell.configure(with: animeData)
-        }
+        print("genre \(genre)")
+        let animeData = viewModel.animeDataForGenre(genre) // Example method to fetch anime data
+        cell.configure(with: animeData, delegate: self)
         return cell
     }
+
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            return CGSize(width: collectionView.frame.width, height: 200) // Adjust height as needed
-        }
-
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-            return 16
-        }
+        return CGSize(width: collectionView.frame.width, height: 200) // Adjust height as needed
+    }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 16
+    }
+    
+    func didSelectAnime(_ anime: Anime) {
+           let storyboard = UIStoryboard(name: "AnimeDetailViewController", bundle: nil)
+           if let detailVC = storyboard.instantiateViewController(withIdentifier: "AnimeDetailViewController") as? AnimeDetailViewController {
+               detailVC.anime = anime // Pass the selected anime to the detail view controller
+               navigationController?.pushViewController(detailVC, animated: true)
+           }
+       }
 }

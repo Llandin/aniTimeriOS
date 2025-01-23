@@ -34,7 +34,8 @@ class GenreCell: UICollectionViewCell {
         ])
     }
     
-    func configure(with animeData: [Anime]) {
+    func configure(with animeData: [Anime], delegate: AnimeCollectionViewDelegate) {
         animeCollectionView.updateAnimeData(animeData)
+        animeCollectionView.selectionDelegate = delegate
     }
 }

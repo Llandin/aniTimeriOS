@@ -7,9 +7,14 @@
 
 import UIKit
 
+protocol AnimeCollectionViewDelegate: AnyObject {
+    func didSelectAnime(_ anime: Anime)
+}
+
 class AnimeCollectionView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     var animeData: [Anime] = []
+    weak var selectionDelegate: AnimeCollectionViewDelegate?
     
     init() {
         let layout = UICollectionViewFlowLayout()
@@ -45,5 +50,10 @@ class AnimeCollectionView: UICollectionView, UICollectionViewDataSource, UIColle
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 100, height: 150) // Correct for horizontal scrolling
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedAnime = animeData[indexPath.row]
+        selectionDelegate?.didSelectAnime(selectedAnime) // Notify delegate
     }
 }
