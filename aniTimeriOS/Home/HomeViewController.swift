@@ -8,45 +8,65 @@
 import UIKit
 
 class HomeViewController: UIViewController, AnimeCollectionViewDelegate {
-
-    var viewModel = HomeViewModel()
-    var genres = ["action", "fantasy"]
-    var homeView: HomeView!
     
+    var viewModel = HomeViewModel()
+    var genres = ["action", "romance"] // Add more genres for larger scale
+    var homeView: HomeView!
+
     override func loadView() {
         homeView = HomeView()
         view = homeView
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .red
-        
+
         homeView.collectionView.delegate = self
         homeView.collectionView.dataSource = self
-        
+
         viewModel.onDataUpdated = { [weak self] in
-                DispatchQueue.main.async {
-                    self?.homeView.collectionView.reloadData() // Reload when data updates
-                }
+            DispatchQueue.main.async {
+                self?.homeView.collectionView.reloadData()
             }
-            
-            fetchAnimeDataForGenres()
+        }
+        
+        // Start fetching all genres data concurrently
+        fetchAnimeDataForGenres()
     }
 
     private func fetchAnimeDataForGenres() {
+        let dispatchGroup = DispatchGroup() // Grouping all requests together
+        var fetchedData: [String: [Anime]] = [:] // Dictionary to store results by genre
+
+        // For each genre, fetch its data concurrently
         for genre in genres {
+            dispatchGroup.enter() // Mark the start of a task
+
             viewModel.fetchAnimeForGenres(genre: genre) { [weak self] anime in
-                guard let self = self else { return }
-                DispatchQueue.main.async {
-                    if let genreIndex = self.genres.firstIndex(of: genre) {
-                        if let genreCell = self.homeView.collectionView.cellForItem(at: IndexPath(item: genreIndex, section: 0)) as? GenreCell {
-                            genreCell.configure(with: anime, delegate: self)
-                        }
-                    }
-                    self.homeView.collectionView.reloadData()
-                }
+                guard self != nil else { return }
+
+                // Store the result in the dictionary
+                fetchedData[genre] = anime
+
+                // Notify the group that this task is done
+                dispatchGroup.leave()
+
+//                // Optionally configure the cell here (not mandatory)
+//                if let genreIndex = self.genres.firstIndex(of: genre) {
+//                    DispatchQueue.main.async {
+//                        if let genreCell = self.homeView.collectionView.cellForItem(at: IndexPath(item: genreIndex, section: 0)) as? GenreCell {
+//                            genreCell.configure(with: anime, delegate: self)
+//                        }
+//                    }
+//                }
             }
+        }
+
+        // Once all requests are finished, reload the collection view
+        dispatchGroup.notify(queue: .main) {
+            self.viewModel.animeDataByGenre = fetchedData // Update the ViewModel with all the fetched data
+            self.homeView.collectionView.reloadData() // Reload collection view to reflect the changes
         }
     }
 }
@@ -60,12 +80,13 @@ extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelega
         return count
     }
 
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GenreCell", for: indexPath) as! GenreCell
+        print("cell \(cell)")
         let genre = genres[indexPath.row]
         print("genre \(genre)")
-        let animeData = viewModel.animeDataForGenre(genre) // Example method to fetch anime data
+        let animeData = viewModel.animeDataForGenre(genre)
+        print("animeData \(animeData)")
         cell.configure(with: animeData, delegate: self)
         return cell
     }
