@@ -71,40 +71,48 @@ class HomeViewController: UIViewController, AnimeCollectionViewDelegate {
     }
 }
 
-
 extension HomeViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        // The number of genres determines the number of sections
+        return genres.count
+    }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let genre = genres[section]
-        let count = viewModel.animeDataForGenre(genre).count
-        print("Number of items for genre \(genre): \(count)") // Debug
-        return count
+        // Each genre has only one row (a horizontal collection view for that genre)
+        return 1
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "GenreCell", for: indexPath) as! GenreCell
-        print("cell \(cell)")
-        let genre = genres[indexPath.row]
-        print("genre \(genre)")
+
+        // Get the genre for this section
+        let genre = genres[indexPath.section]
+
+        // Fetch anime data for this genre
         let animeData = viewModel.animeDataForGenre(genre)
-        print("animeData \(animeData)")
+
+        // Configure the GenreCell (which contains a horizontal collection view)
         cell.configure(with: animeData, delegate: self)
         return cell
     }
 
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        // Each cell takes up the full width of the collection view and a fixed height
         return CGSize(width: collectionView.frame.width, height: 200) // Adjust height as needed
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 16
     }
     
+    
     func didSelectAnime(_ anime: Anime) {
-           let storyboard = UIStoryboard(name: "AnimeDetailViewController", bundle: nil)
-           if let detailVC = storyboard.instantiateViewController(withIdentifier: "AnimeDetailViewController") as? AnimeDetailViewController {
-               detailVC.anime = anime // Pass the selected anime to the detail view controller
-               navigationController?.pushViewController(detailVC, animated: true)
-           }
-       }
+        let storyboard = UIStoryboard(name: "AnimeDetailViewController", bundle: nil)
+        if let detailVC = storyboard.instantiateViewController(withIdentifier: "AnimeDetailViewController") as? AnimeDetailViewController {
+            detailVC.anime = anime // Pass the selected anime to the detail view controller
+            navigationController?.pushViewController(detailVC, animated: true)
+        }
+    }
+
 }
+
